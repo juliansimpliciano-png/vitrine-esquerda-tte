@@ -129,8 +129,8 @@
       <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-red-50 text-red-600 flex items-center justify-center text-2xl font-bold border border-red-100">
         ★
       </div>
-      <h3 class="text-base font-bold text-stone-900">Nenhum negócio encontrado nesta categoria</h3>
-      <p class="text-xs text-stone-500 mt-1 max-w-sm mx-auto">Cadastre o seu serviço ou divulgue a vitrine para os companheiros da comunidade!</p>
+      <h3 class="text-base font-bold text-stone-900">Nenhum negócio encontrado</h3>
+      <p class="text-xs text-stone-500 mt-1 max-w-sm mx-auto">Cadastre o seu serviço ou ajuste a busca!</p>
       <button id="btnCadastrarPrimeiro" class="mt-4 px-5 py-2.5 bg-red-700 hover:bg-red-800 text-white text-xs font-bold rounded-xl transition-all shadow-sm active:scale-95">
         + Cadastrar Meu Negócio Agora
       </button>
@@ -139,7 +139,7 @@
     <!-- Bottom Actions Bar -->
     <div class="mt-10 flex flex-wrap items-center justify-between gap-4 bg-stone-100 border border-stone-200 rounded-2xl p-4 text-xs text-stone-600">
       <div class="flex items-center gap-2">
-        <span>🚩 <strong>Solidariedade ativa:</strong> Toque no botão do Instagram para seguir ou no WhatsApp para contratar direto.</span>
+        <span>🚩 <strong>Solidariedade ativa:</strong> Toque no botão de encaminhar para recomendar os serviços direto no WhatsApp sem expor o link da vitrine.</span>
       </div>
       <div class="flex items-center gap-2">
         <button id="btnExportCSV" class="bg-white hover:bg-stone-50 border border-stone-200 text-stone-800 font-semibold px-3 py-1.5 rounded-lg transition-all active:scale-95 flex items-center gap-1 shadow-2xs">
@@ -150,21 +150,43 @@
     </div>
   </main>
 
-  <!-- Modal Cadastro de Negócio -->
+  <!-- Modal Cadastro / Edição de Negócio -->
   <div id="modalCadastro" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[92vh] overflow-y-auto custom-scrollbar border border-stone-100">
       <div class="p-5 sm:p-6 border-b border-stone-100 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur z-10">
         <div class="flex items-center gap-2.5">
           <span class="w-7 h-7 rounded-lg bg-red-100 text-red-700 flex items-center justify-center text-sm font-bold">★</span>
           <div>
-            <h3 class="text-base font-bold text-stone-900">Cadastrar Negócio na Vitrine</h3>
-            <p class="text-xs text-stone-500">Categorias oficiais da comunidade Esquerda ajuda Esquerda</p>
+            <h3 id="modalTitle" class="text-base font-bold text-stone-900">Cadastrar Negócio na Vitrine</h3>
+            <p id="modalSubtitle" class="text-xs text-stone-500">Categorias oficiais da comunidade Esquerda ajuda Esquerda</p>
           </div>
         </div>
         <button id="btnCloseModal" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 hover:bg-stone-200 flex items-center justify-center transition-all">✕</button>
       </div>
 
       <form id="formCadastro" class="p-5 sm:p-6 space-y-4">
+        <input type="hidden" id="editCardId" value="">
+
+        <!-- Foto do Negócio / Logotipo -->
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Foto ou Logotipo do Negócio (Opcional)</label>
+          <div class="flex items-center gap-3">
+            <div id="photoPreviewContainer" class="w-14 h-14 rounded-2xl bg-stone-100 border border-stone-200 overflow-hidden flex items-center justify-center text-stone-400 shrink-0">
+              <span id="previewPlaceholder" class="text-xs font-bold text-stone-400">SEM FOTO</span>
+              <img id="imgPreview" src="" alt="Prévia" class="w-full h-full object-cover hidden">
+            </div>
+            <div class="flex-1 space-y-1">
+              <label class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-semibold rounded-xl cursor-pointer border border-stone-200 transition-all">
+                <svg class="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span>Escolher foto do celular/PC</span>
+                <input type="file" id="inputFoto" accept="image/*" class="hidden">
+              </label>
+              <button type="button" id="btnRemoveFoto" class="text-[11px] text-red-600 hover:text-red-800 font-semibold block hidden">Remover foto</button>
+              <p class="text-[10px] text-stone-400 leading-tight">Dica: fotos quadradas ficam perfeitas no cartão. Se não tiver, criamos um avatar com as iniciais.</p>
+            </div>
+          </div>
+        </div>
+
         <div>
           <label class="block text-xs font-bold text-stone-700 mb-1">Nome do Negócio / Marca *</label>
           <input type="text" id="inputNomeNegocio" required placeholder="Ex: Doçaria Popular, Marcenaria da Vila" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
@@ -231,7 +253,7 @@
 
         <div class="pt-2 flex items-center justify-end gap-2">
           <button type="button" id="btnCancelCadastro" class="px-4 py-2.5 rounded-xl border border-stone-200 text-stone-600 hover:bg-stone-100 text-xs font-bold transition-all">Cancelar</button>
-          <button type="submit" class="px-5 py-2.5 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-bold transition-all shadow-sm active:scale-95">Salvar na Vitrine</button>
+          <button type="submit" id="btnSubmitForm" class="px-5 py-2.5 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-bold transition-all shadow-sm active:scale-95">Salvar na Vitrine</button>
         </div>
       </form>
     </div>
@@ -376,9 +398,21 @@
       negocios = [];
     }
 
+    // IDs dos cartões criados pelo próprio usuário neste navegador
+    let myCardIds = [];
+    try {
+      const storedIds = localStorage.getItem('vitrine_my_card_ids_v1');
+      if (storedIds) {
+        myCardIds = JSON.parse(storedIds);
+      }
+    } catch (e) {
+      myCardIds = [];
+    }
+
     let currentCategory = 'todas';
     let currentCity = 'todas';
     let searchQuery = '';
+    let currentPhotoBase64 = '';
 
     // DOM Elements
     const cardsGrid = document.getElementById('cardsGrid');
@@ -390,6 +424,10 @@
     
     // Modal Elements
     const modalCadastro = document.getElementById('modalCadastro');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const btnSubmitForm = document.getElementById('btnSubmitForm');
+    const editCardId = document.getElementById('editCardId');
     const btnOpenModal = document.getElementById('btnOpenModal');
     const btnCadastrarPrimeiro = document.getElementById('btnCadastrarPrimeiro');
     const btnCloseModal = document.getElementById('btnCloseModal');
@@ -397,8 +435,21 @@
     const formCadastro = document.getElementById('formCadastro');
     const inputCategoria = document.getElementById('inputCategoria');
     const inputSubcategoria = document.getElementById('inputSubcategoria');
-    const btnShare = document.getElementById('btnShare');
+    const inputFoto = document.getElementById('inputFoto');
+    const imgPreview = document.getElementById('imgPreview');
+    const previewPlaceholder = document.getElementById('previewPlaceholder');
+    const btnRemoveFoto = document.getElementById('btnRemoveFoto');
     const btnExportCSV = document.getElementById('btnExportCSV');
+    const btnShare = document.getElementById('btnShare');
+
+    btnShare.addEventListener('click', () => {
+      const inviteMsg = '✊ *Vitrine da Esquerda de Taubaté* - Conheça nossa rede de apoio mútuo!';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(inviteMsg).then(() => {
+          showToast('Mensagem de convite copiada!', '📋');
+        });
+      }
+    });
     
     // Toast
     const toast = document.getElementById('toast');
@@ -413,6 +464,57 @@
         toast.classList.add('translate-y-20', 'opacity-0');
       }, 3500);
     }
+
+    // Foto Upload e Compressão para Base64 leve
+    inputFoto.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const maxDim = 300;
+          let w = img.width;
+          let h = img.height;
+
+          if (w > h) {
+            if (w > maxDim) {
+              h *= maxDim / w;
+              w = maxDim;
+            }
+          } else {
+            if (h > maxDim) {
+              w *= maxDim / h;
+              h = maxDim;
+            }
+          }
+
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+
+          currentPhotoBase64 = canvas.toDataURL('image/jpeg', 0.85);
+          imgPreview.src = currentPhotoBase64;
+          imgPreview.classList.remove('hidden');
+          previewPlaceholder.classList.add('hidden');
+          btnRemoveFoto.classList.remove('hidden');
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    btnRemoveFoto.addEventListener('click', () => {
+      currentPhotoBase64 = '';
+      inputFoto.value = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
+    });
 
     // Populate Category & Subcategory Selectors
     function initCategorySelectors() {
@@ -465,44 +567,94 @@
       cardsGrid.innerHTML = filtered.map(item => {
         const cleanInsta = item.instagram.replace('@', '').trim();
         const cleanWhats = item.whatsapp.replace(/\D/g, '');
-        const whatsUrl = `https://wa.me/55${cleanWhats}?text=Ol%C3%A1!%20Encontrei%20seu%20neg%C3%B3cio%20na%20Vitrine%20da%20Esquerda%20de%20Taubat%C3%A9%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.`;
+        const whatsUrl = `https://wa.me/55${cleanWhats}?text=Ol%C3%A1!%20Vi%20seu%20contato%20na%20Vitrine%20de%20Taubat%C3%A9%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento.`;
         const instaUrl = `https://instagram.com/${cleanInsta}`;
 
+        // Verifica se este cartão foi criado por este usuário
+        const isMyCard = myCardIds.includes(item.id);
+
+        // Texto formatado de recomendação para o WhatsApp (Sem link do site)
+        const shareMsg = `🌟 *Indicação de Confiança — ${item.nome}*\n\n` +
+          `👤 *Responsável:* ${item.responsavel}\n` +
+          `🏷️ *Área:* ${item.categoria}${item.subcategoria ? ` (${item.subcategoria})` : ''}\n` +
+          `📍 *Local:* ${item.cidade}${item.bairro ? ` - ${item.bairro}` : ''}\n` +
+          `📝 *Sobre:* ${item.descricao}\n\n` +
+          `📲 *WhatsApp direto:* https://wa.me/55${cleanWhats}\n` +
+          `📸 *Instagram:* https://instagram.com/${cleanInsta}\n\n` +
+          `✊ _Serviço de confiança e qualidade da nossa região!_`;
+        
+        const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareMsg)}`;
+
+        // Foto ou Avatar com Inicial
+        const avatarHtml = item.foto 
+          ? `<img src="${item.foto}" alt="${item.nome}" class="w-12 h-12 rounded-2xl object-cover border border-stone-200 shadow-2xs shrink-0">`
+          : `<div class="w-12 h-12 rounded-2xl bg-red-100 text-red-800 font-extrabold flex items-center justify-center text-base border border-red-200 shadow-2xs shrink-0">${item.nome.charAt(0).toUpperCase()}</div>`;
+
         return `
-          <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md border border-stone-200 transition-all flex flex-col justify-between group">
+          <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md border border-stone-200 transition-all flex flex-col justify-between group relative" data-id="${item.id}">
             <div>
               <div class="flex items-start justify-between gap-2 mb-3">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-red-50 text-red-800 border-red-200">
                   ${item.categoria} ${item.subcategoria ? `• ${item.subcategoria}` : ''}
                 </span>
-                <span class="text-[11px] text-stone-600 flex items-center gap-1 font-medium bg-stone-100 px-2 py-0.5 rounded-md">
-                  📍 ${item.cidade}${item.bairro ? ` • ${item.bairro}` : ''}
-                </span>
+                
+                <div class="flex items-center gap-1.5">
+                  <span class="text-[11px] text-stone-600 flex items-center gap-1 font-medium bg-stone-100 px-2 py-0.5 rounded-md">
+                    📍 ${item.cidade}${item.bairro ? ` • ${item.bairro}` : ''}
+                  </span>
+                  ${isMyCard ? `
+                    <button class="btn-edit-card p-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-red-700 transition-all" title="Editar este cartão">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                    </button>
+                  ` : ''}
+                </div>
               </div>
 
-              <h3 class="font-bold text-base text-stone-900 group-hover:text-red-700 transition-colors leading-snug">
-                ${item.nome}
-              </h3>
-              <p class="text-xs text-stone-500 mb-2.5">Por <strong>${item.responsavel}</strong></p>
+              <div class="flex items-start gap-3 mb-2.5">
+                ${avatarHtml}
+                <div class="min-w-0 flex-1">
+                  <h3 class="font-bold text-base text-stone-900 group-hover:text-red-700 transition-colors leading-snug truncate">
+                    ${item.nome}
+                  </h3>
+                  <p class="text-xs text-stone-500 truncate">Por <strong>${item.responsavel}</strong></p>
+                </div>
+              </div>
 
               <p class="text-xs text-stone-600 line-clamp-3 mb-4 leading-relaxed font-normal">
                 ${item.descricao}
               </p>
             </div>
 
-            <div class="pt-3 border-t border-stone-100 grid grid-cols-2 gap-2 mt-2">
-              <a href="${instaUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 hover:bg-red-50 hover:text-red-700 text-stone-800 border border-stone-200 font-bold text-xs transition-all active:scale-95 text-center" title="Abrir perfil @${cleanInsta}">
-                <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                <span>@${cleanInsta}</span>
-              </a>
-              <a href="${whatsUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white font-bold text-xs transition-all active:scale-95 text-center shadow-xs" title="Conversar no WhatsApp">
-                <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                <span>WhatsApp</span>
+            <div class="pt-3 border-t border-stone-100 space-y-2 mt-2">
+              <div class="grid grid-cols-2 gap-2">
+                <a href="${instaUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 hover:bg-red-50 hover:text-red-700 text-stone-800 border border-stone-200 font-bold text-xs transition-all active:scale-95 text-center truncate" title="Abrir perfil @${cleanInsta}">
+                  <svg class="w-3.5 h-3.5 text-red-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  <span class="truncate">@${cleanInsta}</span>
+                </a>
+                <a href="${whatsUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white font-bold text-xs transition-all active:scale-95 text-center shadow-xs" title="Conversar no WhatsApp">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                  <span>Chamar</span>
+                </a>
+              </div>
+
+              <!-- Botão Encaminhar Serviço no WhatsApp (Sem link do site) -->
+              <a href="${shareUrl}" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/90 font-bold text-xs transition-all active:scale-95 shadow-2xs">
+                <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.31A9.95 9.95 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm3.8 14.2c-.2.5-.9 1-1.5 1.1-.4.1-.9.1-2.6-.6-2.1-.9-3.5-3-3.6-3.1-.1-.1-.8-1.1-.8-2.1s.5-1.5.7-1.7c.2-.2.4-.3.6-.3.2 0 .3 0 .4.1.2.4.6 1.4.6 1.5.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.3-.1.5.2.4.8 1.4 1.8 2.2 1.2 1 2.2 1.3 2.5 1.4.2.1.4 0 .5-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1.2.1 1.4.7 1.6.8.2.1.4.2.4.3 0 .2 0 1.2-.5 1.7z"/></svg>
+                <span>Encaminhar no WhatsApp</span>
               </a>
             </div>
           </div>
         `;
       }).join('');
+
+      // Adiciona eventos de clique nos botões de editar
+      document.querySelectorAll('.btn-edit-card').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('[data-id]');
+          const id = card.getAttribute('data-id');
+          openEditModal(id);
+        });
+      });
     }
 
     // Event Listeners for Filters
@@ -529,8 +681,63 @@
       });
     });
 
-    // Modal Handlers
+    // Modal Handlers (Novo e Editar)
     function openModal() {
+      editCardId.value = '';
+      modalTitle.textContent = 'Cadastrar Negócio na Vitrine';
+      modalSubtitle.textContent = 'Categorias oficiais da comunidade Esquerda ajuda Esquerda';
+      btnSubmitForm.textContent = 'Salvar na Vitrine';
+      
+      currentPhotoBase64 = '';
+      inputFoto.value = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
+
+      formCadastro.reset();
+      updateSubcategories();
+
+      modalCadastro.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function openEditModal(id) {
+      const item = negocios.find(n => n.id === id);
+      if (!item) return;
+
+      editCardId.value = item.id;
+      modalTitle.textContent = 'Editar Meu Negócio';
+      modalSubtitle.textContent = 'Atualize as informações do seu cartão na vitrine';
+      btnSubmitForm.textContent = 'Salvar Alterações';
+
+      document.getElementById('inputNomeNegocio').value = item.nome;
+      document.getElementById('inputResponsavel').value = item.responsavel;
+      document.getElementById('inputCategoria').value = item.categoria;
+      updateSubcategories();
+      if (item.subcategoria) {
+        document.getElementById('inputSubcategoria').value = item.subcategoria;
+      }
+      document.getElementById('inputInstagram').value = item.instagram.replace('@', '');
+      document.getElementById('inputWhatsapp').value = item.whatsapp;
+      document.getElementById('inputCidade').value = item.cidade;
+      document.getElementById('inputBairro').value = item.bairro || '';
+      document.getElementById('inputDescricao').value = item.descricao;
+
+      if (item.foto) {
+        currentPhotoBase64 = item.foto;
+        imgPreview.src = item.foto;
+        imgPreview.classList.remove('hidden');
+        previewPlaceholder.classList.add('hidden');
+        btnRemoveFoto.classList.remove('hidden');
+      } else {
+        currentPhotoBase64 = '';
+        imgPreview.src = '';
+        imgPreview.classList.add('hidden');
+        previewPlaceholder.classList.remove('hidden');
+        btnRemoveFoto.classList.add('hidden');
+      }
+
       modalCadastro.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
@@ -539,6 +746,12 @@
       modalCadastro.classList.add('hidden');
       document.body.style.overflow = '';
       formCadastro.reset();
+      editCardId.value = '';
+      currentPhotoBase64 = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
       updateSubcategories();
     }
 
@@ -564,10 +777,11 @@
       }
     });
 
-    // Handle Form Submit
+    // Handle Form Submit (Criação ou Edição)
     formCadastro.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      const idEdit = editCardId.value;
       const nome = document.getElementById('inputNomeNegocio').value.trim();
       const responsavel = document.getElementById('inputResponsavel').value.trim();
       const categoria = document.getElementById('inputCategoria').value;
@@ -583,20 +797,54 @@
         return;
       }
 
-      const novo = {
-        id: Date.now().toString(),
-        nome,
-        responsavel,
-        categoria,
-        subcategoria,
-        cidade,
-        bairro,
-        instagram,
-        whatsapp,
-        descricao
-      };
+      if (idEdit) {
+        // Atualiza cartão existente
+        const idx = negocios.findIndex(n => n.id === idEdit);
+        if (idx !== -1) {
+          negocios[idx] = {
+            ...negocios[idx],
+            nome,
+            responsavel,
+            categoria,
+            subcategoria,
+            cidade,
+            bairro,
+            instagram,
+            whatsapp,
+            descricao,
+            foto: currentPhotoBase64
+          };
+          showToast(`Negócio "${nome}" atualizado com sucesso!`, '★');
+        }
+      } else {
+        // Cria novo cartão
+        const newId = Date.now().toString();
+        const novo = {
+          id: newId,
+          nome,
+          responsavel,
+          categoria,
+          subcategoria,
+          cidade,
+          bairro,
+          instagram,
+          whatsapp,
+          descricao,
+          foto: currentPhotoBase64
+        };
 
-      negocios.unshift(novo);
+        negocios.unshift(novo);
+        myCardIds.push(newId);
+
+        try {
+          localStorage.setItem('vitrine_my_card_ids_v1', JSON.stringify(myCardIds));
+        } catch (err) {
+          console.error(err);
+        }
+
+        showToast(`Negócio "${nome}" cadastrado com sucesso!`, '★');
+      }
+
       try {
         localStorage.setItem('vitrine_esquerda_taubate_v2', JSON.stringify(negocios));
       } catch (err) {
@@ -607,33 +855,7 @@
       currentCategory = 'todas';
       categoryPills[0].click();
       renderCards();
-      showToast(`Negócio "${nome}" cadastrado com sucesso!`, '★');
     });
-
-    // Share Button
-    btnShare.addEventListener('click', () => {
-      const shareText = `*✊ Vitrine da Esquerda de Taubaté — Esquerda ajuda Esquerda*\n\nConheça e compre dos companheiros da nossa comunidade! Links clicáveis para seguir no Instagram e chamar no WhatsApp:\n\n👉 Acesse a Vitrine e cadastre seu negócio gratuitamente!`;
-      
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(shareText).then(() => {
-          showToast('Texto de convite copiado para o WhatsApp!', '📋');
-        }).catch(() => {
-          fallbackCopy(shareText);
-        });
-      } else {
-        fallbackCopy(shareText);
-      }
-    });
-
-    function fallbackCopy(text) {
-      const textarea = document.createElement('textarea');
-      textarea.value = text;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-      showToast('Texto copiado com sucesso!', '📋');
-    }
 
     // Export CSV
     btnExportCSV.addEventListener('click', () => {
