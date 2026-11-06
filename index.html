@@ -642,13 +642,18 @@
       cardsGrid.innerHTML = filtered.map(item => {
         const cleanInsta = item.instagram.replace('@', '').trim();
         const cleanWhats = item.whatsapp.replace(/\D/g, '');
-        const whatsUrl = `https://wa.me/55${cleanWhats}?text=Ol\%C3\%A1!\%20Vi\%20seu\%20contato\%20na\%20Vitrine\%20de\%20Taubat\%C3\%A9\%20e\%20gostaria\%20de\%20fazer\%20um\%20or\%C3\%A7amento.`; const instaUrl = `https://instagram.com/${cleanInsta}`;
+        const whatsUrl = `https://wa.me/55${cleanWhats}?text=Ol%C3%A1!%20Vi%20seu%20contato%20na%20Vitrine%20de%20Taubat%C3%A9%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento.`;
+        const instaUrl = `https://instagram.com/${cleanInsta}`;
 
         const isMyCard = myCardIds.includes(item.id);
 
         const shareMsg = `🌟 *Indicação de Confiança — ${item.nome}*\n\n` +
-          `👤 *Responsável:* ${item.responsavel}\n` + `🏷️ *Área:* ${item.categoria}${item.subcategoria ? ` (${item.subcategoria})` : ''}\n` + `📍 *Local:* ${item.cidade}${item.bairro ? ` - ${item.bairro}` : ''}\n` + `📝 *Sobre:* ${item.descricao}\n\n` +
-          `📲 *WhatsApp direto:* https://wa.me/55${cleanWhats}\n` + `📸 *Instagram:* https://instagram.com/${cleanInsta}\n\n` +
+          `👤 *Responsável:* ${item.responsavel}\n` +
+          `🏷️ *Área:* ${item.categoria}${item.subcategoria ? ` (${item.subcategoria})` : ''}\n` +
+          `📍 *Local:* ${item.cidade}${item.bairro ? ` - ${item.bairro}` : ''}\n` +
+          `📝 *Sobre:* ${item.descricao}\n\n` +
+          `📲 *WhatsApp direto:* https://wa.me/55${cleanWhats}\n` +
+          `📸 *Instagram:* https://instagram.com/${cleanInsta}\n\n` +
           `✊ _Serviço de confiança e qualidade da nossa região!_`;
         
         const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareMsg)}`;
@@ -662,7 +667,7 @@
             <div>
               <div class="flex items-start justify-between gap-2 mb-3">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-red-50 text-red-800 border-red-200">
-                  ${item.categoria}${item.subcategoria ? `• ${item.subcategoria}` : ''}
+                  ${item.categoria} ${item.subcategoria ? `• ${item.subcategoria}` : ''}
                 </span>
                 
                 <div class="flex items-center gap-1.5">
@@ -706,4 +711,246 @@
 
               <!-- Botão Encaminhar Serviço no WhatsApp (Sem link do site) -->
               <a href="${shareUrl}" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/90 font-bold text-xs transition-all active:scale-95 shadow-2xs">
-                <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.31A9.95 9.95 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm3.8 14.2c-.2.5-.9 1-1.5 1.1-.4.1-.
+                <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.31A9.95 9.95 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm3.8 14.2c-.2.5-.9 1-1.5 1.1-.4.1-.9.1-2.6-.6-2.1-.9-3.5-3-3.6-3.1-.1-.1-.8-1.1-.8-2.1s.5-1.5.7-1.7c.2-.2.4-.3.6-.3.2 0 .3 0 .4.1.2.4.6 1.4.6 1.5.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.3-.1.5.2.4.8 1.4 1.8 2.2 1.2 1 2.2 1.3 2.5 1.4.2.1.4 0 .5-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1.2.1 1.4.7 1.6.8.2.1.4.2.4.3 0 .2 0 1.2-.5 1.7z"/></svg>
+                <span>Encaminhar no WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.querySelectorAll('.btn-edit-card').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('[data-id]');
+          const id = card.getAttribute('data-id');
+          openEditModal(id);
+        });
+      });
+    }
+
+    // Event Listeners for Filters
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderCards();
+    });
+
+    cityFilter.addEventListener('change', (e) => {
+      currentCity = e.target.value;
+      renderCards();
+    });
+
+    categoryPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        categoryPills.forEach(p => {
+          p.classList.remove('bg-red-700', 'text-white', 'font-semibold');
+          p.classList.add('bg-stone-100', 'text-stone-700');
+        });
+        pill.classList.remove('bg-stone-100', 'text-stone-700');
+        pill.classList.add('bg-red-700', 'text-white', 'font-semibold');
+        currentCategory = pill.getAttribute('data-cat');
+        renderCards();
+      });
+    });
+
+    // Modal Handlers Globais para resposta instantânea ao clique
+    window.openModal = function openModal() {
+      editCardId.value = '';
+      modalTitle.textContent = 'Cadastrar Negócio na Vitrine';
+      modalSubtitle.textContent = 'Categorias oficiais da comunidade Esquerda ajuda Esquerda';
+      btnSubmitForm.textContent = 'Salvar na Vitrine';
+      
+      currentPhotoBase64 = '';
+      inputFoto.value = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
+
+      formCadastro.reset();
+      updateSubcategories();
+
+      modalCadastro.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    function openEditModal(id) {
+      const item = negocios.find(n => n.id === id);
+      if (!item) return;
+
+      editCardId.value = item.id;
+      modalTitle.textContent = 'Editar Meu Negócio';
+      modalSubtitle.textContent = 'Atualize as informações do seu cartão na vitrine';
+      btnSubmitForm.textContent = 'Salvar Alterações';
+
+      document.getElementById('inputNomeNegocio').value = item.nome;
+      document.getElementById('inputResponsavel').value = item.responsavel;
+      document.getElementById('inputCategoria').value = item.categoria;
+      updateSubcategories();
+      if (item.subcategoria) {
+        document.getElementById('inputSubcategoria').value = item.subcategoria;
+      }
+      document.getElementById('inputInstagram').value = item.instagram.replace('@', '');
+      document.getElementById('inputWhatsapp').value = item.whatsapp;
+      document.getElementById('inputCidade').value = item.cidade;
+      document.getElementById('inputBairro').value = item.bairro || '';
+      document.getElementById('inputDescricao').value = item.descricao;
+
+      if (item.foto) {
+        currentPhotoBase64 = item.foto;
+        imgPreview.src = item.foto;
+        imgPreview.classList.remove('hidden');
+        previewPlaceholder.classList.add('hidden');
+        btnRemoveFoto.classList.remove('hidden');
+      } else {
+        currentPhotoBase64 = '';
+        imgPreview.src = '';
+        imgPreview.classList.add('hidden');
+        previewPlaceholder.classList.remove('hidden');
+        btnRemoveFoto.classList.add('hidden');
+      }
+
+      modalCadastro.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    window.closeModal = function closeModal() {
+      modalCadastro.classList.add('hidden');
+      document.body.style.overflow = '';
+      formCadastro.reset();
+      editCardId.value = '';
+      currentPhotoBase64 = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
+      updateSubcategories();
+    };
+
+    btnOpenModal.addEventListener('click', openModal);
+    btnCadastrarPrimeiro.addEventListener('click', openModal);
+    btnCloseModal.addEventListener('click', closeModal);
+    btnCancelCadastro.addEventListener('click', closeModal);
+    modalCadastro.addEventListener('click', (e) => {
+      if (e.target === modalCadastro) closeModal();
+    });
+
+    // Phone formatting
+    const inputWhatsapp = document.getElementById('inputWhatsapp');
+    inputWhatsapp.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+      } else if (v.length > 2) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+      } else if (v.length > 0) {
+        e.target.value = `(${v}`;
+      }
+    });
+
+    // Handle Form Submit
+    formCadastro.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const idEdit = editCardId.value;
+      const nome = document.getElementById('inputNomeNegocio').value.trim();
+      const responsavel = document.getElementById('inputResponsavel').value.trim();
+      const categoria = document.getElementById('inputCategoria').value;
+      const subcategoria = document.getElementById('inputSubcategoria').value;
+      const instagram = document.getElementById('inputInstagram').value.replace('@', '').trim();
+      const whatsapp = document.getElementById('inputWhatsapp').value.trim();
+      const cidade = document.getElementById('inputCidade').value;
+      const bairro = document.getElementById('inputBairro').value.trim();
+      const descricao = document.getElementById('inputDescricao').value.trim();
+
+      if (!nome || !responsavel || !instagram || !whatsapp || !descricao) {
+        showToast('Por favor, preencha todos os campos obrigatórios.', '⚠️');
+        return;
+      }
+
+      if (idEdit) {
+        const idx = negocios.findIndex(n => n.id === idEdit);
+        if (idx !== -1) {
+          negocios[idx] = {
+            ...negocios[idx],
+            nome,
+            responsavel,
+            categoria,
+            subcategoria,
+            cidade,
+            bairro,
+            instagram,
+            whatsapp,
+            descricao,
+            foto: currentPhotoBase64
+          };
+          showToast(`Negócio "${nome}" atualizado com sucesso!`, '★');
+        }
+      } else {
+        const newId = Date.now().toString();
+        const novo = {
+          id: newId,
+          nome,
+          responsavel,
+          categoria,
+          subcategoria,
+          cidade,
+          bairro,
+          instagram,
+          whatsapp,
+          descricao,
+          foto: currentPhotoBase64
+        };
+
+        negocios.unshift(novo);
+        myCardIds.push(newId);
+
+        try {
+          localStorage.setItem('vitrine_my_card_ids_v1', JSON.stringify(myCardIds));
+        } catch (err) {
+          console.error(err);
+        }
+
+        showToast(`Negócio "${nome}" cadastrado com sucesso!`, '★');
+      }
+
+      try {
+        localStorage.setItem('vitrine_esquerda_taubate_v2', JSON.stringify(negocios));
+      } catch (err) {
+        console.error(err);
+      }
+
+      closeModal();
+      currentCategory = 'todas';
+      categoryPills[0].click();
+      renderCards();
+    });
+
+    // Export CSV
+    btnExportCSV.addEventListener('click', () => {
+      if (negocios.length === 0) {
+        showToast('Ainda não há negócios cadastrados para exportar.', 'ℹ️');
+        return;
+      }
+
+      let csv = 'Nome do Negocio,Responsavel,Categoria,Subcategoria,Cidade,Bairro,Instagram,WhatsApp,Descricao\n';
+      negocios.forEach(n => {
+        csv += `"${n.nome.replace(/"/g, '""')}","${n.responsavel.replace(/"/g, '""')}","${n.categoria}","${n.subcategoria || ''}","${n.cidade}","${n.bairro || ''}","https://instagram.com/${n.instagram.replace('@', '')}","https://wa.me/55${n.whatsapp.replace(/\D/g, '')}","${n.descricao.replace(/"/g, '""')}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `vitrine_esquerda_taubate_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('Lista exportada com sucesso!', '📊');
+    });
+
+    // Inicia carregando da planilha Google e depois renderiza
+    carregarDadosDaPlanilha().then(renderCards);
+  </script>
+</body>
+</html>
