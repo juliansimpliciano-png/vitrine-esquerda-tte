@@ -387,6 +387,10 @@
       ]
     };
 
+    // ID DA PLANILHA NO GOOGLE DRIVE
+    const SPREADSHEET_ID = "1YG3GaHY9rkwNjHBFS3PW2TTB93wikrI8pTf4zGA_g70";
+    const CSV_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=P%C3%A1gina1`;
+
     // State management
     let negocios = [];
     try {
@@ -463,6 +467,80 @@
       setTimeout(() => {
         toast.classList.add('translate-y-20', 'opacity-0');
       }, 3500);
+    }
+
+    // Leitura automática da Planilha Google (CSV)
+    async function carregarDadosDaPlanilha() {
+      try {
+        const resp = await fetch(CSV_URL);
+        if (!resp.ok) return;
+        const text = await resp.text();
+        const linhas = parseCSV(text);
+        if (linhas.length <= 1) return; // apenas cabeçalho
+
+        const daPlanilha = [];
+        // Colunas: ID, Data_Cadastro, Nome_Negocio, Responsavel, Categoria, Subcategoria, Cidade, Bairro, Instagram, WhatsApp, Descricao, Foto_URL, Status
+        for (let i = 1; i < linhas.length; i++) {
+          const col = linhas[i];
+          if (col.length >= 11 && col[2] && col[2].trim()) {
+            daPlanilha.push({
+              id: col[0] || ('sheet_' + i),
+              nome: col[2].trim(),
+              responsavel: col[3] ? col[3].trim() : '',
+              categoria: col[4] ? col[4].trim() : 'COMÉRCIO',
+              subcategoria: col[5] ? col[5].trim() : '',
+              cidade: col[6] ? col[6].trim() : 'Taubaté',
+              bairro: col[7] ? col[7].trim() : '',
+              instagram: col[8] ? col[8].trim() : '',
+              whatsapp: col[9] ? col[9].trim() : '',
+              descricao: col[10] ? col[10].trim() : '',
+              foto: col[11] ? col[11].trim() : ''
+            });
+          }
+        }
+
+        if (daPlanilha.length > 0) {
+          // Mescla com locais para não duplicar por ID
+          const mapa = new Map();
+          daPlanilha.forEach(item => mapa.set(item.id, item));
+          negocios.forEach(item => {
+            if (!mapa.has(item.id)) {
+              mapa.set(item.id, item);
+            }
+          });
+          negocios = Array.from(mapa.values());
+          renderCards();
+        }
+      } catch (e) {
+        console.log('Modo offline/local');
+      }
+    }
+
+    // Parser CSV simples
+    function parseCSV(str) {
+      const arr = [];
+      let quote = false;
+      let row = [''];
+      let col = 0;
+      for (let c = 0; c < str.length; c++) {
+        let ch = str[c];
+        let next = str[c + 1];
+        if (ch === '"') {
+          if (quote && next === '"') { row[col] += '"'; c++; }
+          else { quote = !quote; }
+        } else if (ch === ',' && !quote) {
+          row[++col] = '';
+        } else if ((ch === '\r' || ch === '\n') && !quote) {
+          if (ch === '\r' && next === '\n') { c++; }
+          arr.push(row);
+          row = [''];
+          col = 0;
+        } else {
+          row[col] += ch;
+        }
+      }
+      if (row.length > 1 || row[0] !== '') { arr.push(row); }
+      return arr;
     }
 
     // Foto Upload e Compressão para Base64 leve
@@ -839,49 +917,4 @@
         try {
           localStorage.setItem('vitrine_my_card_ids_v1', JSON.stringify(myCardIds));
         } catch (err) {
-          console.error(err);
-        }
-
-        showToast(`Negócio "${nome}" cadastrado com sucesso!`, '★');
-      }
-
-      try {
-        localStorage.setItem('vitrine_esquerda_taubate_v2', JSON.stringify(negocios));
-      } catch (err) {
-        console.error(err);
-      }
-
-      closeModal();
-      currentCategory = 'todas';
-      categoryPills[0].click();
-      renderCards();
-    });
-
-    // Export CSV
-    btnExportCSV.addEventListener('click', () => {
-      if (negocios.length === 0) {
-        showToast('Ainda não há negócios cadastrados para exportar.', 'ℹ️');
-        return;
-      }
-
-      let csv = 'Nome do Negocio,Responsavel,Categoria,Subcategoria,Cidade,Bairro,Instagram,WhatsApp,Descricao\n';
-      negocios.forEach(n => {
-        csv += `"${n.nome.replace(/"/g, '""')}","${n.responsavel.replace(/"/g, '""')}","${n.categoria}","${n.subcategoria || ''}","${n.cidade}","${n.bairro || ''}","https://instagram.com/${n.instagram.replace('@', '')}","https://wa.me/55${n.whatsapp.replace(/\D/g, '')}","${n.descricao.replace(/"/g, '""')}"\n`;
-      });
-
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `vitrine_esquerda_taubate_${new Date().toISOString().slice(0, 10)}.csv`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      showToast('Lista exportada com sucesso!', '📊');
-    });
-
-    // Initial render
-    renderCards();
-  </script>
-</body>
-</html>
+          console.error(err
