@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitrine Solidária — Rede de Negócios e Serviços do Vale</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- Top Bar -->
+  <header class="bg-emerald-800 text-white shadow-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-700/80 border border-emerald-500/30 flex items-center justify-center text-xl shadow-inner">
+          🤝
+        </div>
+        <div>
+          <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white leading-tight">Vitrine Solidária</h1>
+          <p class="text-xs text-emerald-200">Rede de Apoio Mútuo & Negócios • Taubaté e Vale</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="btnOpenModal" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold px-3.5 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all shadow-sm active:scale-95">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          <span>Cadastrar Meu Negócio</span>
+        </button>
+        <button id="btnShare" class="bg-emerald-900/60 hover:bg-emerald-900 border border-emerald-600/40 text-emerald-100 px-3 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all active:scale-95">
+          <svg class="w-4 h-4 text-emerald-300" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <span class="hidden sm:inline">Compartilhar</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero & Protection Notice -->
+  <section class="bg-gradient-to-b from-emerald-800 to-slate-900 text-white pt-6 pb-10 px-4">
+    <div class="max-w-4xl mx-auto text-center space-y-3">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-700/60 border border-emerald-400/30 text-emerald-200">
+        🛡️ Economia Solidária & Compre do Pequeno
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Fortaleça os negócios e serviços da nossa rede</h2>
+      <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto font-normal">
+        Encontre profissionais, produtores e autônomos locais. Todos os links são clicáveis para você seguir no Instagram e conversar direto no WhatsApp.
+      </p>
+      
+      <!-- Privacy Badge -->
+      <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 text-slate-300 text-xs px-3.5 py-1.5 rounded-lg max-w-md mx-auto text-left sm:text-center mt-2">
+        <span class="text-emerald-400">🔒</span>
+        <span><strong>Segurança:</strong> catálogo profissional e neutro para venda a todo público, sem exposição de dados sensíveis.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Controls Container -->
+  <main class="max-w-6xl mx-auto px-4 -mt-5 flex-1 w-full pb-16">
+
+    <!-- Search & Filter Bar -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 mb-6">
+      <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+        
+        <!-- Search Input -->
+        <div class="relative flex-1">
+          <svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="searchInput" placeholder="Buscar por serviço, nome, bairro ou palavra-chave..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm bg-slate-50/50">
+        </div>
+
+        <!-- City Filter & Stats -->
+        <div class="flex items-center gap-2.5">
+          <select id="cityFilter" class="px-3 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm bg-slate-50/50 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-slate-700">
+            <option value="todas">Todas as Cidades</option>
+            <option value="Taubaté">Taubaté</option>
+            <option value="São José dos Campos">São José dos Campos</option>
+            <option value="Pindamonhangaba">Pindamonhangaba</option>
+            <option value="Jacareí">Jacareí</option>
+            <option value="Caçapava">Caçapava</option>
+          </select>
+          <div class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold px-3 py-2 rounded-xl whitespace-nowrap">
+            <span id="counter">0</span> cadastrados
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Pills -->
+      <div class="mt-3.5 pt-3 border-t border-slate-100 flex items-center gap-1.5 overflow-x-auto pb-1 custom-scrollbar text-xs font-medium" id="categoryPills">
+        <button data-cat="todas" class="cat-pill active px-3 py-1.5 rounded-lg bg-emerald-700 text-white transition-all whitespace-nowrap">Todas as Categorias</button>
+        <button data-cat="Alimentação" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">🍰 Alimentação & Gastronomia</button>
+        <button data-cat="Serviços" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">🛠️ Serviços & Reformas</button>
+        <button data-cat="Saúde" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">🩺 Saúde, Beleza & Terapia</button>
+        <button data-cat="Artesanato" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">🎨 Artesanato & Moda</button>
+        <button data-cat="Educação" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">📚 Aulas & Consultoria</button>
+        <button data-cat="Tecnologia" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">💻 Tecnologia & Design</button>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-16 bg-white rounded-2xl border border-slate-200 p-8">
+      <div class="text-4xl mb-3">🔍</div>
+      <h3 class="text-base font-bold text-slate-800">Nenhum negócio encontrado</h3>
+      <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Tente ajustar os termos de busca ou selecione outra categoria.</p>
+      <button id="btnResetFilters" class="mt-4 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg transition-all">Limpar filtros</button>
+    </div>
+
+    <!-- Bottom Actions Bar -->
+    <div class="mt-10 flex flex-wrap items-center justify-between gap-4 bg-slate-100/80 border border-slate-200 rounded-2xl p-4 text-xs text-slate-600">
+      <div class="flex items-center gap-2">
+        <span>💡 <strong>Dica:</strong> Toque no botão do Instagram para abrir direto o perfil da pessoa no app e seguir!</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="btnExportCSV" class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-semibold px-3 py-1.5 rounded-lg transition-all active:scale-95 flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Exportar Lista (CSV)
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Cadastro de Negócio -->
+  <div id="modalCadastro" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto custom-scrollbar border border-slate-100">
+      <div class="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur z-10">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">Cadastrar Negócio na Vitrine</h3>
+          <p class="text-xs text-slate-500">Adicione seu serviço para a rede poder te seguir e contratar</p>
+        </div>
+        <button id="btnCloseModal" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center transition-all">✕</button>
+      </div>
+
+      <form id="formCadastro" class="p-5 sm:p-6 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Nome do Negócio / Marca *</label>
+          <input type="text" id="inputNomeNegocio" required placeholder="Ex: Doçaria da Maria, Marcenaria Silva" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Responsável / Seu Nome *</label>
+            <input type="text" id="inputResponsavel" required placeholder="Ex: Maria Santos" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Categoria *</label>
+            <select id="inputCategoria" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50 text-slate-700">
+              <option value="Alimentação">🍰 Alimentação & Gastronomia</option>
+              <option value="Serviços">🛠️ Serviços & Reformas</option>
+              <option value="Saúde">🩺 Saúde, Beleza & Terapia</option>
+              <option value="Artesanato">🎨 Artesanato & Moda</option>
+              <option value="Educação">📚 Aulas & Consultoria</option>
+              <option value="Tecnologia">💻 Tecnologia & Design</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Instagram (@) *</label>
+            <div class="relative">
+              <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">@</span>
+              <input type="text" id="inputInstagram" required placeholder="seunegocio" class="w-full pl-8 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50">
+            </div>
+            <p class="text-[10px] text-slate-400 mt-0.5">Apenas o usuário sem o link</p>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">WhatsApp Comercial *</label>
+            <input type="tel" id="inputWhatsapp" required placeholder="(12) 99999-9999" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Cidade *</label>
+            <select id="inputCidade" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50 text-slate-700">
+              <option value="Taubaté">Taubaté</option>
+              <option value="São José dos Campos">São José dos Campos</option>
+              <option value="Pindamonhangaba">Pindamonhangaba</option>
+              <option value="Jacareí">Jacareí</option>
+              <option value="Caçapava">Caçapava</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Bairro (Opcional)</label>
+            <input type="text" id="inputBairro" placeholder="Ex: Quiririm, Centro, Cecap" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Descrição Breve do Produto ou Serviço *</label>
+          <textarea id="inputDescricao" rows="2" required placeholder="O que você faz, produtos em destaque, diferenciais e como pode atender os clientes..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-slate-50/50"></textarea>
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-2">
+          <button type="button" id="btnCancelCadastro" class="px-4 py-2.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100 text-xs font-semibold transition-all">Cancelar</button>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold transition-all shadow-sm active:scale-95">Salvar na Vitrine</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs font-medium translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <span class="text-base" id="toastIcon">✅</span>
+    <span id="toastMsg">Mensagem</span>
+  </div>
+
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 space-y-1">
+      <p class="text-slate-300 font-semibold">Vitrine Solidária — Rede de Fortalecimento Mútuo</p>
+      <p class="text-slate-500">Desenvolvido como ferramenta de utilidade comunitária para incentivar o comércio e os serviços locais.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Initial Seed Data
+    const defaultNegocios = [
+      {
+        id: "1",
+        nome: "Ateliê Sabor & Afeto",
+        responsavel: "Mariana Souza",
+        categoria: "Alimentação",
+        cidade: "Taubaté",
+        bairro: "Quiririm",
+        instagram: "ateliesaborafeto",
+        whatsapp: "12981112233",
+        descricao: "Bolos caseiros artesanais, doces para festas, pães de fermentação natural e opções veganas sob encomenda.",
+        categoriaBadge: "🍰 Alimentação",
+        badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+      },
+      {
+        id: "2",
+        nome: "Silva Elétrica & Reformas",
+        responsavel: "Carlos Eduardo Silva",
+        categoria: "Serviços",
+        cidade: "Taubaté",
+        bairro: "Cecap",
+        instagram: "silva.eletricataubate",
+        whatsapp: "12992223344",
+        descricao: "Eletricista residencial e predial, padrão Enel, manutenção preventiva, chuveiros, tomadas e iluminação em LED.",
+        categoriaBadge: "🛠️ Serviços",
+        badgeColor: "bg-blue-100 text-blue-800 border-blue-200"
+      },
+      {
+        id: "3",
+        nome: "Espaço Acolher Psicologia",
+        responsavel: "Dra. Flávia Bonani",
+        categoria: "Saúde",
+        cidade: "Taubaté",
+        bairro: "Centro",
+        instagram: "flaviabonani.psicologia",
+        whatsapp: "12988887766",
+        descricao: "Psicoterapia clínica individual com acolhimento ético, foco em saúde mental feminina, ansiedade e desenvolvimento humano.",
+        categoriaBadge: "🩺 Saúde",
+        badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200"
+      },
+      {
+        id: "4",
+        nome: "Marcenaria Raízes do Vale",
+        responsavel: "Roberto & Lucas",
+        categoria: "Serviços",
+        cidade: "Pindamonhangaba",
+        bairro: "Moreira César",
+        instagram: "marcenariaraizes.vale",
+        whatsapp: "12977778899",
+        descricao: "Móveis planejados sustentáveis em madeira maciça e compensado naval. Restauração de móveis antigos e peças sob medida.",
+        categoriaBadge: "🛠️ Serviços",
+        badgeColor: "bg-blue-100 text-blue-800 border-blue-200"
+      },
+      {
+        id: "5",
+        nome: "Fio de Luz Crochê & Costura",
+        responsavel: "Helena Ferreira",
+        categoria: "Artesanato",
+        cidade: "São José dos Campos",
+        bairro: "Vila Industrial",
+        instagram: "fiodeluz.artesanatos",
+        whatsapp: "12991114455",
+        descricao: "Bolsas de crochê com fio de malha residual, peças de decoração artesanal, bordados e consertos rápidos de costura.",
+        categoriaBadge: "🎨 Artesanato",
+        badgeColor: "bg-purple-100 text-purple-800 border-purple-200"
+      },
+      {
+        id: "6",
+        nome: "Radar CV & Consultoria RH",
+        responsavel: "Equipe Emprego Vale",
+        categoria: "Educação",
+        cidade: "Taubaté",
+        bairro: "Atendimento Online",
+        instagram: "TAUBATEEMPREGOINDUSTRIA",
+        whatsapp: "12981234567",
+        descricao: "Revisão e reformulação de currículo estratégico para sistemas ATS/Gupy, preparação para entrevistas e LinkedIn.",
+        categoriaBadge: "📚 Aulas & RH",
+        badgeColor: "bg-indigo-100 text-indigo-800 border-indigo-200"
+      },
+      {
+        id: "7",
+        nome: "Ponto Tech — Manutenção e Suporte",
+        responsavel: "Thiago Mendes",
+        categoria: "Tecnologia",
+        cidade: "Jacareí",
+        bairro: "Jardim Flórida",
+        instagram: "pontotech.valeparaiba",
+        whatsapp: "12984445566",
+        descricao: "Manutenção de notebooks, computadores e celulares. Formatação, troca de tela, recuperação de dados e suporte a pequenas empresas.",
+        categoriaBadge: "💻 Tecnologia",
+        badgeColor: "bg-cyan-100 text-cyan-800 border-cyan-200"
+      },
+      {
+        id: "8",
+        nome: "Cozinha da Terra — Marmitas Saudáveis",
+        responsavel: "Aline & Pedro",
+        categoria: "Alimentação",
+        cidade: "Caçapava",
+        bairro: "Vera Cruz",
+        instagram: "cozinhadaterra.valesp",
+        whatsapp: "12996667788",
+        descricao: "Marmitas congeladas saudáveis, com ingredientes orgânicos de produtores locais. Planos semanais com entrega em domicílio.",
+        categoriaBadge: "🍰 Alimentação",
+        badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+      }
+    ];
+
+    // State management
+    let negocios = [];
+    try {
+      const stored = localStorage.getItem('vitrine_negocios_v1');
+      if (stored) {
+        negocios = JSON.parse(stored);
+      } else {
+        negocios = defaultNegocios;
+        localStorage.setItem('vitrine_negocios_v1', JSON.stringify(negocios));
+      }
+    } catch (e) {
+      negocios = defaultNegocios;
+    }
+
+    let currentCategory = 'todas';
+    let currentCity = 'todas';
+    let searchQuery = '';
+
+    // DOM Elements
+    const cardsGrid = document.getElementById('cardsGrid');
+    const emptyState = document.getElementById('emptyState');
+    const counterEl = document.getElementById('counter');
+    const searchInput = document.getElementById('searchInput');
+    const cityFilter = document.getElementById('cityFilter');
+    const categoryPills = document.querySelectorAll('.cat-pill');
+    const btnResetFilters = document.getElementById('btnResetFilters');
+    
+    // Modal Elements
+    const modalCadastro = document.getElementById('modalCadastro');
+    const btnOpenModal = document.getElementById('btnOpenModal');
+    const btnCloseModal = document.getElementById('btnCloseModal');
+    const btnCancelCadastro = document.getElementById('btnCancelCadastro');
+    const formCadastro = document.getElementById('formCadastro');
+    const btnShare = document.getElementById('btnShare');
+    const btnExportCSV = document.getElementById('btnExportCSV');
+    
+    // Toast
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+    const toastIcon = document.getElementById('toastIcon');
+
+    function showToast(msg, icon = '✅') {
+      toastMsg.textContent = msg;
+      toastIcon.textContent = icon;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+
+    function getBadgeColor(cat) {
+      switch(cat) {
+        case 'Alimentação': return 'bg-amber-100 text-amber-800 border-amber-200';
+        case 'Serviços': return 'bg-blue-100 text-blue-800 border-blue-200';
+        case 'Saúde': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+        case 'Artesanato': return 'bg-purple-100 text-purple-800 border-purple-200';
+        case 'Educação': return 'bg-indigo-100 text-indigo-800 border-indigo-200';
+        case 'Tecnologia': return 'bg-cyan-100 text-cyan-800 border-cyan-200';
+        default: return 'bg-slate-100 text-slate-800 border-slate-200';
+      }
+    }
+
+    function renderCards() {
+      const filtered = negocios.filter(item => {
+        const matchesCategory = currentCategory === 'todas' || item.categoria === currentCategory;
+        const matchesCity = currentCity === 'todas' || item.cidade === currentCity;
+        
+        const q = searchQuery.toLowerCase().trim();
+        const matchesSearch = !q || 
+          item.nome.toLowerCase().includes(q) ||
+          item.responsavel.toLowerCase().includes(q) ||
+          item.descricao.toLowerCase().includes(q) ||
+          item.instagram.toLowerCase().includes(q) ||
+          (item.bairro && item.bairro.toLowerCase().includes(q));
+
+        return matchesCategory && matchesCity && matchesSearch;
+      });
+
+      counterEl.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        cardsGrid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      cardsGrid.innerHTML = filtered.map(item => {
+        const cleanInsta = item.instagram.replace('@', '').trim();
+        const cleanWhats = item.whatsapp.replace(/\D/g, '');
+        const whatsUrl = `https://wa.me/55${cleanWhats}?text=Ol%C3%A1!%20Encontrei%20seu%20servi%C3%A7o%20na%20Vitrine%20Solid%C3%A1ria%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.`;
+        const instaUrl = `https://instagram.com/${cleanInsta}`;
+
+        return `
+          <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md border border-slate-200/90 transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-3">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${getBadgeColor(item.categoria)}">
+                  ${item.categoriaBadge || item.categoria}
+                </span>
+                <span class="text-[11px] text-slate-600 flex items-center gap-1 font-medium bg-slate-100 px-2 py-0.5 rounded-md">
+                  📍 ${item.cidade}${item.bairro ? ` • ${item.bairro}` : ''}
+                </span>
+              </div>
+
+              <h3 class="font-bold text-base text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug">
+                ${item.nome}
+              </h3>
+              <p class="text-xs text-slate-500 mb-2.5">Por <strong>${item.responsavel}</strong></p>
+
+              <p class="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed font-normal">
+                ${item.descricao}
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 grid grid-cols-2 gap-2 mt-2">
+              <a href="${instaUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 text-purple-700 border border-purple-200/60 font-semibold text-xs transition-all active:scale-95 shadow-2xs text-center" title="Abrir perfil @${cleanInsta}">
+                <svg class="w-3.5 h-3.5 text-pink-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span>@${cleanInsta}</span>
+              </a>
+              <a href="${whatsUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/80 font-semibold text-xs transition-all active:scale-95 shadow-2xs text-center" title="Conversar no WhatsApp">
+                <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Event Listeners for Filters
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderCards();
+    });
+
+    cityFilter.addEventListener('change', (e) => {
+      currentCity = e.target.value;
+      renderCards();
+    });
+
+    categoryPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        categoryPills.forEach(p => {
+          p.classList.remove('bg-emerald-700', 'text-white');
+          p.classList.add('bg-slate-100', 'text-slate-600');
+        });
+        pill.classList.remove('bg-slate-100', 'text-slate-600');
+        pill.classList.add('bg-emerald-700', 'text-white');
+        currentCategory = pill.getAttribute('data-cat');
+        renderCards();
+      });
+    });
+
+    btnResetFilters.addEventListener('click', () => {
+      searchInput.value = '';
+      cityFilter.value = 'todas';
+      searchQuery = '';
+      currentCity = 'todas';
+      categoryPills[0].click();
+    });
+
+    // Modal Handlers
+    function openModal() {
+      modalCadastro.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modalCadastro.classList.add('hidden');
+      document.body.style.overflow = '';
+      formCadastro.reset();
+    }
+
+    btnOpenModal.addEventListener('click', openModal);
+    btnCloseModal.addEventListener('click', closeModal);
+    btnCancelCadastro.addEventListener('click', closeModal);
+    modalCadastro.addEventListener('click', (e) => {
+      if (e.target === modalCadastro) closeModal();
+    });
+
+    // Phone formatting
+    const inputWhatsapp = document.getElementById('inputWhatsapp');
+    inputWhatsapp.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+      } else if (v.length > 2) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+      } else if (v.length > 0) {
+        e.target.value = `(${v}`;
+      }
+    });
+
+    // Handle Form Submit
+    formCadastro.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nome = document.getElementById('inputNomeNegocio').value.trim();
+      const responsavel = document.getElementById('inputResponsavel').value.trim();
+      const categoria = document.getElementById('inputCategoria').value;
+      const instagram = document.getElementById('inputInstagram').value.replace('@', '').trim();
+      const whatsapp = document.getElementById('inputWhatsapp').value.trim();
+      const cidade = document.getElementById('inputCidade').value;
+      const bairro = document.getElementById('inputBairro').value.trim();
+      const descricao = document.getElementById('inputDescricao').value.trim();
+
+      if (!nome || !responsavel || !instagram || !whatsapp || !descricao) {
+        showToast('Por favor, preencha todos os campos obrigatórios.', '⚠️');
+        return;
+      }
+
+      const novo = {
+        id: Date.now().toString(),
+        nome,
+        responsavel,
+        categoria,
+        cidade,
+        bairro,
+        instagram,
+        whatsapp,
+        descricao,
+        categoriaBadge: categoria
+      };
+
+      negocios.unshift(novo);
+      try {
+        localStorage.setItem('vitrine_negocios_v1', JSON.stringify(negocios));
+      } catch (err) {
+        console.error(err);
+      }
+
+      closeModal();
+      currentCategory = 'todas';
+      categoryPills[0].click();
+      renderCards();
+      showToast(`Negócio "${nome}" adicionado com sucesso à Vitrine!`);
+    });
+
+    // Share Button (Copy WhatsApp invite)
+    btnShare.addEventListener('click', () => {
+      const shareText = `*🤝 Vitrine Solidária — Negócios & Serviços da Nossa Comunidade*\n\nConheça e contrate dos companheiros locais da nossa rede! Todos os links de Instagram e WhatsApp são 100% clicáveis:\n\n👉 Acesse a Vitrine e cadastre o seu negócio gratuitamente!`;
+      
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(shareText).then(() => {
+          showToast('Texto de convite copiado para colar no WhatsApp!', '📋');
+        }).catch(() => {
+          fallbackCopy(shareText);
+        });
+      } else {
+        fallbackCopy(shareText);
+      }
+    });
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      showToast('Texto copiado com sucesso!', '📋');
+    }
+
+    // Export CSV
+    btnExportCSV.addEventListener('click', () => {
+      let csv = 'Nome do Negocio,Responsavel,Categoria,Cidade,Bairro,Instagram,WhatsApp,Descricao\n';
+      negocios.forEach(n => {
+        csv += `"${n.nome.replace(/"/g, '""')}","${n.responsavel.replace(/"/g, '""')}","${n.categoria}","${n.cidade}","${n.bairro || ''}","https://instagram.com/${n.instagram.replace('@', '')}","https://wa.me/55${n.whatsapp.replace(/\D/g, '')}","${n.descricao.replace(/"/g, '""')}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `vitrine_solidaria_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('Lista exportada em CSV para Excel/Google Sheets!', '📊');
+    });
+
+    // Initial render
+    renderCards();
+  </script>
+</body>
+</html>
