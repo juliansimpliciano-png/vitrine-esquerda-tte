@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitrine da Esquerda de Taubaté — Esquerda ajuda Esquerda</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900 min-h-screen flex flex-col">
+
+  <!-- Top Bar -->
+  <header class="bg-red-800 text-white shadow-md sticky top-0 z-40 border-b border-red-900">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-red-700 border border-red-500/40 flex items-center justify-center text-xl shadow-inner text-white font-black">
+          ★
+        </div>
+        <div>
+          <h1 class="text-lg sm:text-xl font-black tracking-tight text-white leading-tight">Vitrine da Esquerda de Taubaté</h1>
+          <p class="text-xs text-red-100 font-bold uppercase tracking-wider">Esquerda ajuda Esquerda</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="btnOpenModal" onclick="openModal()" class="bg-white hover:bg-stone-100 text-red-800 font-bold px-3.5 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all shadow-sm active:scale-95 border border-stone-200">
+          <svg class="w-4 h-4 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          <span>Cadastrar Meu Negócio</span>
+        </button>
+        <button id="btnShare" class="bg-red-900/60 hover:bg-red-900 border border-red-700/60 text-white px-3 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all active:scale-95">
+          <svg class="w-4 h-4 text-red-200" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <span class="hidden sm:inline">Compartilhar</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-red-800 to-red-950 text-white pt-7 pb-11 px-4 border-b border-red-900">
+    <div class="max-w-4xl mx-auto text-center space-y-3">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-900/80 border border-red-500/40 text-red-100">
+        ✊ Economia Popular & Apoio Mútuo em Taubaté
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Compre e contrate de quem fortalece a nossa rede</h2>
+      <p class="text-sm sm:text-base text-red-100 max-w-2xl mx-auto font-normal">
+        Catálogo unificado de prestadores de serviços, profissionais e comércios da comunidade. Toque para seguir no Instagram ou chamar no WhatsApp com 1 clique.
+      </p>
+      
+      <div class="inline-flex items-center gap-2 bg-black/30 border border-red-600/30 text-red-100 text-xs px-3.5 py-1.5 rounded-lg max-w-md mx-auto text-left sm:text-center mt-2">
+        <span class="text-red-300">🛡️</span>
+        <span><strong>Segurança:</strong> catálogo profissional e neutro para vendas públicas sem exposição de dados sensíveis.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 -mt-5 flex-1 w-full pb-16">
+
+    <!-- Search & Filter Bar -->
+    <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-4 mb-6">
+      <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+        
+        <!-- Search Input -->
+        <div class="relative flex-1">
+          <svg class="w-5 h-5 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="searchInput" placeholder="Buscar por serviço, subcategoria (ex: advogados, confeitaria, eletricista)..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent text-sm bg-stone-50/60">
+        </div>
+
+        <!-- City Filter & Stats -->
+        <div class="flex items-center gap-2.5">
+          <select id="cityFilter" class="px-3 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm bg-stone-50/60 focus:outline-none focus:ring-2 focus:ring-red-600 text-stone-700">
+            <option value="todas">Todas as Cidades</option>
+            <option value="Taubaté">Taubaté</option>
+            <option value="Pindamonhangaba">Pindamonhangaba</option>
+            <option value="São José dos Campos">São José dos Campos</option>
+            <option value="Jacareí">Jacareí</option>
+            <option value="Caçapava">Caçapava</option>
+            <option value="Ubatuba">Ubatuba</option>
+          </select>
+          <div class="bg-red-50 text-red-800 border border-red-200 text-xs font-bold px-3 py-2 rounded-xl whitespace-nowrap">
+            <span id="counter">0</span> cadastrados
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Pills (Derived from Drive structure) -->
+      <div class="mt-3.5 pt-3 border-t border-stone-100 flex items-center gap-1.5 overflow-x-auto pb-1.5 custom-scrollbar text-xs font-medium" id="categoryPills">
+        <button data-cat="todas" class="cat-pill active px-3 py-1.5 rounded-lg bg-red-700 text-white font-semibold transition-all whitespace-nowrap">★ Todas as Categorias</button>
+        <button data-cat="ALIMENTAÇÃO" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🍽️ Alimentação</button>
+        <button data-cat="SAÚDE" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🩺 Saúde</button>
+        <button data-cat="SERVIÇOS GERAIS" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🧹 Serviços Gerais</button>
+        <button data-cat="CONSTRUÇÃO" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🔨 Construção & Obras</button>
+        <button data-cat="COMÉRCIO" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🛍️ Comércio & Lojas</button>
+        <button data-cat="JURÍDICOS" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">⚖️ Jurídicos & Finanças</button>
+        <button data-cat="TI" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">💻 TI & Mídia</button>
+        <button data-cat="BELEZA" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">✂️ Beleza & Estética</button>
+        <button data-cat="AUTOMOTIVOS" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🚗 Automotivos</button>
+        <button data-cat="TRANSPORTE" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">📦 Transporte & Fretes</button>
+        <button data-cat="ENSINO" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">📚 Ensino & Aulas</button>
+        <button data-cat="ARTE" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🎭 Arte & Dança</button>
+        <button data-cat="IMÓVEIS" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🏠 Imóveis & Temporada</button>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Dynamic cards rendered via JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="text-center py-16 bg-white rounded-2xl border border-stone-200 p-8 shadow-sm">
+      <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-red-50 text-red-600 flex items-center justify-center text-2xl font-bold border border-red-100">
+        ★
+      </div>
+      <h3 class="text-base font-bold text-stone-900">Nenhum negócio encontrado</h3>
+      <p class="text-xs text-stone-500 mt-1 max-w-sm mx-auto">Cadastre o seu serviço ou ajuste a busca!</p>
+      <button id="btnCadastrarPrimeiro" onclick="openModal()" class="mt-4 px-5 py-2.5 bg-red-700 hover:bg-red-800 text-white text-xs font-bold rounded-xl transition-all shadow-sm active:scale-95">
+        + Cadastrar Meu Negócio Agora
+      </button>
+    </div>
+
+    <!-- Bottom Actions Bar -->
+    <div class="mt-10 flex flex-wrap items-center justify-between gap-4 bg-stone-100 border border-stone-200 rounded-2xl p-4 text-xs text-stone-600">
+      <div class="flex items-center gap-2">
+        <span>🚩 <strong>Solidariedade ativa:</strong> Toque no botão de encaminhar para recomendar os serviços direto no WhatsApp sem expor o link da vitrine.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="btnExportCSV" class="bg-white hover:bg-stone-50 border border-stone-200 text-stone-800 font-semibold px-3 py-1.5 rounded-lg transition-all active:scale-95 flex items-center gap-1 shadow-2xs">
+          <svg class="w-3.5 h-3.5 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Exportar Lista (CSV)
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Cadastro / Edição de Negócio -->
+  <div id="modalCadastro" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[92vh] overflow-y-auto custom-scrollbar border border-stone-100">
+      <div class="p-5 sm:p-6 border-b border-stone-100 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur z-10">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-red-100 text-red-700 flex items-center justify-center text-sm font-bold">★</span>
+          <div>
+            <h3 id="modalTitle" class="text-base font-bold text-stone-900">Cadastrar Negócio na Vitrine</h3>
+            <p id="modalSubtitle" class="text-xs text-stone-500">Categorias oficiais da comunidade Esquerda ajuda Esquerda</p>
+          </div>
+        </div>
+        <button id="btnCloseModal" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 hover:bg-stone-200 flex items-center justify-center transition-all">✕</button>
+      </div>
+
+      <form id="formCadastro" class="p-5 sm:p-6 space-y-4">
+        <input type="hidden" id="editCardId" value="">
+
+        <!-- Foto do Negócio / Logotipo -->
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Foto ou Logotipo do Negócio (Opcional)</label>
+          <div class="flex items-center gap-3">
+            <div id="photoPreviewContainer" class="w-14 h-14 rounded-2xl bg-stone-100 border border-stone-200 overflow-hidden flex items-center justify-center text-stone-400 shrink-0">
+              <span id="previewPlaceholder" class="text-xs font-bold text-stone-400">SEM FOTO</span>
+              <img id="imgPreview" src="" alt="Prévia" class="w-full h-full object-cover hidden">
+            </div>
+            <div class="flex-1 space-y-1">
+              <label class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-semibold rounded-xl cursor-pointer border border-stone-200 transition-all">
+                <svg class="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span>Escolher foto do celular/PC</span>
+                <input type="file" id="inputFoto" accept="image/*" class="hidden">
+              </label>
+              <button type="button" id="btnRemoveFoto" class="text-[11px] text-red-600 hover:text-red-800 font-semibold block hidden">Remover foto</button>
+              <p class="text-[10px] text-stone-400 leading-tight">Dica: fotos quadradas ficam perfeitas no cartão. Se não tiver, criamos um avatar com as iniciais.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Nome do Negócio / Marca *</label>
+          <input type="text" id="inputNomeNegocio" required placeholder="Ex: Doçaria Popular, Marcenaria da Vila" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Responsável / Seu Nome *</label>
+          <input type="text" id="inputResponsavel" required placeholder="Ex: Maria dos Santos" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+        </div>
+
+        <!-- Dynamic Category & Subcategory Selectors -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Categoria Principal *</label>
+            <select id="inputCategoria" required class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60 text-stone-700 font-medium">
+              <!-- Populated via JS -->
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Subcategoria *</label>
+            <select id="inputSubcategoria" required class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60 text-stone-700 font-medium">
+              <!-- Populated dynamically based on category -->
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Instagram (@) *</label>
+            <div class="relative">
+              <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-sm font-semibold">@</span>
+              <input type="text" id="inputInstagram" required placeholder="seunegocio" class="w-full pl-8 pr-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+            </div>
+            <p class="text-[10px] text-stone-400 mt-0.5">Apenas o @ sem o link</p>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">WhatsApp Comercial *</label>
+            <input type="tel" id="inputWhatsapp" required placeholder="(12) 99999-9999" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Cidade *</label>
+            <select id="inputCidade" required class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60 text-stone-700">
+              <option value="Taubaté">Taubaté</option>
+              <option value="Pindamonhangaba">Pindamonhangaba</option>
+              <option value="São José dos Campos">São José dos Campos</option>
+              <option value="Jacareí">Jacareí</option>
+              <option value="Caçapava">Caçapava</option>
+              <option value="Ubatuba">Ubatuba</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Bairro (Opcional)</label>
+            <input type="text" id="inputBairro" placeholder="Ex: Quiririm, Centro, Cecap" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Descrição do Produto ou Serviço *</label>
+          <textarea id="inputDescricao" rows="2" required placeholder="O que você faz, produtos principais, especialidades e diferenciais..." class="w-full px-3.5 py-2 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60"></textarea>
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-2">
+          <button type="button" id="btnCancelCadastro" onclick="closeModal()" class="px-4 py-2.5 rounded-xl border border-stone-200 text-stone-600 hover:bg-stone-100 text-xs font-bold transition-all">Cancelar</button>
+          <button type="submit" id="btnSubmitForm" class="px-5 py-2.5 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1.5">
+            <span id="btnSubmitText">Salvar na Vitrine</span>
+            <svg id="submitSpinner" class="w-4 h-4 animate-spin hidden" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-stone-900 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs font-medium translate-y-20 opacity-0 transition-all duration-300 pointer-events-none border border-stone-700">
+    <span class="text-base" id="toastIcon">★</span>
+    <span id="toastMsg">Mensagem</span>
+  </div>
+
+  <footer class="bg-stone-900 text-stone-400 py-6 text-center text-xs border-t border-stone-800">
+    <div class="max-w-6xl mx-auto px-4 space-y-1">
+      <p class="text-stone-200 font-bold">Vitrine da Esquerda de Taubaté — Esquerda ajuda Esquerda</p>
+      <p class="text-stone-500">Desenvolvido como ferramenta comunitária aberta para fortalecer os negócios da nossa rede.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Taxonomia Oficial extraída das pastas do Google Drive da comunidade
+    const taxonomia = {
+      "ALIMENTAÇÃO": [
+        "Açougues",
+        "Bares",
+        "Confeitarias",
+        "Lanchonetes",
+        "Padarias",
+        "Restaurantes",
+        "Sorveterias",
+        "Outros em Alimentação"
+      ],
+      "SAÚDE": [
+        "Psicólogos",
+        "Dentistas",
+        "Médicos",
+        "Fisioterapeutas / Massoterapeutas",
+        "Nutricionistas",
+        "Fono / Terapia Ocupacional",
+        "Personais Trainer",
+        "Academias / Clínicas / Studios Pilates",
+        "Outros em Saúde"
+      ],
+      "SERVIÇOS GERAIS": [
+        "Diaristas",
+        "Faxineiras",
+        "Cozinheiras",
+        "Cuidadores(as)",
+        "Manutenção Residencial",
+        "Outros em Serviços Gerais"
+      ],
+      "CONSTRUÇÃO": [
+        "Arquitetos",
+        "Engenheiros em Geral",
+        "Pedreiros",
+        "Pintores",
+        "Eletricistas",
+        "Encanadores",
+        "Jardineiros",
+        "Dedetizadores",
+        "Outros em Construção"
+      ],
+      "COMÉRCIO": [
+        "Mercados e Mercearias",
+        "Lojas de Roupas",
+        "Lojas de Calçados",
+        "Lojas de Acessórios",
+        "Lojas de Eletrônicos",
+        "Papelaria",
+        "Casa de Construção",
+        "Gráficas",
+        "Aluguel de Artigos para Festas",
+        "Gelo para Bebidas",
+        "Outros no Comércio"
+      ],
+      "JURÍDICOS": [
+        "Advogados",
+        "Contadores",
+        "Despachantes",
+        "Corretoras de Seguros",
+        "Outros em Jurídicos & Finanças"
+      ],
+      "TI": [
+        "Designers",
+        "Social Mídia",
+        "Fotógrafos",
+        "Técnicos em Informática",
+        "Desenvolvedores & Suporte",
+        "Outros em TI & Mídia"
+      ],
+      "BELEZA": [
+        "Salão de Beleza",
+        "Barbeiros",
+        "Manicure & Pedicure",
+        "Esteticistas",
+        "Outros em Beleza"
+      ],
+      "AUTOMOTIVOS": [
+        "Mecânicos",
+        "Eletricista Auto",
+        "Funileiros",
+        "Martelinho de Ouro",
+        "Lavadores / Lava-Rápido",
+        "Higienização Automotiva / Residencial",
+        "Outros em Automotivo"
+      ],
+      "TRANSPORTE": [
+        "Fretes & Mudanças",
+        "Taxistas",
+        "App Uber/99 Passageiro",
+        "App Uber/99 Entregadores",
+        "Outros em Transporte"
+      ],
+      "ENSINO": [
+        "Aulas Particulares / Reforço Escolar",
+        "Professores de Idiomas",
+        "Consultoria Educacional",
+        "Professores em Geral",
+        "Outros em Ensino"
+      ],
+      "ARTE": [
+        "Dança",
+        "Música & Shows",
+        "Artesanato & Artes Plásticas",
+        "Outros em Arte & Cultura"
+      ],
+      "IMÓVEIS": [
+        "Locação de Temporada (Litoral / Vale)",
+        "Aluguel Residencial / Comercial",
+        "Venda e Assessoria Imobiliária",
+        "Outros em Imóveis"
+      ]
+    };
+
+    // CONEXÃO OFICIAL SHEETDB COM A SUA PLANILHA
+    const SHEETDB_URL = "https://sheetdb.io/api/v1/ekk2llcfombz2";
+
+    let negocios = [];
+    let myCardIds = [];
+    try {
+      const storedIds = localStorage.getItem('vitrine_my_card_ids_v1');
+      if (storedIds) {
+        myCardIds = JSON.parse(storedIds);
+      }
+    } catch (e) {
+      myCardIds = [];
+    }
+
+    let currentCategory = 'todas';
+    let currentCity = 'todas';
+    let searchQuery = '';
+    let currentPhotoBase64 = '';
+
+    // DOM Elements
+    const cardsGrid = document.getElementById('cardsGrid');
+    const emptyState = document.getElementById('emptyState');
+    const counterEl = document.getElementById('counter');
+    const searchInput = document.getElementById('searchInput');
+    const cityFilter = document.getElementById('cityFilter');
+    const categoryPills = document.querySelectorAll('.cat-pill');
+    
+    // Modal Elements
+    const modalCadastro = document.getElementById('modalCadastro');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const btnSubmitForm = document.getElementById('btnSubmitForm');
+    const btnSubmitText = document.getElementById('btnSubmitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+    const editCardId = document.getElementById('editCardId');
+    const btnOpenModal = document.getElementById('btnOpenModal');
+    const btnCadastrarPrimeiro = document.getElementById('btnCadastrarPrimeiro');
+    const btnCloseModal = document.getElementById('btnCloseModal');
+    const btnCancelCadastro = document.getElementById('btnCancelCadastro');
+    const formCadastro = document.getElementById('formCadastro');
+    const inputCategoria = document.getElementById('inputCategoria');
+    const inputSubcategoria = document.getElementById('inputSubcategoria');
+    const inputFoto = document.getElementById('inputFoto');
+    const imgPreview = document.getElementById('imgPreview');
+    const previewPlaceholder = document.getElementById('previewPlaceholder');
+    const btnRemoveFoto = document.getElementById('btnRemoveFoto');
+    const btnExportCSV = document.getElementById('btnExportCSV');
+    const btnShare = document.getElementById('btnShare');
+
+    btnShare.addEventListener('click', () => {
+      const inviteMsg = '✊ *Vitrine da Esquerda de Taubaté* - Conheça nossa rede de apoio mútuo!';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(inviteMsg).then(() => {
+          showToast('Mensagem de convite copiada!', '📋');
+        });
+      }
+    });
+    
+    // Toast
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+    const toastIcon = document.getElementById('toastIcon');
+
+    function showToast(msg, icon = '★') {
+      toastMsg.textContent = msg;
+      toastIcon.textContent = icon;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+
+    // Leitura e Sincronização em Tempo Real via SheetDB
+    async function carregarDadosDaPlanilha() {
+      try {
+        const resp = await fetch(SHEETDB_URL);
+        if (!resp.ok) return;
+        const dados = await resp.json();
+        if (!Array.isArray(dados) || dados.length === 0) return;
+
+        negocios = dados.filter(item => item.Nome_Negocio && item.Nome_Negocio.trim() !== '').map(item => {
+          return {
+            id: item.ID || String(Date.now()),
+            nome: item.Nome_Negocio,
+            responsavel: item.Responsavel || '',
+            categoria: item.Categoria || 'COMÉRCIO',
+            subcategoria: item.Subcategoria || '',
+            cidade: item.Cidade || 'Taubaté',
+            bairro: item.Bairro || '',
+            instagram: item.Instagram || '',
+            whatsapp: item.WhatsApp || '',
+            descricao: item.Descricao || '',
+            foto: item.Foto_URL || ''
+          };
+        });
+
+        renderCards();
+      } catch (e) {
+        console.log('Erro de leitura SheetDB, mantendo local');
+      }
+    }
+
+    // Foto Upload e Compactação
+    inputFoto.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const maxDim = 250;
+          let w = img.width;
+          let h = img.height;
+
+          if (w > h) {
+            if (w > maxDim) {
+              h *= maxDim / w;
+              w = maxDim;
+            }
+          } else {
+            if (h > maxDim) {
+              w *= maxDim / h;
+              h = maxDim;
+            }
+          }
+
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+
+          currentPhotoBase64 = canvas.toDataURL('image/jpeg', 0.8);
+          imgPreview.src = currentPhotoBase64;
+          imgPreview.classList.remove('hidden');
+          previewPlaceholder.classList.add('hidden');
+          btnRemoveFoto.classList.remove('hidden');
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    btnRemoveFoto.addEventListener('click', () => {
+      currentPhotoBase64 = '';
+      inputFoto.value = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
+    });
+
+    // Populate Category Selectors
+    function initCategorySelectors() {
+      inputCategoria.innerHTML = Object.keys(taxonomia).map(cat => {
+        return `<option value="${cat}">${cat}</option>`;
+      }).join('');
+
+      updateSubcategories();
+
+      inputCategoria.addEventListener('change', updateSubcategories);
+    }
+
+    function updateSubcategories() {
+      const selectedCat = inputCategoria.value;
+      const subs = taxonomia[selectedCat] || [];
+      inputSubcategoria.innerHTML = subs.map(sub => {
+        return `<option value="${sub}">${sub}</option>`;
+      }).join('');
+    }
+
+    initCategorySelectors();
+
+    function renderCards() {
+      const filtered = negocios.filter(item => {
+        const matchesCategory = currentCategory === 'todas' || item.categoria === currentCategory;
+        const matchesCity = currentCity === 'todas' || item.cidade === currentCity;
+        
+        const q = searchQuery.toLowerCase().trim();
+        const matchesSearch = !q || 
+          item.nome.toLowerCase().includes(q) ||
+          item.responsavel.toLowerCase().includes(q) ||
+          item.descricao.toLowerCase().includes(q) ||
+          (item.subcategoria && item.subcategoria.toLowerCase().includes(q)) ||
+          item.categoria.toLowerCase().includes(q) ||
+          item.instagram.toLowerCase().includes(q) ||
+          (item.bairro && item.bairro.toLowerCase().includes(q));
+
+        return matchesCategory && matchesCity && matchesSearch;
+      });
+
+      counterEl.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        cardsGrid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      cardsGrid.innerHTML = filtered.map(item => {
+        const cleanInsta = item.instagram.replace('@', '').trim();
+        const cleanWhats = item.whatsapp.replace(/\D/g, '');
+        const whatsUrl = `https://wa.me/55${cleanWhats}?text=Ol%C3%A1!%20Vi%20seu%20contato%20na%20Vitrine%20de%20Taubat%C3%A9%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento.`;
+        const instaUrl = `https://instagram.com/${cleanInsta}`;
+
+        const isMyCard = myCardIds.includes(item.id);
+
+        const shareMsg = `🌟 *Indicação de Confiança — ${item.nome}*\n\n` +
+          `👤 *Responsável:* ${item.responsavel}\n` +
+          `🏷️ *Área:* ${item.categoria}${item.subcategoria ? ` (${item.subcategoria})` : ''}\n` +
+          `📍 *Local:* ${item.cidade}${item.bairro ? ` - ${item.bairro}` : ''}\n` +
+          `📝 *Sobre:* ${item.descricao}\n\n` +
+          `📲 *WhatsApp direto:* https://wa.me/55${cleanWhats}\n` +
+          `📸 *Instagram:* https://instagram.com/${cleanInsta}\n\n` +
+          `✊ _Serviço de confiança e qualidade da nossa região!_`;
+        
+        const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareMsg)}`;
+
+        const avatarHtml = item.foto 
+          ? `<img src="${item.foto}" alt="${item.nome}" class="w-12 h-12 rounded-2xl object-cover border border-stone-200 shadow-2xs shrink-0">`
+          : `<div class="w-12 h-12 rounded-2xl bg-red-100 text-red-800 font-extrabold flex items-center justify-center text-base border border-red-200 shadow-2xs shrink-0">${item.nome.charAt(0).toUpperCase()}</div>`;
+
+        return `
+          <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md border border-stone-200 transition-all flex flex-col justify-between group relative" data-id="${item.id}">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-3">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-red-50 text-red-800 border-red-200">
+                  ${item.categoria} ${item.subcategoria ? `• ${item.subcategoria}` : ''}
+                </span>
+                
+                <div class="flex items-center gap-1.5">
+                  <span class="text-[11px] text-stone-600 flex items-center gap-1 font-medium bg-stone-100 px-2 py-0.5 rounded-md">
+                    📍 ${item.cidade}${item.bairro ? ` • ${item.bairro}` : ''}
+                  </span>
+                  ${isMyCard ? `
+                    <button class="btn-edit-card p-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-red-700 transition-all" title="Editar este cartão">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                    </button>
+                  ` : ''}
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 mb-2.5">
+                ${avatarHtml}
+                <div class="min-w-0 flex-1">
+                  <h3 class="font-bold text-base text-stone-900 group-hover:text-red-700 transition-colors leading-snug truncate">
+                    ${item.nome}
+                  </h3>
+                  <p class="text-xs text-stone-500 truncate">Por <strong>${item.responsavel}</strong></p>
+                </div>
+              </div>
+
+              <p class="text-xs text-stone-600 line-clamp-3 mb-4 leading-relaxed font-normal">
+                ${item.descricao}
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-stone-100 space-y-2 mt-2">
+              <div class="grid grid-cols-2 gap-2">
+                <a href="${instaUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 hover:bg-red-50 hover:text-red-700 text-stone-800 border border-stone-200 font-bold text-xs transition-all active:scale-95 text-center truncate" title="Abrir perfil @${cleanInsta}">
+                  <svg class="w-3.5 h-3.5 text-red-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  <span class="truncate">@${cleanInsta}</span>
+                </a>
+                <a href="${whatsUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white font-bold text-xs transition-all active:scale-95 text-center shadow-xs" title="Conversar no WhatsApp">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                  <span>Chamar</span>
+                </a>
+              </div>
+
+              <a href="${shareUrl}" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/90 font-bold text-xs transition-all active:scale-95 shadow-2xs">
+                <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.31A9.95 9.95 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm3.8 14.2c-.2.5-.9 1-1.5 1.1-.4.1-.9.1-2.6-.6-2.1-.9-3.5-3-3.6-3.1-.1-.1-.8-1.1-.8-2.1s.5-1.5.7-1.7c.2-.2.4-.3.6-.3.2 0 .3 0 .4.1.2.4.6 1.4.6 1.5.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.3-.1.5.2.4.8 1.4 1.8 2.2 1.2 1 2.2 1.3 2.5 1.4.2.1.4 0 .5-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1.2.1 1.4.7 1.6.8.2.1.4.2.4.3 0 .2 0 1.2-.5 1.7z"/></svg>
+                <span>Encaminhar no WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.querySelectorAll('.btn-edit-card').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('[data-id]');
+          const id = card.getAttribute('data-id');
+          openEditModal(id);
+        });
+      });
+    }
+
+    // Event Listeners for Filters
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderCards();
+    });
+
+    cityFilter.addEventListener('change', (e) => {
+      currentCity = e.target.value;
+      renderCards();
+    });
+
+    categoryPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        categoryPills.forEach(p => {
+          p.classList.remove('bg-red-700', 'text-white', 'font-semibold');
+          p.classList.add('bg-stone-100', 'text-stone-700');
+        });
+        pill.classList.remove('bg-stone-100', 'text-stone-700');
+        pill.classList.add('bg-red-700', 'text-white', 'font-semibold');
+        currentCategory = pill.getAttribute('data-cat');
+        renderCards();
+      });
+    });
+
+    // Modal Handlers Globais
+    window.openModal = function openModal() {
+      editCardId.value = '';
+      modalTitle.textContent = 'Cadastrar Negócio na Vitrine';
+      modalSubtitle.textContent = 'Categorias oficiais da comunidade Esquerda ajuda Esquerda';
+      btnSubmitText.textContent = 'Salvar na Vitrine';
+      
+      currentPhotoBase64 = '';
+      inputFoto.value = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
+
+      formCadastro.reset();
+      updateSubcategories();
+
+      modalCadastro.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    function openEditModal(id) {
+      const item = negocios.find(n => n.id === id);
+      if (!item) return;
+
+      editCardId.value = item.id;
+      modalTitle.textContent = 'Editar Meu Negócio';
+      modalSubtitle.textContent = 'Atualize as informações do seu cartão na vitrine';
+      btnSubmitText.textContent = 'Salvar Alterações';
+
+      document.getElementById('inputNomeNegocio').value = item.nome;
+      document.getElementById('inputResponsavel').value = item.responsavel;
+      document.getElementById('inputCategoria').value = item.categoria;
+      updateSubcategories();
+      if (item.subcategoria) {
+        document.getElementById('inputSubcategoria').value = item.subcategoria;
+      }
+      document.getElementById('inputInstagram').value = item.instagram.replace('@', '');
+      document.getElementById('inputWhatsapp').value = item.whatsapp;
+      document.getElementById('inputCidade').value = item.cidade;
+      document.getElementById('inputBairro').value = item.bairro || '';
+      document.getElementById('inputDescricao').value = item.descricao;
+
+      if (item.foto) {
+        currentPhotoBase64 = item.foto;
+        imgPreview.src = item.foto;
+        imgPreview.classList.remove('hidden');
+        previewPlaceholder.classList.add('hidden');
+        btnRemoveFoto.classList.remove('hidden');
+      } else {
+        currentPhotoBase64 = '';
+        imgPreview.src = '';
+        imgPreview.classList.add('hidden');
+        previewPlaceholder.classList.remove('hidden');
+        btnRemoveFoto.classList.add('hidden');
+      }
+
+      modalCadastro.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    window.closeModal = function closeModal() {
+      modalCadastro.classList.add('hidden');
+      document.body.style.overflow = '';
+      formCadastro.reset();
+      editCardId.value = '';
+      currentPhotoBase64 = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
+      updateSubcategories();
+    };
+
+    btnOpenModal.addEventListener('click', openModal);
+    btnCadastrarPrimeiro.addEventListener('click', openModal);
+    btnCloseModal.addEventListener('click', closeModal);
+    btnCancelCadastro.addEventListener('click', closeModal);
+    modalCadastro.addEventListener('click', (e) => {
+      if (e.target === modalCadastro) closeModal();
+    });
+
+    // Phone formatting
+    const inputWhatsapp = document.getElementById('inputWhatsapp');
+    inputWhatsapp.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+      } else if (v.length > 2) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+      } else if (v.length > 0) {
+        e.target.value = `(${v}`;
+      }
+    });
+
+    // Envio direto para o SheetDB conectado à sua Planilha Google
+    formCadastro.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const idEdit = editCardId.value;
+      const nome = document.getElementById('inputNomeNegocio').value.trim();
+      const responsavel = document.getElementById('inputResponsavel').value.trim();
+      const categoria = document.getElementById('inputCategoria').value;
+      const subcategoria = document.getElementById('inputSubcategoria').value;
+      const instagram = document.getElementById('inputInstagram').value.replace('@', '').trim();
+      const whatsapp = document.getElementById('inputWhatsapp').value.trim();
+      const cidade = document.getElementById('inputCidade').value;
+      const bairro = document.getElementById('inputBairro').value.trim();
+      const descricao = document.getElementById('inputDescricao').value.trim();
+
+      if (!nome || !responsavel || !instagram || !whatsapp || !descricao) {
+        showToast('Por favor, preencha todos os campos obrigatórios.', '⚠️');
+        return;
+      }
+
+      btnSubmitForm.disabled = true;
+      submitSpinner.classList.remove('hidden');
+      btnSubmitText.textContent = 'Enviando para a planilha...';
+
+      const payload = {
+        data: [{
+          ID: idEdit || String(Date.now()),
+          Data_Cadastro: new Date().toISOString().slice(0, 10),
+          Nome_Negocio: nome,
+          Responsavel: responsavel,
+          Categoria: categoria,
+          Subcategoria: subcategoria,
+          Cidade: cidade,
+          Bairro: bairro,
+          Instagram: instagram.startsWith('@') ? instagram : '@' + instagram,
+          WhatsApp: whatsapp,
+          Descricao: descricao,
+          Foto_URL: currentPhotoBase64 || '',
+          Status: 'Ativo'
+        }]
+      };
+
+      try {
+        if (idEdit) {
+          await fetch(`${SHEETDB_URL}/ID/${idEdit}`, {
+            method: 'PATCH',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              data: payload.data[0]
+            })
+          });
+          showToast(`Negócio "${nome}" atualizado na planilha!`, '★');
+        } else {
+          await fetch(SHEETDB_URL, {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          myCardIds.push(payload.data[0].ID);
+          try {
+            localStorage.setItem('vitrine_my_card_ids_v1', JSON.stringify(myCardIds));
+          } catch (err) {}
+
+          showToast(`Negócio "${nome}" salvo com sucesso para todos!`, '★');
+        }
+
+        closeModal();
+        await carregarDadosDaPlanilha();
+
+      } catch (err) {
+        showToast('Erro ao salvar na nuvem, tente novamente.', '⚠️');
+        console.error(err);
+      } finally {
+        btnSubmitForm.disabled = false;
+        submitSpinner.classList.add('hidden');
+        btnSubmitText.textContent = idEdit ? 'Salvar Alterações' : 'Salvar na Vitrine';
+      }
+    });
+
+    // Export CSV
+    btnExportCSV.addEventListener('click', () => {
+      if (negocios.length === 0) {
+        showToast('Ainda não há negócios cadastrados para exportar.', 'ℹ️');
+        return;
+      }
+
+      let csv = 'Nome do Negocio,Responsavel,Categoria,Subcategoria,Cidade,Bairro,Instagram,WhatsApp,Descricao\n';
+      negocios.forEach(n => {
+        csv += `"${n.nome.replace(/"/g, '""')}","${n.responsavel.replace(/"/g, '""')}","${n.categoria}","${n.subcategoria || ''}","${n.cidade}","${n.bairro || ''}","https://instagram.com/${n.instagram.replace('@', '')}","https://wa.me/55${n.whatsapp.replace(/\D/g, '')}","${n.descricao.replace(/"/g, '""')}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `vitrine_esquerda_taubate_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('Lista exportada com sucesso!', '📊');
+    });
+
+    // Inicia carregando da planilha Google e depois renderiza
+    carregarDadosDaPlanilha();
+  </script>
+</body>
+</html>
