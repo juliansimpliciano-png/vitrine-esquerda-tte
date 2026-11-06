@@ -391,18 +391,7 @@
     const SPREADSHEET_ID = "1YG3GaHY9rkwNjHBFS3PW2TTB93wikrI8pTf4zGA_g70";
     const CSV_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=P%C3%A1gina1`;
 
-    // State management
     let negocios = [];
-    try {
-      const stored = localStorage.getItem('vitrine_esquerda_taubate_v2');
-      if (stored) {
-        negocios = JSON.parse(stored);
-      }
-    } catch (e) {
-      negocios = [];
-    }
-
-    // IDs dos cartões criados pelo próprio usuário neste navegador
     let myCardIds = [];
     try {
       const storedIds = localStorage.getItem('vitrine_my_card_ids_v1');
@@ -476,7 +465,7 @@
         if (!resp.ok) return;
         const text = await resp.text();
         const linhas = parseCSV(text);
-        if (linhas.length <= 1) return; // apenas cabeçalho
+        if (linhas.length <= 1) return;
 
         const daPlanilha = [];
         for (let i = 1; i < linhas.length; i++) {
@@ -499,14 +488,7 @@
         }
 
         if (daPlanilha.length > 0) {
-          const mapa = new Map();
-          daPlanilha.forEach(item => mapa.set(item.id, item));
-          negocios.forEach(item => {
-            if (!mapa.has(item.id)) {
-              mapa.set(item.id, item);
-            }
-          });
-          negocios = Array.from(mapa.values());
+          negocios = daPlanilha;
           renderCards();
         }
       } catch (e) {
@@ -642,18 +624,13 @@
       cardsGrid.innerHTML = filtered.map(item => {
         const cleanInsta = item.instagram.replace('@', '').trim();
         const cleanWhats = item.whatsapp.replace(/\D/g, '');
-        const whatsUrl = `https://wa.me/55${cleanWhats}?text=Ol%C3%A1!%20Vi%20seu%20contato%20na%20Vitrine%20de%20Taubat%C3%A9%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento.`;
-        const instaUrl = `https://instagram.com/${cleanInsta}`;
+        const whatsUrl = `https://wa.me/55${cleanWhats}?text=Ol\%C3\%A1!\%20Vi\%20seu\%20contato\%20na\%20Vitrine\%20de\%20Taubat\%C3\%A9\%20e\%20gostaria\%20de\%20fazer\%20um\%20or\%C3\%A7amento.`; const instaUrl = `https://instagram.com/${cleanInsta}`;
 
         const isMyCard = myCardIds.includes(item.id);
 
         const shareMsg = `🌟 *Indicação de Confiança — ${item.nome}*\n\n` +
-          `👤 *Responsável:* ${item.responsavel}\n` +
-          `🏷️ *Área:* ${item.categoria}${item.subcategoria ? ` (${item.subcategoria})` : ''}\n` +
-          `📍 *Local:* ${item.cidade}${item.bairro ? ` - ${item.bairro}` : ''}\n` +
-          `📝 *Sobre:* ${item.descricao}\n\n` +
-          `📲 *WhatsApp direto:* https://wa.me/55${cleanWhats}\n` +
-          `📸 *Instagram:* https://instagram.com/${cleanInsta}\n\n` +
+          `👤 *Responsável:* ${item.responsavel}\n` + `🏷️ *Área:* ${item.categoria}${item.subcategoria ? ` (${item.subcategoria})` : ''}\n` + `📍 *Local:* ${item.cidade}${item.bairro ? ` - ${item.bairro}` : ''}\n` + `📝 *Sobre:* ${item.descricao}\n\n` +
+          `📲 *WhatsApp direto:* https://wa.me/55${cleanWhats}\n` + `📸 *Instagram:* https://instagram.com/${cleanInsta}\n\n` +
           `✊ _Serviço de confiança e qualidade da nossa região!_`;
         
         const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareMsg)}`;
@@ -667,7 +644,7 @@
             <div>
               <div class="flex items-start justify-between gap-2 mb-3">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-red-50 text-red-800 border-red-200">
-                  ${item.categoria} ${item.subcategoria ? `• ${item.subcategoria}` : ''}
+                  ${item.categoria}${item.subcategoria ? `• ${item.subcategoria}` : ''}
                 </span>
                 
                 <div class="flex items-center gap-1.5">
@@ -704,253 +681,4 @@
                   <span class="truncate">@${cleanInsta}</span>
                 </a>
                 <a href="${whatsUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white font-bold text-xs transition-all active:scale-95 text-center shadow-xs" title="Conversar no WhatsApp">
-                  <svg class="w-3.5 h-3.5 text-white shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                  <span>Chamar</span>
-                </a>
-              </div>
-
-              <!-- Botão Encaminhar Serviço no WhatsApp (Sem link do site) -->
-              <a href="${shareUrl}" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/90 font-bold text-xs transition-all active:scale-95 shadow-2xs">
-                <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.31A9.95 9.95 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm3.8 14.2c-.2.5-.9 1-1.5 1.1-.4.1-.9.1-2.6-.6-2.1-.9-3.5-3-3.6-3.1-.1-.1-.8-1.1-.8-2.1s.5-1.5.7-1.7c.2-.2.4-.3.6-.3.2 0 .3 0 .4.1.2.4.6 1.4.6 1.5.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.3-.1.5.2.4.8 1.4 1.8 2.2 1.2 1 2.2 1.3 2.5 1.4.2.1.4 0 .5-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1.2.1 1.4.7 1.6.8.2.1.4.2.4.3 0 .2 0 1.2-.5 1.7z"/></svg>
-                <span>Encaminhar no WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      document.querySelectorAll('.btn-edit-card').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const card = e.target.closest('[data-id]');
-          const id = card.getAttribute('data-id');
-          openEditModal(id);
-        });
-      });
-    }
-
-    // Event Listeners for Filters
-    searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value;
-      renderCards();
-    });
-
-    cityFilter.addEventListener('change', (e) => {
-      currentCity = e.target.value;
-      renderCards();
-    });
-
-    categoryPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        categoryPills.forEach(p => {
-          p.classList.remove('bg-red-700', 'text-white', 'font-semibold');
-          p.classList.add('bg-stone-100', 'text-stone-700');
-        });
-        pill.classList.remove('bg-stone-100', 'text-stone-700');
-        pill.classList.add('bg-red-700', 'text-white', 'font-semibold');
-        currentCategory = pill.getAttribute('data-cat');
-        renderCards();
-      });
-    });
-
-    // Modal Handlers Globais para resposta instantânea ao clique
-    window.openModal = function openModal() {
-      editCardId.value = '';
-      modalTitle.textContent = 'Cadastrar Negócio na Vitrine';
-      modalSubtitle.textContent = 'Categorias oficiais da comunidade Esquerda ajuda Esquerda';
-      btnSubmitForm.textContent = 'Salvar na Vitrine';
-      
-      currentPhotoBase64 = '';
-      inputFoto.value = '';
-      imgPreview.src = '';
-      imgPreview.classList.add('hidden');
-      previewPlaceholder.classList.remove('hidden');
-      btnRemoveFoto.classList.add('hidden');
-
-      formCadastro.reset();
-      updateSubcategories();
-
-      modalCadastro.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    };
-
-    function openEditModal(id) {
-      const item = negocios.find(n => n.id === id);
-      if (!item) return;
-
-      editCardId.value = item.id;
-      modalTitle.textContent = 'Editar Meu Negócio';
-      modalSubtitle.textContent = 'Atualize as informações do seu cartão na vitrine';
-      btnSubmitForm.textContent = 'Salvar Alterações';
-
-      document.getElementById('inputNomeNegocio').value = item.nome;
-      document.getElementById('inputResponsavel').value = item.responsavel;
-      document.getElementById('inputCategoria').value = item.categoria;
-      updateSubcategories();
-      if (item.subcategoria) {
-        document.getElementById('inputSubcategoria').value = item.subcategoria;
-      }
-      document.getElementById('inputInstagram').value = item.instagram.replace('@', '');
-      document.getElementById('inputWhatsapp').value = item.whatsapp;
-      document.getElementById('inputCidade').value = item.cidade;
-      document.getElementById('inputBairro').value = item.bairro || '';
-      document.getElementById('inputDescricao').value = item.descricao;
-
-      if (item.foto) {
-        currentPhotoBase64 = item.foto;
-        imgPreview.src = item.foto;
-        imgPreview.classList.remove('hidden');
-        previewPlaceholder.classList.add('hidden');
-        btnRemoveFoto.classList.remove('hidden');
-      } else {
-        currentPhotoBase64 = '';
-        imgPreview.src = '';
-        imgPreview.classList.add('hidden');
-        previewPlaceholder.classList.remove('hidden');
-        btnRemoveFoto.classList.add('hidden');
-      }
-
-      modalCadastro.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    window.closeModal = function closeModal() {
-      modalCadastro.classList.add('hidden');
-      document.body.style.overflow = '';
-      formCadastro.reset();
-      editCardId.value = '';
-      currentPhotoBase64 = '';
-      imgPreview.src = '';
-      imgPreview.classList.add('hidden');
-      previewPlaceholder.classList.remove('hidden');
-      btnRemoveFoto.classList.add('hidden');
-      updateSubcategories();
-    };
-
-    btnOpenModal.addEventListener('click', openModal);
-    btnCadastrarPrimeiro.addEventListener('click', openModal);
-    btnCloseModal.addEventListener('click', closeModal);
-    btnCancelCadastro.addEventListener('click', closeModal);
-    modalCadastro.addEventListener('click', (e) => {
-      if (e.target === modalCadastro) closeModal();
-    });
-
-    // Phone formatting
-    const inputWhatsapp = document.getElementById('inputWhatsapp');
-    inputWhatsapp.addEventListener('input', (e) => {
-      let v = e.target.value.replace(/\D/g, '');
-      if (v.length > 11) v = v.slice(0, 11);
-      if (v.length > 6) {
-        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
-      } else if (v.length > 2) {
-        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
-      } else if (v.length > 0) {
-        e.target.value = `(${v}`;
-      }
-    });
-
-    // Handle Form Submit
-    formCadastro.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const idEdit = editCardId.value;
-      const nome = document.getElementById('inputNomeNegocio').value.trim();
-      const responsavel = document.getElementById('inputResponsavel').value.trim();
-      const categoria = document.getElementById('inputCategoria').value;
-      const subcategoria = document.getElementById('inputSubcategoria').value;
-      const instagram = document.getElementById('inputInstagram').value.replace('@', '').trim();
-      const whatsapp = document.getElementById('inputWhatsapp').value.trim();
-      const cidade = document.getElementById('inputCidade').value;
-      const bairro = document.getElementById('inputBairro').value.trim();
-      const descricao = document.getElementById('inputDescricao').value.trim();
-
-      if (!nome || !responsavel || !instagram || !whatsapp || !descricao) {
-        showToast('Por favor, preencha todos os campos obrigatórios.', '⚠️');
-        return;
-      }
-
-      if (idEdit) {
-        const idx = negocios.findIndex(n => n.id === idEdit);
-        if (idx !== -1) {
-          negocios[idx] = {
-            ...negocios[idx],
-            nome,
-            responsavel,
-            categoria,
-            subcategoria,
-            cidade,
-            bairro,
-            instagram,
-            whatsapp,
-            descricao,
-            foto: currentPhotoBase64
-          };
-          showToast(`Negócio "${nome}" atualizado com sucesso!`, '★');
-        }
-      } else {
-        const newId = Date.now().toString();
-        const novo = {
-          id: newId,
-          nome,
-          responsavel,
-          categoria,
-          subcategoria,
-          cidade,
-          bairro,
-          instagram,
-          whatsapp,
-          descricao,
-          foto: currentPhotoBase64
-        };
-
-        negocios.unshift(novo);
-        myCardIds.push(newId);
-
-        try {
-          localStorage.setItem('vitrine_my_card_ids_v1', JSON.stringify(myCardIds));
-        } catch (err) {
-          console.error(err);
-        }
-
-        showToast(`Negócio "${nome}" cadastrado com sucesso!`, '★');
-      }
-
-      try {
-        localStorage.setItem('vitrine_esquerda_taubate_v2', JSON.stringify(negocios));
-      } catch (err) {
-        console.error(err);
-      }
-
-      closeModal();
-      currentCategory = 'todas';
-      categoryPills[0].click();
-      renderCards();
-    });
-
-    // Export CSV
-    btnExportCSV.addEventListener('click', () => {
-      if (negocios.length === 0) {
-        showToast('Ainda não há negócios cadastrados para exportar.', 'ℹ️');
-        return;
-      }
-
-      let csv = 'Nome do Negocio,Responsavel,Categoria,Subcategoria,Cidade,Bairro,Instagram,WhatsApp,Descricao\n';
-      negocios.forEach(n => {
-        csv += `"${n.nome.replace(/"/g, '""')}","${n.responsavel.replace(/"/g, '""')}","${n.categoria}","${n.subcategoria || ''}","${n.cidade}","${n.bairro || ''}","https://instagram.com/${n.instagram.replace('@', '')}","https://wa.me/55${n.whatsapp.replace(/\D/g, '')}","${n.descricao.replace(/"/g, '""')}"\n`;
-      });
-
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `vitrine_esquerda_taubate_${new Date().toISOString().slice(0, 10)}.csv`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      showToast('Lista exportada com sucesso!', '📊');
-    });
-
-    // Inicia carregando da planilha Google e depois renderiza
-    carregarDadosDaPlanilha().then(renderCards);
-  </script>
-</body>
-</html>
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1
