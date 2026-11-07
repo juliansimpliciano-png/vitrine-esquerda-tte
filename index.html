@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -418,8 +419,8 @@
       ]
     };
 
-    // CONEXÃO OFICIAL SHEETDB COM A SUA PLANILHA
-    const SHEETDB_URL = "https://sheetdb.io/api/v1/ekk2llcfombz2";
+    // CONEXÃO OFICIAL GOOGLE APPS SCRIPT (ILIMITADA E GRATUITA)
+    const API_URL = "https://script.google.com/macros/s/AKfycbz_OxyVm-3ASRLpW5lpoTKVOyleOdnqosFuT64Nw1Lzbv7fNvPmsLLjozPBntccUUGWvQ/exec";
 
     // FOTO REAL DA FLÁVIA BONANI EMBUTIDA COMO GARANTIA VISUAL
     const FLAVIA_AVATAR_B64 = "data:image/jpeg;base64,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";
@@ -491,10 +492,10 @@
       }, 3500);
     }
 
-    // Leitura e Sincronização em Tempo Real via SheetDB
+    // Leitura e Sincronização em Tempo Real via Google Apps Script
     async function carregarDadosDaPlanilha() {
       try {
-        const resp = await fetch(SHEETDB_URL);
+        const resp = await fetch(API_URL);
         if (!resp.ok) return;
         const dados = await resp.json();
         if (!Array.isArray(dados) || dados.length === 0) return;
@@ -524,7 +525,7 @@
 
         renderCards();
       } catch (e) {
-        console.log('Erro de leitura SheetDB, mantendo local');
+        console.log('Erro de leitura da API Google Sheets:', e);
       }
     }
 
@@ -865,7 +866,7 @@
       }
     });
 
-    // Envio direto para o SheetDB conectado à sua Planilha Google
+    // Envio direto para o Google Apps Script conectado à sua Planilha
     formCadastro.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -891,48 +892,32 @@
       btnSubmitText.textContent = 'Enviando para a planilha...';
 
       const payload = {
-        data: [{
-          ID: idEdit || String(Date.now()),
-          Data_Cadastro: new Date().toISOString().slice(0, 10),
-          Nome_Negocio: nome,
-          Responsavel: responsavel,
-          Categoria: categoria,
-          Subcategoria: subcategoria,
-          Cidade: cidade,
-          Bairro: bairro,
-          Instagram: instagram.startsWith('@') ? instagram : '@' + instagram,
-          WhatsApp: whatsapp,
-          Descricao: descricao,
-          Foto_URL: currentPhotoBase64 || '',
-          Status: 'Ativo',
-          Senha_PIN: pin
-        }]
+        ID: idEdit || String(Date.now()),
+        Data_Cadastro: new Date().toISOString().slice(0, 10),
+        Nome_Negocio: nome,
+        Responsavel: responsavel,
+        Categoria: categoria,
+        Subcategoria: subcategoria,
+        Cidade: cidade,
+        Bairro: bairro,
+        Instagram: instagram.startsWith('@') ? instagram : '@' + instagram,
+        WhatsApp: whatsapp,
+        Descricao: descricao,
+        Foto_URL: currentPhotoBase64 || '',
+        Status: 'Ativo',
+        Senha_PIN: pin
       };
 
       try {
-        if (idEdit) {
-          await fetch(`${SHEETDB_URL}/ID/${idEdit}`, {
-            method: 'PATCH',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              data: payload.data[0]
-            })
-          });
-          showToast(`Negócio "${nome}" atualizado na planilha!`, '★');
-        } else {
-          await fetch(SHEETDB_URL, {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-          });
-          showToast(`Negócio "${nome}" salvo com sucesso para todos!`, '★');
-        }
+        await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        showToast(idEdit ? `Negócio "${nome}" atualizado!` : `Negócio "${nome}" salvo com sucesso!`, '★');
 
         closeModal();
         await carregarDadosDaPlanilha();
@@ -975,3 +960,4 @@
   </script>
 </body>
 </html>
+```
