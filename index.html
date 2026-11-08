@@ -258,6 +258,32 @@
           <p class="text-[10px] text-red-700 leading-tight">Guarde este PIN. Somente quem digitar este PIN poderá editar este cartão no futuro.</p>
         </div>
 
+        <!-- Campo Código de Convite (para novos cadastros) -->
+        <div id="boxInviteField" class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1">
+          <div class="flex items-center justify-between">
+            <label class="block text-xs font-bold text-stone-800">Código de Convite</label>
+            <span class="text-[10px] text-stone-500 font-medium">Opcional para membros do grupo</span>
+          </div>
+          <input type="text" id="inputInviteCode" placeholder="Ex: VTR-7A9B" class="w-full px-3.5 py-2 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-white uppercase font-mono tracking-wider">
+          <p class="text-[10px] text-stone-500 leading-tight">Se o seu WhatsApp já está na lista oficial do grupo, não precisa preencher. Se você foi convidado por um membro, digite o código aqui.</p>
+        </div>
+
+        <!-- Seção de Convites Diários (visível ao editar o cartão com PIN) -->
+        <div id="boxMemberInvites" class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl space-y-2.5 hidden">
+          <div class="flex items-center justify-between gap-2">
+            <div>
+              <h4 class="text-xs font-bold text-emerald-900 flex items-center gap-1">🎟️ Convites Diários para Amigos</h4>
+              <p class="text-[11px] text-emerald-700">Você pode gerar até 5 convites por dia para amigos de confiança.</p>
+            </div>
+            <button type="button" id="btnGenerateInvite" class="px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs transition-all active:scale-95 shadow-2xs shrink-0">
+              + Gerar Convite
+            </button>
+          </div>
+          <div id="listMemberInvites" class="space-y-1.5 pt-1 text-xs">
+            <p class="text-stone-500 text-[11px] italic">Carregando convites...</p>
+          </div>
+        </div>
+
         <div class="pt-2 flex items-center justify-end gap-2">
           <button type="button" id="btnCancelCadastro" onclick="closeModal()" class="px-4 py-2.5 rounded-xl border border-stone-200 text-stone-600 hover:bg-stone-100 text-xs font-bold transition-all">Cancelar</button>
           <button type="submit" id="btnSubmitForm" class="px-5 py-2.5 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1.5">
@@ -736,8 +762,16 @@
     });
 
     // Modal Handlers Globais
+    const boxInviteField = document.getElementById('boxInviteField');
+    const boxMemberInvites = document.getElementById('boxMemberInvites');
+    const inputInviteCode = document.getElementById('inputInviteCode');
+    const btnGenerateInvite = document.getElementById('btnGenerateInvite');
+    const listMemberInvites = document.getElementById('listMemberInvites');
+    let currentEditingItem = null;
+
     window.openModal = function openModal() {
       editCardId.value = '';
+      currentEditingItem = null;
       modalTitle.textContent = 'Cadastrar Negócio na Vitrine';
       modalSubtitle.textContent = 'Categorias oficiais da comunidade Esquerda ajuda Esquerda';
       btnSubmitText.textContent = 'Salvar na Vitrine';
@@ -749,6 +783,10 @@
       previewPlaceholder.classList.remove('hidden');
       btnRemoveFoto.classList.add('hidden');
       inputPin.value = '';
+      inputInviteCode.value = '';
+
+      boxInviteField.classList.remove('hidden');
+      boxMemberInvites.classList.add('hidden');
 
       formCadastro.reset();
       updateSubcategories();
@@ -793,10 +831,15 @@
     });
 
     function openEditModal(item) {
+      currentEditingItem = item;
       editCardId.value = item.id;
       modalTitle.textContent = 'Editar Meu Negócio';
       modalSubtitle.textContent = 'Atualize as informações do seu cartão na vitrine';
       btnSubmitText.textContent = 'Salvar Alterações';
+
+      boxInviteField.classList.add('hidden');
+      boxMemberInvites.classList.remove('hidden');
+      carregarConvitesDoMembro(item.id);
 
       document.getElementById('inputNomeNegocio').value = item.nome;
       document.getElementById('inputResponsavel').value = item.responsavel;
@@ -866,6 +909,80 @@
     });
 
     // Envio direto para o Google Apps Script conectado à sua Planilha
+    
+    async function carregarConvitesDoMembro(memberId) {
+      listMemberInvites.innerHTML = '<p class="text-stone-500 text-[11px] italic">Carregando convites...</p>';
+      try {
+        const res = await fetch(`${API_URL}?action=get_invites&id=${encodeURIComponent(memberId)}`);
+        const data = await res.json();
+        const convites = data.invites || [];
+        const restantes = data.restantes_hoje !== undefined ? data.restantes_hoje : 5;
+
+        btnGenerateInvite.disabled = restantes <= 0;
+        btnGenerateInvite.textContent = restantes > 0 ? `+ Gerar Convite (${restantes} restantes hoje)` : 'Limite atingido hoje (0)';
+
+        if (convites.length === 0) {
+          listMemberInvites.innerHTML = '<p class="text-stone-500 text-[11px]">Nenhum convite gerado ainda. Clique em "+ Gerar Convite" acima para convidar amigos!</p>';
+          return;
+        }
+
+        listMemberInvites.innerHTML = convites.map(c => {
+          const isUsado = c.status === 'Usado';
+          const badgeClass = isUsado ? 'bg-stone-200 text-stone-700' : 'bg-emerald-100 text-emerald-800 font-bold';
+          const shareText = `Olá! Te convido a cadastrar seu trabalho na *Vitrine da Esquerda de Taubaté*. Acesse ${window.location.href} e use meu código de convite exclusivo: *${c.codigo}*`;
+          const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+
+          return `
+            <div class="flex items-center justify-between p-2 rounded-lg bg-white border border-emerald-100 gap-2">
+              <div class="min-w-0">
+                <span class="font-mono font-bold text-xs text-stone-800">${c.codigo}</span>
+                <span class="ml-2 text-[10px] px-1.5 py-0.5 rounded ${badgeClass}">${c.status}</span>
+                ${isUsado && c.usado_por ? `<p class="text-[10px] text-stone-400">Usado por: ${c.usado_por}</p>` : ''}
+              </div>
+              ${!isUsado ? `
+                <a href="${shareUrl}" target="_blank" class="px-2 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] shrink-0 flex items-center gap-1">
+                  WhatsApp
+                </a>
+              ` : ''}
+            </div>
+          `;
+        }).join('');
+
+      } catch (e) {
+        listMemberInvites.innerHTML = '<p class="text-red-500 text-[11px]">Erro ao buscar convites.</p>';
+      }
+    }
+
+    btnGenerateInvite.addEventListener('click', async () => {
+      if (!currentEditingItem) return;
+      btnGenerateInvite.disabled = true;
+      btnGenerateInvite.textContent = 'Gerando...';
+
+      try {
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            action: 'generate_invite',
+            memberId: currentEditingItem.id,
+            memberPhone: currentEditingItem.whatsapp,
+            pin: inputPin.value.trim()
+          })
+        });
+        const data = await res.json();
+        if (data.status === 'success') {
+          showToast(`Convite ${data.codigo} gerado com sucesso!`, '🎟️');
+          await carregarConvitesDoMembro(currentEditingItem.id);
+        } else {
+          showToast(data.message || 'Erro ao gerar convite', '⚠️');
+          btnGenerateInvite.disabled = false;
+        }
+      } catch (err) {
+        showToast('Erro de conexão ao gerar convite', '⚠️');
+        btnGenerateInvite.disabled = false;
+      }
+    });
+
     formCadastro.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -904,7 +1021,8 @@
         Descricao: descricao,
         Foto_URL: currentPhotoBase64 || '',
         Status: 'Ativo',
-        Senha_PIN: pin
+        Senha_PIN: pin,
+        Codigo_Convite: inputInviteCode.value.trim().toUpperCase()
       };
 
       try {
