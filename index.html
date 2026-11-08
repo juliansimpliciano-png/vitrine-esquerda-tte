@@ -4,88 +4,103 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vitrine da Esquerda de Taubaté — Esquerda ajuda Esquerda</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
     .custom-scrollbar::-webkit-scrollbar {
       height: 6px;
       width: 6px;
     }
     .custom-scrollbar::-webkit-scrollbar-track {
-      background: #f1f5f9;
+      background: #f1f1f1;
+      border-radius: 9999px;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
+      background: #dc2626;
       border-radius: 9999px;
     }
   </style>
 </head>
-<body class="bg-stone-50 text-stone-900 min-h-screen flex flex-col">
+<body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col selection:bg-red-700 selection:text-white">
 
-  <!-- Top Bar -->
-  <header class="bg-red-800 text-white shadow-md sticky top-0 z-40 border-b border-red-900">
-    <div class="max-w-6xl mx-auto px-4 py-3.5 flex flex-wrap items-center justify-between gap-3">
+  <!-- Header Superior -->
+  <header class="bg-red-800 text-white shadow-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-red-700 border border-red-500/40 flex items-center justify-center text-xl shadow-inner text-white font-black">
+        <div class="w-10 h-10 rounded-xl bg-white text-red-800 flex items-center justify-center font-extrabold text-xl shadow-inner shrink-0">
           ★
         </div>
         <div>
-          <h1 class="text-lg sm:text-xl font-black tracking-tight text-white leading-tight">Vitrine da Esquerda de Taubaté</h1>
-          <p class="text-xs text-red-100 font-bold uppercase tracking-wider">Esquerda ajuda Esquerda</p>
+          <h1 class="font-extrabold text-lg sm:text-xl tracking-tight leading-tight">
+            Vitrine da Esquerda de Taubaté
+          </h1>
+          <p class="text-[11px] sm:text-xs text-red-200 uppercase font-semibold tracking-wider">
+            Esquerda ajuda Esquerda
+          </p>
         </div>
       </div>
+
       <div class="flex items-center gap-2">
-        <button id="btnOpenModal" onclick="openModal()" class="bg-white hover:bg-stone-100 text-red-800 font-bold px-3.5 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all shadow-sm active:scale-95 border border-stone-200">
-          <svg class="w-4 h-4 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
-          <span>Cadastrar Meu Negócio</span>
-        </button>
-        <button id="btnShare" class="bg-red-900/60 hover:bg-red-900 border border-red-700/60 text-white px-3 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all active:scale-95">
-          <svg class="w-4 h-4 text-red-200" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          <span class="hidden sm:inline">Compartilhar</span>
+        <button id="btnOpenModal" onclick="openModal()" class="bg-white hover:bg-stone-100 text-red-800 font-bold px-3.5 py-2 rounded-xl text-xs sm:text-sm transition-all duration-200 shadow-sm flex items-center gap-1.5 active:scale-95 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          <span class="hidden sm:inline">Cadastrar Meu Negócio</span>
+          <span class="sm:hidden">Cadastrar</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-b from-red-800 to-red-950 text-white pt-7 pb-11 px-4 border-b border-red-900">
-    <div class="max-w-4xl mx-auto text-center space-y-3">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-900/80 border border-red-500/40 text-red-100">
-        ✊ Economia Popular & Apoio Mútuo em Taubaté
-      </span>
-      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Compre e contrate de quem fortalece a nossa rede</h2>
-      <p class="text-sm sm:text-base text-red-100 max-w-2xl mx-auto font-normal">
+  <!-- Hero Banner -->
+  <section class="bg-gradient-to-b from-red-800 to-red-900 text-white py-8 px-4 text-center">
+    <div class="max-w-3xl mx-auto space-y-2.5">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-700/60 border border-red-500/30 text-xs font-medium text-red-100">
+        <span>✊</span> Economia Popular & Apoio Mútuo em Taubaté
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+        Compre e contrate de quem fortalece a nossa rede
+      </h2>
+      <p class="text-red-100 text-xs sm:text-sm max-w-xl mx-auto font-normal leading-relaxed">
         Catálogo unificado de prestadores de serviços, profissionais e comércios da comunidade. Toque para seguir no Instagram ou chamar no WhatsApp com 1 clique.
       </p>
       
-      <div class="inline-flex items-center gap-2 bg-black/30 border border-red-600/30 text-red-100 text-xs px-3.5 py-1.5 rounded-lg max-w-md mx-auto text-left sm:text-center mt-2">
-        <span class="text-red-300">🛡️</span>
-        <span><strong>Segurança:</strong> catálogo profissional e neutro para vendas públicas sem exposição de dados sensíveis.</span>
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-3 text-xs text-red-200">
+        <span class="flex items-center gap-1 bg-red-950/40 px-2.5 py-1 rounded-lg border border-red-800/60">
+          🛡️ <strong>Segurança:</strong> catálogo profissional e neutro para vendas públicas sem exposição de dados sensíveis.
+        </span>
       </div>
     </div>
   </section>
 
   <!-- Main Content -->
-  <main class="max-w-6xl mx-auto px-4 -mt-5 flex-1 w-full pb-16">
+  <main class="max-w-6xl mx-auto px-4 py-6 flex-1 w-full space-y-6">
 
-    <!-- Search & Filter Bar -->
-    <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-4 mb-6">
-      <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
-        
-        <!-- Search Input -->
-        <div class="relative flex-1">
-          <svg class="w-5 h-5 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          <input type="text" id="searchInput" placeholder="Buscar por serviço, subcategoria (ex: advogados, confeitaria, eletricista)..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent text-sm bg-stone-50/60">
+    <!-- Busca e Filtros -->
+    <div class="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs space-y-3">
+      <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
+        <!-- Input de Busca Geral -->
+        <div class="sm:col-span-8 relative">
+          <input 
+            type="text" 
+            id="searchInput"
+            placeholder="Buscar por serviço, subcategoria (ex: advogados, confeitaria, eletricista)..."
+            class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent bg-stone-50/70"
+          >
+          <svg class="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
 
-        <!-- City Filter & Stats -->
-        <div class="flex items-center gap-2.5">
-          <select id="cityFilter" class="px-3 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm bg-stone-50/60 focus:outline-none focus:ring-2 focus:ring-red-600 text-stone-700">
+        <!-- Filtro por Cidade -->
+        <div class="sm:col-span-4 flex items-center gap-2">
+          <select id="cityFilter" class="w-full py-2.5 px-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/70 text-stone-700 font-medium">
             <option value="todas">Todas as Cidades</option>
             <option value="Taubaté">Taubaté</option>
             <option value="Pindamonhangaba">Pindamonhangaba</option>
@@ -94,52 +109,86 @@
             <option value="Caçapava">Caçapava</option>
             <option value="Ubatuba">Ubatuba</option>
           </select>
-          <div class="bg-red-50 text-red-800 border border-red-200 text-xs font-bold px-3 py-2 rounded-xl whitespace-nowrap">
+          <div class="text-xs font-bold text-red-700 bg-red-50 border border-red-200 px-3 py-2.5 rounded-xl shrink-0">
             <span id="counter">0</span> cadastrados
           </div>
         </div>
       </div>
 
-      <!-- Categories Pills -->
-      <div class="mt-3.5 pt-3 border-t border-stone-100 flex items-center gap-1.5 overflow-x-auto pb-1.5 custom-scrollbar text-xs font-medium" id="categoryPills">
-        <button data-cat="todas" class="cat-pill active px-3 py-1.5 rounded-lg bg-red-700 text-white font-semibold transition-all whitespace-nowrap">★ Todas as Categorias</button>
-        <button data-cat="ALIMENTAÇÃO" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🍽️ Alimentação</button>
-        <button data-cat="SAÚDE" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🩺 Saúde</button>
-        <button data-cat="SERVIÇOS GERAIS" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🧹 Serviços Gerais</button>
-        <button data-cat="CONSTRUÇÃO" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🔨 Construção & Obras</button>
-        <button data-cat="COMÉRCIO" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🛍️ Comércio & Lojas</button>
-        <button data-cat="JURÍDICOS" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">⚖️ Jurídicos & Finanças</button>
-        <button data-cat="TI" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">💻 TI & Mídia</button>
-        <button data-cat="BELEZA" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">✂️ Beleza & Estética</button>
-        <button data-cat="AUTOMOTIVOS" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🚗 Automotivos</button>
-        <button data-cat="TRANSPORTE" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">📦 Transporte & Fretes</button>
-        <button data-cat="ENSINO" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">📚 Ensino & Aulas</button>
-        <button data-cat="ARTE" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🎭 Arte & Dança</button>
-        <button data-cat="IMÓVEIS" class="cat-pill px-3 py-1.5 rounded-lg bg-stone-100 text-stone-700 hover:bg-stone-200 transition-all whitespace-nowrap">🏠 Imóveis & Temporada</button>
+      <!-- Barra de Categorias Oficiais (Pills roláveis) -->
+      <div class="flex items-center gap-2 overflow-x-auto custom-scrollbar pb-1 pt-1 text-xs font-medium">
+        <button class="cat-pill active px-3.5 py-1.5 rounded-xl bg-red-700 text-white shrink-0 font-semibold transition-all active:scale-95" data-cat="todas">
+          ★ Todas as Categorias
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="ALIMENTAÇÃO">
+          🍽️ Alimentação
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="SAÚDE">
+          🩺 Saúde
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="SERVIÇOS GERAIS">
+          🧹 Serviços Gerais
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="CONSTRUÇÃO">
+          🔨 Construção & Obras
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="COMÉRCIO">
+          🛍️ Comércio & Lojas
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="JURÍDICOS">
+          ⚖️ Jurídicos & Finanças
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="TI">
+          💻 TI & Mídia
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="EDUCAÇÃO">
+          📚 Educação
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="BELEZA">
+          ✂️ Beleza & Estética
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="ARTE">
+          🎨 Artes & Eventos
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="AUTOMOTIVO">
+          🚗 Automotivo
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="PETS">
+          🐾 Pets
+        </button>
+        <button class="cat-pill px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 shrink-0 transition-all active:scale-95" data-cat="IMÓVEIS">
+          🏡 Imóveis
+        </button>
       </div>
     </div>
 
-    <!-- Cards Grid -->
-    <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <!-- Dynamic cards rendered via JS -->
+    <!-- Grid de Negócios / Cartões -->
+    <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Inserido dinamicamente via JS -->
     </div>
 
-    <!-- Empty State -->
-    <div id="emptyState" class="text-center py-16 bg-white rounded-2xl border border-stone-200 p-8 shadow-sm">
-      <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-red-50 text-red-600 flex items-center justify-center text-2xl font-bold border border-red-100">
-        ★
+    <!-- Estado Vazio / Nenhum resultado -->
+    <div id="emptyState" class="hidden text-center py-12 px-4 bg-white rounded-3xl border border-stone-200 max-w-md mx-auto space-y-3">
+      <div class="w-12 h-12 bg-red-100 text-red-700 rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+        🔍
       </div>
-      <h3 class="text-base font-bold text-stone-900">Nenhum negócio encontrado</h3>
-      <p class="text-xs text-stone-500 mt-1 max-w-sm mx-auto">Cadastre o seu serviço ou ajuste a busca!</p>
-      <button id="btnCadastrarPrimeiro" onclick="openModal()" class="mt-4 px-5 py-2.5 bg-red-700 hover:bg-red-800 text-white text-xs font-bold rounded-xl transition-all shadow-sm active:scale-95">
-        + Cadastrar Meu Negócio Agora
+      <h3 class="font-bold text-stone-800 text-base">Nenhum serviço encontrado</h3>
+      <p class="text-xs text-stone-500 max-w-xs mx-auto">
+        Tente buscar com outros termos ou selecione "Todas as Categorias" para ver a lista completa.
+      </p>
+      <button id="btnCadastrarPrimeiro" onclick="openModal()" class="mt-2 text-xs font-bold text-red-700 hover:text-red-800 underline cursor-pointer">
+        + Seja o primeiro a cadastrar nesta categoria
       </button>
     </div>
 
-    <!-- Bottom Actions Bar -->
-    <div class="mt-10 flex flex-wrap items-center justify-between gap-4 bg-stone-100 border border-stone-200 rounded-2xl p-4 text-xs text-stone-600">
-      <div class="flex items-center gap-2">
-        <span>🚩 <strong>Solidariedade ativa:</strong> Toque no botão de recomendar para indicar os serviços no WhatsApp sem expor o link da vitrine.</span>
+    <!-- Banner de Compartilhamento Solidário -->
+    <div class="bg-red-50 border border-red-200 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <div class="flex items-center gap-3 text-stone-700">
+        <span class="text-2xl">🚩</span>
+        <div>
+          <strong class="text-red-900 block font-bold text-sm">Solidariedade ativa no Vale do Paraíba</strong>
+          <span>Compartilhe o contato dos nossos companheiros nos grupos e fortaleça quem fortalece você.</span>
+        </div>
       </div>
       <div class="flex items-center gap-2">
         <button id="btnExportCSV" class="bg-white hover:bg-stone-50 border border-stone-200 text-stone-800 font-semibold px-3 py-1.5 rounded-lg transition-all active:scale-95 flex items-center gap-1 shadow-2xs">
@@ -167,34 +216,31 @@
       <form id="formCadastro" class="p-5 sm:p-6 space-y-4">
         <input type="hidden" id="editCardId" value="">
 
-        <!-- Foto do Negócio / Logotipo -->
+        <!-- Upload e Prévia da Foto do Negócio / Avatar -->
         <div>
-          <label class="block text-xs font-bold text-stone-700 mb-1">Foto ou Logotipo do Negócio (Opcional)</label>
+          <label class="block text-xs font-bold text-stone-700 mb-1.5">Foto do Negócio ou Foto de Perfil</label>
           <div class="flex items-center gap-3">
-            <div id="photoPreviewContainer" class="w-14 h-14 rounded-2xl bg-stone-100 border border-stone-200 overflow-hidden flex items-center justify-center text-stone-400 shrink-0">
-              <span id="previewPlaceholder" class="text-xs font-bold text-stone-400">SEM FOTO</span>
+            <div id="photoPreviewContainer" class="w-16 h-16 rounded-2xl border-2 border-dashed border-stone-300 bg-stone-50 flex items-center justify-center overflow-hidden shrink-0 relative group">
               <img id="imgPreview" src="" alt="Prévia" class="w-full h-full object-cover hidden">
+              <span id="previewPlaceholder" class="text-xs text-stone-400 font-bold">Foto</span>
             </div>
-            <div class="flex-1 space-y-1">
-              <label class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-semibold rounded-xl cursor-pointer border border-stone-200 transition-all">
-                <svg class="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                <span>Escolher foto do celular/PC</span>
-                <input type="file" id="inputFoto" accept="image/*" class="hidden">
-              </label>
-              <button type="button" id="btnRemoveFoto" class="text-[11px] text-red-600 hover:text-red-800 font-semibold block hidden">Remover foto</button>
-              <p class="text-[10px] text-stone-400 leading-tight">Dica: fotos quadradas ficam perfeitas no cartão. Se não tiver, criamos um avatar com as iniciais.</p>
+            <div class="space-y-1">
+              <input type="file" id="inputFoto" accept="image/*" class="text-xs text-stone-600 file:mr-2 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-red-50 file:text-red-700 hover:file:bg-red-100 cursor-pointer">
+              <p class="text-[10px] text-stone-400">Envie o logo ou foto de perfil. O sistema compacta automaticamente.</p>
+              <button type="button" id="btnRemoveFoto" class="text-[10px] text-red-600 font-bold hover:underline hidden">Remover foto</button>
             </div>
           </div>
         </div>
 
-        <div>
-          <label class="block text-xs font-bold text-stone-700 mb-1">Nome do Negócio / Marca *</label>
-          <input type="text" id="inputNomeNegocio" required placeholder="Ex: Doçaria Popular, Marcenaria da Vila" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-stone-700 mb-1">Responsável / Seu Nome *</label>
-          <input type="text" id="inputResponsavel" required placeholder="Ex: Maria dos Santos" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Nome do Negócio ou Profissional *</label>
+            <input type="text" id="inputNomeNegocio" required placeholder="Ex: Studio Life in Motion" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Seu Nome (Responsável) *</label>
+            <input type="text" id="inputResponsavel" required placeholder="Ex: Lucas Morgado" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+          </div>
         </div>
 
         <!-- Dynamic Category & Subcategory Selectors -->
@@ -273,9 +319,9 @@
           <div class="flex items-center justify-between gap-2">
             <div>
               <h4 class="text-xs font-bold text-emerald-900 flex items-center gap-1">🎟️ Convites Diários para Amigos</h4>
-              <p class="text-[11px] text-emerald-700">Você pode gerar até 5 convites por dia para amigos de confiança.</p>
+              <p class="text-[11px] text-emerald-700">Você pode gerar convites para amigos de confiança cadastrarem na vitrine.</p>
             </div>
-            <button type="button" id="btnGenerateInvite" class="px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs transition-all active:scale-95 shadow-2xs shrink-0">
+            <button type="button" id="btnGenerateInvite" class="px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs transition-all active:scale-95 shadow-2xs shrink-0 cursor-pointer">
               + Gerar Convite
             </button>
           </div>
@@ -394,52 +440,52 @@
       ],
       "TI": [
         "Designers",
-        "Social Mídia",
-        "Fotógrafos",
-        "Técnicos em Informática",
-        "Desenvolvedores & Suporte",
+        "Desenvolvedores",
+        "Gestores de Tráfego / Marketing",
+        "Assistência Técnica de Celular e PC",
+        "Audiovisual / Fotógrafos",
         "Outros em TI & Mídia"
       ],
+      "EDUCAÇÃO": [
+        "Professores Particulares",
+        "Aulas de Idiomas",
+        "Reforço Escolar",
+        "Música e Artes",
+        "Outros em Educação"
+      ],
       "BELEZA": [
-        "Salão de Beleza",
+        "Cabeleireiros(as)",
         "Barbeiros",
-        "Manicure & Pedicure",
+        "Manicures / Pedicures",
+        "Design de Sobrancelhas",
         "Esteticistas",
+        "Maquiadoras",
+        "Tatuadores / Body Piercing",
         "Outros em Beleza"
       ],
-      "AUTOMOTIVOS": [
-        "Mecânicos",
-        "Eletricista Auto",
-        "Funileiros",
-        "Martelinho de Ouro",
-        "Lavadores / Lava-Rápido",
-        "Higienização Automotiva / Residencial",
+      "ARTE": [
+        "Artesanato & Artes Plásticas",
+        "Músicos para Eventos",
+        "DJs e Sonorização",
+        "Costura e Confecção",
+        "Outros em Artes & Eventos"
+      ],
+      "AUTOMOTIVO": [
+        "Mecânicas",
+        "Auto Elétricas",
+        "Funilaria e Pintura",
+        "Lava-Rápido",
+        "Borracharia",
         "Outros em Automotivo"
       ],
-      "TRANSPORTE": [
-        "Fretes & Mudanças",
-        "Taxistas",
-        "App Uber/99 Passageiro",
-        "App Uber/99 Entregadores",
-        "Outros em Transporte"
-      ],
-      "ENSINO": [
-        "Aulas Particulares / Reforço Escolar",
-        "Professores de Idiomas",
-        "Consultoria Educacional",
-        "Professores em Geral",
-        "Outros em Ensino"
-      ],
-      "ARTE": [
-        "Dança",
-        "Música & Shows",
-        "Artesanato & Artes Plásticas",
-        "Outros em Arte & Cultura"
+      "PETS": [
+        "Veterinários",
+        "Banho e Tosa",
+        "Passeadores(as) / Pet Sitters",
+        "Outros em Pets"
       ],
       "IMÓVEIS": [
-        "Locação de Temporada (Litoral / Vale)",
-        "Aluguel Residencial / Comercial",
-        "Venda e Assessoria Imobiliária",
+        "Corretores de Imóveis",
         "Outros em Imóveis"
       ]
     };
@@ -464,46 +510,43 @@
     const searchInput = document.getElementById('searchInput');
     const cityFilter = document.getElementById('cityFilter');
     const categoryPills = document.querySelectorAll('.cat-pill');
-    
-    // Modal Elements
+
+    // Modal Form Elements
     const modalCadastro = document.getElementById('modalCadastro');
+    const formCadastro = document.getElementById('formCadastro');
     const modalTitle = document.getElementById('modalTitle');
     const modalSubtitle = document.getElementById('modalSubtitle');
+    const editCardId = document.getElementById('editCardId');
+    const inputCategoria = document.getElementById('inputCategoria');
+    const inputSubcategoria = document.getElementById('inputSubcategoria');
+    const inputPin = document.getElementById('inputPin');
     const btnSubmitForm = document.getElementById('btnSubmitForm');
     const btnSubmitText = document.getElementById('btnSubmitText');
     const submitSpinner = document.getElementById('submitSpinner');
-    const editCardId = document.getElementById('editCardId');
     const btnOpenModal = document.getElementById('btnOpenModal');
-    const btnCadastrarPrimeiro = document.getElementById('btnCadastrarPrimeiro');
     const btnCloseModal = document.getElementById('btnCloseModal');
     const btnCancelCadastro = document.getElementById('btnCancelCadastro');
-    const formCadastro = document.getElementById('formCadastro');
-    const inputCategoria = document.getElementById('inputCategoria');
-    const inputSubcategoria = document.getElementById('inputSubcategoria');
+    const btnCadastrarPrimeiro = document.getElementById('btnCadastrarPrimeiro');
     const inputFoto = document.getElementById('inputFoto');
     const imgPreview = document.getElementById('imgPreview');
     const previewPlaceholder = document.getElementById('previewPlaceholder');
     const btnRemoveFoto = document.getElementById('btnRemoveFoto');
-    const inputPin = document.getElementById('inputPin');
-    const btnExportCSV = document.getElementById('btnExportCSV');
-    const btnShare = document.getElementById('btnShare');
 
-    // PIN Auth Modal Elements
+    // PIN Authentication Modal Elements
     const modalPinAuth = document.getElementById('modalPinAuth');
     const inputAuthPin = document.getElementById('inputAuthPin');
     const btnCancelPinAuth = document.getElementById('btnCancelPinAuth');
     const btnConfirmPinAuth = document.getElementById('btnConfirmPinAuth');
 
-    btnShare.addEventListener('click', () => {
-      const inviteMsg = '✊ *Vitrine da Esquerda de Taubaté* - Conheça nossa rede de apoio mútuo!';
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(inviteMsg).then(() => {
-          showToast('Mensagem de convite copiada!', '📋');
-        });
-      }
-    });
-    
-    // Toast
+    // Convites Elements
+    const boxInviteField = document.getElementById('boxInviteField');
+    const boxMemberInvites = document.getElementById('boxMemberInvites');
+    const inputInviteCode = document.getElementById('inputInviteCode');
+    const btnGenerateInvite = document.getElementById('btnGenerateInvite');
+    const listMemberInvites = document.getElementById('listMemberInvites');
+    let currentEditingItem = null;
+
+    // Toast Elements
     const toast = document.getElementById('toast');
     const toastMsg = document.getElementById('toastMsg');
     const toastIcon = document.getElementById('toastIcon');
@@ -533,7 +576,7 @@
             }
           }
           return {
-            id: item.ID || String(Date.now()),
+            id: String(item.ID || Date.now()),
             nome: item.Nome_Negocio,
             responsavel: item.Responsavel || '',
             categoria: item.Categoria || 'COMÉRCIO',
@@ -686,7 +729,7 @@
                   <span class="text-[11px] text-stone-600 flex items-center gap-1 font-medium bg-stone-100 px-2 py-0.5 rounded-md">
                     📍 ${item.cidade}${item.bairro ? ` • ${item.bairro}` : ''}
                   </span>
-                  <button class="btn-edit-card p-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-red-700 transition-all" title="Editar este cartão com seu PIN">
+                  <button class="btn-edit-card p-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-red-700 transition-all cursor-pointer" title="Editar este cartão com seu PIN">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
                   </button>
                 </div>
@@ -762,13 +805,6 @@
     });
 
     // Modal Handlers Globais
-    const boxInviteField = document.getElementById('boxInviteField');
-    const boxMemberInvites = document.getElementById('boxMemberInvites');
-    const inputInviteCode = document.getElementById('inputInviteCode');
-    const btnGenerateInvite = document.getElementById('btnGenerateInvite');
-    const listMemberInvites = document.getElementById('listMemberInvites');
-    let currentEditingItem = null;
-
     window.openModal = function openModal() {
       editCardId.value = '';
       currentEditingItem = null;
@@ -873,43 +909,6 @@
       document.body.style.overflow = 'hidden';
     }
 
-    window.closeModal = function closeModal() {
-      modalCadastro.classList.add('hidden');
-      document.body.style.overflow = '';
-      formCadastro.reset();
-      editCardId.value = '';
-      currentPhotoBase64 = '';
-      imgPreview.src = '';
-      imgPreview.classList.add('hidden');
-      previewPlaceholder.classList.remove('hidden');
-      btnRemoveFoto.classList.add('hidden');
-      updateSubcategories();
-    };
-
-    btnOpenModal.addEventListener('click', openModal);
-    btnCadastrarPrimeiro.addEventListener('click', openModal);
-    btnCloseModal.addEventListener('click', closeModal);
-    btnCancelCadastro.addEventListener('click', closeModal);
-    modalCadastro.addEventListener('click', (e) => {
-      if (e.target === modalCadastro) closeModal();
-    });
-
-    // Phone formatting
-    const inputWhatsapp = document.getElementById('inputWhatsapp');
-    inputWhatsapp.addEventListener('input', (e) => {
-      let v = e.target.value.replace(/\D/g, '');
-      if (v.length > 11) v = v.slice(0, 11);
-      if (v.length > 6) {
-        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
-      } else if (v.length > 2) {
-        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
-      } else if (v.length > 0) {
-        e.target.value = `(${v}`;
-      }
-    });
-
-    // Envio direto para o Google Apps Script conectado à sua Planilha
-    
     async function carregarConvitesDoMembro(memberId) {
       listMemberInvites.innerHTML = '<p class="text-stone-500 text-[11px] italic">Carregando convites...</p>';
       try {
@@ -919,7 +918,7 @@
         const restantes = data.restantes_hoje !== undefined ? data.restantes_hoje : 5;
 
         btnGenerateInvite.disabled = restantes <= 0;
-        btnGenerateInvite.textContent = restantes > 0 ? `+ Gerar Convite (${restantes} restantes hoje)` : 'Limite atingido hoje (0)';
+        btnGenerateInvite.textContent = restantes >= 99 ? '+ Gerar Convite (Ilimitados - Admin)' : (restantes > 0 ? `+ Gerar Convite (${restantes} restantes hoje)` : 'Limite atingido hoje (0)');
 
         if (convites.length === 0) {
           listMemberInvites.innerHTML = '<p class="text-stone-500 text-[11px]">Nenhum convite gerado ainda. Clique em "+ Gerar Convite" acima para convidar amigos!</p>';
@@ -983,6 +982,44 @@
       }
     });
 
+    window.closeModal = function closeModal() {
+      modalCadastro.classList.add('hidden');
+      document.body.style.overflow = '';
+      formCadastro.reset();
+      editCardId.value = '';
+      currentEditingItem = null;
+      currentPhotoBase64 = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
+      inputInviteCode.value = '';
+      updateSubcategories();
+    };
+
+    btnOpenModal.addEventListener('click', openModal);
+    btnCadastrarPrimeiro.addEventListener('click', openModal);
+    btnCloseModal.addEventListener('click', closeModal);
+    btnCancelCadastro.addEventListener('click', closeModal);
+    modalCadastro.addEventListener('click', (e) => {
+      if (e.target === modalCadastro) closeModal();
+    });
+
+    // Formatação de Telefone
+    const inputWhatsapp = document.getElementById('inputWhatsapp');
+    inputWhatsapp.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+      } else if (v.length > 2) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+      } else if (v.length > 0) {
+        e.target.value = `(${v}`;
+      }
+    });
+
+    // Envio direto para o Google Apps Script conectado à sua Planilha
     formCadastro.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -1026,7 +1063,7 @@
       };
 
       try {
-        await fetch(API_URL, {
+        const respSubmit = await fetch(API_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'text/plain;charset=utf-8'
@@ -1034,8 +1071,13 @@
           body: JSON.stringify(payload)
         });
 
-        showToast(idEdit ? `Negócio "${nome}" atualizado!` : `Negócio "${nome}" salvo com sucesso!`, '★');
+        const resData = await respSubmit.json();
+        if (resData.status === 'error') {
+          showToast(resData.message || 'Erro ao salvar. Verifique suas informações.', '⚠️');
+          return;
+        }
 
+        showToast(resData.message || (idEdit ? `Negócio "${nome}" atualizado!` : `Negócio "${nome}" cadastrado com sucesso!`), '★');
         closeModal();
         await carregarDadosDaPlanilha();
 
@@ -1049,19 +1091,28 @@
       }
     });
 
-    // Export CSV
-    btnExportCSV.addEventListener('click', () => {
+    // Exportar CSV
+    document.getElementById('btnExportCSV').addEventListener('click', () => {
       if (negocios.length === 0) {
-        showToast('Ainda não há negócios cadastrados para exportar.', 'ℹ️');
+        showToast('Nenhum negócio para exportar ainda.', '⚠️');
         return;
       }
 
-      let csv = 'Nome do Negocio,Responsavel,Categoria,Subcategoria,Cidade,Bairro,Instagram,WhatsApp,Descricao\n';
-      negocios.forEach(n => {
-        csv += `"${n.nome.replace(/"/g, '""')}","${n.responsavel.replace(/"/g, '""')}","${n.categoria}","${n.subcategoria || ''}","${n.cidade}","${n.bairro || ''}","https://instagram.com/${n.instagram.replace('@', '')}","https://wa.me/55${n.whatsapp.replace(/\D/g, '')}","${n.descricao.replace(/"/g, '""')}"\n`;
-      });
+      const headers = ['Nome', 'Responsavel', 'Categoria', 'Subcategoria', 'Cidade', 'Bairro', 'Instagram', 'WhatsApp', 'Descricao'];
+      const rows = negocios.map(n => [
+        `"${n.nome.replace(/"/g, '""')}"`,
+        `"${n.responsavel.replace(/"/g, '""')}"`,
+        `"${n.categoria}"`,
+        `"${n.subcategoria}"`,
+        `"${n.cidade}"`,
+        `"${n.bairro}"`,
+        `"${n.instagram}"`,
+        `"${n.whatsapp}"`,
+        `"${n.descricao.replace(/"/g, '""')}"`
+      ]);
 
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
