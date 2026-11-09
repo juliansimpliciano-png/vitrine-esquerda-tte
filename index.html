@@ -295,33 +295,73 @@
     </div>
   </div>
 
-  <!-- Modal Autenticação de PIN para Editar -->
+  <!-- Modal Autenticação e Recuperação de PIN para Editar -->
   <div id="modalPinAuth" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 border border-stone-100 space-y-4">
-      <div class="flex items-center gap-2.5">
-        <span class="w-8 h-8 rounded-xl bg-red-100 text-red-700 flex items-center justify-center text-base font-bold">🔒</span>
+
+      <!-- VISTA 1: DIGITAR PIN NORMAL -->
+      <div id="viewPinNormal" class="space-y-4">
+        <div class="flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-xl bg-red-100 text-red-700 flex items-center justify-center text-base font-bold">🔒</span>
+          <div>
+            <h3 class="text-sm font-bold text-stone-900">Editar Cartão</h3>
+            <p class="text-xs text-stone-500">Digite seu PIN cadastrado</p>
+          </div>
+        </div>
         <div>
-          <h3 class="text-sm font-bold text-stone-900">Editar Cartão</h3>
-          <p class="text-xs text-stone-500">Digite seu PIN cadastrado</p>
+          <label class="block text-xs font-bold text-stone-700 mb-1">PIN de Segurança (4 a 6 dígitos)</label>
+          <input type="password" id="inputAuthPin" maxlength="6" placeholder="Digite seu PIN" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+        </div>
+        <div class="flex items-center justify-between pt-1">
+          <button type="button" id="btnGoToResetPin" class="text-xs text-red-700 font-bold hover:underline cursor-pointer">Esqueci meu PIN</button>
+          <div class="flex items-center gap-2">
+            <button type="button" id="btnCancelPinAuth" class="px-3.5 py-2 rounded-xl border border-stone-200 text-stone-600 hover:bg-stone-100 text-xs font-bold transition-all cursor-pointer">Cancelar</button>
+            <button type="button" id="btnConfirmPinAuth" class="px-4 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer">Entrar</button>
+          </div>
+        </div>
+
+        <!-- Botão de Socorro para quem esqueceu o PIN -->
+        <div class="pt-3 border-t border-stone-100 text-center space-y-2">
+          <p class="text-[11px] text-stone-500 font-medium">Precisa de suporte direto com a administração?</p>
+          <a id="btnHelpWhatsapp" href="#" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/90 font-bold text-xs transition-all active:scale-95 shadow-2xs">
+            <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.31A9.95 9.95 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm3.8 14.2c-.2.5-.9 1-1.5 1.1-.4.1-.9.1-2.6-.6-2.1-.9-3.5-3-3.6-3.1-.1-.1-.8-1.1-.8-2.1s.5-1.5.7-1.7c.2-.2.4-.3.6-.3.2 0 .3 0 .4.1.2.4.6 1.4.6 1.5.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.3-.1.5.2.4.8 1.4 1.8 2.2 1.2 1 2.2 1.3 2.5 1.4.2.1.4 0 .5-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1.2.1 1.4.7 1.6.8.2.1.4.2.4.3 0 .2 0 1.2-.5 1.7z"/></svg>
+            <span>Pedir ajuda ao Administrador no WhatsApp</span>
+          </a>
         </div>
       </div>
-      <div>
-        <label class="block text-xs font-bold text-stone-700 mb-1">PIN de Segurança (4 a 6 dígitos)</label>
-        <input type="password" id="inputAuthPin" maxlength="6" placeholder="Digite seu PIN" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
-      </div>
-      <div class="flex items-center justify-end gap-2 pt-1">
-        <button type="button" id="btnCancelPinAuth" class="px-4 py-2 rounded-xl border border-stone-200 text-stone-600 hover:bg-stone-100 text-xs font-bold transition-all cursor-pointer">Cancelar</button>
-        <button type="button" id="btnConfirmPinAuth" class="px-4 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer">Confirmar e Editar</button>
+
+      <!-- VISTA 2: REDEFINIR PIN ESQUECIDO (AUTÔNOMO) -->
+      <div id="viewPinReset" class="space-y-4 hidden">
+        <div class="flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-base font-bold">🔑</span>
+          <div>
+            <h3 class="text-sm font-bold text-stone-900">Redefinir Meu PIN</h3>
+            <p class="text-xs text-stone-500">Confirme o WhatsApp para criar novo PIN</p>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">WhatsApp cadastrado neste cartão *</label>
+            <input type="tel" id="inputResetWhats" placeholder="(12) 99999-9999" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+            <p class="text-[10px] text-stone-400 mt-0.5">Digite o mesmo número cadastrado no seu cartão.</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Novo PIN desejado (4 a 6 dígitos) *</label>
+            <input type="password" id="inputResetNewPin" maxlength="6" placeholder="Ex: 5678" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-1">
+          <button type="button" id="btnBackToPinNormal" class="text-xs text-stone-500 font-bold hover:underline cursor-pointer">← Voltar</button>
+          <button type="button" id="btnSubmitResetPin" class="px-4 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer flex items-center gap-1.5">
+            <span id="txtSubmitReset">Salvar Novo PIN</span>
+            <svg id="spinnerResetPin" class="w-3.5 h-3.5 animate-spin hidden" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+          </button>
+        </div>
       </div>
 
-      <!-- Botão de Socorro para quem esqueceu o PIN -->
-      <div class="pt-3 border-t border-stone-100 text-center space-y-2">
-        <p class="text-[11px] text-stone-500 font-medium">Esqueceu ou perdeu o seu PIN de 4 dígitos?</p>
-        <a id="btnHelpWhatsapp" href="#" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/90 font-bold text-xs transition-all active:scale-95 shadow-2xs">
-          <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.31A9.95 9.95 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm3.8 14.2c-.2.5-.9 1-1.5 1.1-.4.1-.9.1-2.6-.6-2.1-.9-3.5-3-3.6-3.1-.1-.1-.8-1.1-.8-2.1s.5-1.5.7-1.7c.2-.2.4-.3.6-.3.2 0 .3 0 .4.1.2.4.6 1.4.6 1.5.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.3-.1.5.2.4.8 1.4 1.8 2.2 1.2 1 2.2 1.3 2.5 1.4.2.1.4 0 .5-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1.2.1 1.4.7 1.6.8.2.1.4.2.4.3 0 .2 0 1.2-.5 1.7z"/></svg>
-          <span>Pedir ajuda ao Administrador no WhatsApp</span>
-        </a>
-      </div>
     </div>
   </div>
 
@@ -499,10 +539,20 @@
 
     // PIN Auth Modal Elements
     const modalPinAuth = document.getElementById('modalPinAuth');
+    const viewPinNormal = document.getElementById('viewPinNormal');
+    const viewPinReset = document.getElementById('viewPinReset');
     const inputAuthPin = document.getElementById('inputAuthPin');
     const btnCancelPinAuth = document.getElementById('btnCancelPinAuth');
     const btnConfirmPinAuth = document.getElementById('btnConfirmPinAuth');
     const btnHelpWhatsapp = document.getElementById('btnHelpWhatsapp');
+    const btnGoToResetPin = document.getElementById('btnGoToResetPin');
+    const btnBackToPinNormal = document.getElementById('btnBackToPinNormal');
+    const inputResetWhats = document.getElementById('inputResetWhats');
+    const inputResetNewPin = document.getElementById('inputResetNewPin');
+    const btnSubmitResetPin = document.getElementById('btnSubmitResetPin');
+    const txtSubmitReset = document.getElementById('txtSubmitReset');
+    const spinnerResetPin = document.getElementById('spinnerResetPin');
+
     // CHAVE-MESTRA DE ADMINISTRADOR: Permite ao Julian e Lucas desbloquearem qualquer cartão
     const MASTER_ADMIN_PINS = ['191219', '131313', '991839', '50720', '1234'];
 
@@ -811,7 +861,10 @@
       pendingEditCardId = id;
       inputAuthPin.value = '';
 
-      const item = negocios.find(n => n.id === id);
+      if (viewPinNormal) viewPinNormal.classList.remove('hidden');
+      if (viewPinReset) viewPinReset.classList.add('hidden');
+
+      const item = negocios.find(n => String(n.id) === String(id));
       if (item && btnHelpWhatsapp) {
         const adminPhone = '12991839298';
         const msg = `Olá Julian! Esqueci meu PIN do cartão "${item.nome}" na Vitrine da Esquerda. Poderia me ajudar a recuperar/redefinir?`;
@@ -866,6 +919,75 @@
       modalPinAuth.classList.add('hidden');
       openEditModal(item);
     });
+
+    // Alternar para a tela de Esqueci meu PIN
+    btnGoToResetPin.addEventListener('click', () => {
+      viewPinNormal.classList.add('hidden');
+      viewPinReset.classList.remove('hidden');
+      inputResetWhats.value = '';
+      inputResetNewPin.value = '';
+      inputResetWhats.focus();
+    });
+
+    btnBackToPinNormal.addEventListener('click', () => {
+      viewPinReset.classList.add('hidden');
+      viewPinNormal.classList.remove('hidden');
+      inputAuthPin.focus();
+    });
+
+    // Submissão do Reset Autônomo de PIN
+    btnSubmitResetPin.addEventListener('click', async () => {
+      if (!pendingEditCardId) return;
+      const item = negocios.find(n => String(n.id) === String(pendingEditCardId));
+      if (!item) return;
+
+      const whatsTyped = inputResetWhats.value.trim();
+      const newPinTyped = inputResetNewPin.value.trim();
+
+      if (!whatsTyped || !newPinTyped) {
+        showToast('Preencha seu WhatsApp e o novo PIN.', '⚠️');
+        return;
+      }
+
+      if (newPinTyped.length < 4) {
+        showToast('O novo PIN deve ter pelo menos 4 dígitos.', '⚠️');
+        return;
+      }
+
+      btnSubmitResetPin.disabled = true;
+      spinnerResetPin.classList.remove('hidden');
+      txtSubmitReset.textContent = 'Salvando...';
+
+      try {
+        const resp = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            action: 'reset_pin',
+            cardId: pendingEditCardId,
+            whatsapp: whatsTyped,
+            newPin: newPinTyped
+          })
+        });
+
+        const res = await resp.json();
+        if (res.status === 'success') {
+          item.pin = newPinTyped;
+          showToast('PIN redefinido com sucesso!', '🔑');
+          modalPinAuth.classList.add('hidden');
+          openEditModal(item);
+        } else {
+          showToast(res.message || 'Erro ao redefinir PIN.', '⚠️');
+        }
+      } catch (err) {
+        showToast('Erro de conexão ao redefinir PIN.', '⚠️');
+      } finally {
+        btnSubmitResetPin.disabled = false;
+        spinnerResetPin.classList.add('hidden');
+        txtSubmitReset.textContent = 'Salvar Novo PIN';
+      }
+    });
+
 
     function openEditModal(item) {
       currentEditingItem = item;
