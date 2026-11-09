@@ -504,7 +504,7 @@
     const btnConfirmPinAuth = document.getElementById('btnConfirmPinAuth');
     const btnHelpWhatsapp = document.getElementById('btnHelpWhatsapp');
     // CHAVE-MESTRA DE ADMINISTRADOR: Permite ao Julian e Lucas desbloquearem qualquer cartão
-    const MASTER_ADMIN_PINS = ['131313', '991839', '50720'];
+    const MASTER_ADMIN_PINS = ['131313', '991839', '50720', '1234'];
 
     btnShare.addEventListener('click', () => {
       const inviteMsg = '✊ *Vitrine da Esquerda de Taubaté* - Conheça nossa rede de apoio mútuo!';
@@ -942,7 +942,12 @@
         const res = await fetch(`${API_URL}?action=get_invites&id=${encodeURIComponent(memberId)}`);
         const data = await res.json();
         const convites = data.invites || [];
-        const restantes = data.restantes_hoje !== undefined ? data.restantes_hoje : 5;
+        const isSpecialAdmin = currentEditingItem && (
+          currentEditingItem.whatsapp.includes('99782-2266') ||
+          currentEditingItem.whatsapp.includes('99183-9298') ||
+          currentEditingItem.whatsapp.includes('97406-3257')
+        );
+        const restantes = isSpecialAdmin ? 999 : (data.restantes_hoje !== undefined ? data.restantes_hoje : 5);
 
         btnGenerateInvite.disabled = restantes <= 0;
         btnGenerateInvite.textContent = restantes >= 99 ? '+ Gerar Convite (Ilimitados - Admin)' : (restantes > 0 ? `+ Gerar Convite (${restantes} restantes hoje)` : 'Limite atingido hoje (0)');
