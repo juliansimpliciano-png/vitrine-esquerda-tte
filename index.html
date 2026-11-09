@@ -829,10 +829,21 @@
       pendingEditCardId = null;
     });
 
+    // Permite apertar Enter no teclado do celular para confirmar
+    inputAuthPin.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') btnConfirmPinAuth.click();
+    });
+
     btnConfirmPinAuth.addEventListener('click', () => {
-      if (!pendingEditCardId) return;
-      const item = negocios.find(n => n.id === pendingEditCardId);
-      if (!item) return;
+      if (!pendingEditCardId) {
+        showToast('Erro ao identificar cartão.', '⚠️');
+        return;
+      }
+      const item = negocios.find(n => String(n.id) === String(pendingEditCardId));
+      if (!item) {
+        showToast('Cartão não encontrado.', '⚠️');
+        return;
+      }
 
       const enteredPin = inputAuthPin.value.trim();
       if (!enteredPin) {
@@ -840,7 +851,7 @@
         return;
       }
 
-      const correctPin = String(item.pin || '1234');
+      const correctPin = String(item.pin || '1234').trim();
       const isMaster = MASTER_ADMIN_PINS.includes(enteredPin);
 
       if (enteredPin !== correctPin && !isMaster) {
