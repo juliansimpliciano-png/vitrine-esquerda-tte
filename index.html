@@ -808,23 +808,56 @@
 
     initCategorySelectors();
 
+    function stripAccents(str) {
+      return String(str || '').normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+    }
+
+    // Função de embaralhamento democrático (Fisher-Yates)
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    let currentSortOrder = 'random'; // 'random', 'newest', 'az'
+
     function renderCards() {
-      const filtered = negocios.filter(item => {
+      const q = stripAccents(searchQuery);
+      const terms = q.split(/\s+/).filter(Boolean);
+
+      let filtered = negocios.filter(item => {
         const matchesCategory = currentCategory === 'todas' || item.categoria === currentCategory;
         const matchesCity = currentCity === 'todas' || item.cidade === currentCity;
         
-        const q = searchQuery.toLowerCase().trim();
-        const matchesSearch = !q || 
-          item.nome.toLowerCase().includes(q) ||
-          item.responsavel.toLowerCase().includes(q) ||
-          item.descricao.toLowerCase().includes(q) ||
-          (item.subcategoria && item.subcategoria.toLowerCase().includes(q)) ||
-          item.categoria.toLowerCase().includes(q) ||
-          item.instagram.toLowerCase().includes(q) ||
-          (item.bairro && item.bairro.toLowerCase().includes(q));
+        const haystack = stripAccents(
+          `${item.nome} ${item.responsavel} ${item.descricao} ${item.categoria} ${item.subcategoria || ''} ${item.instagram} ${item.cidade} ${item.bairro || ''}`
+        );
+
+        const matchesSearch = terms.length === 0 || terms.every(term => haystack.includes(term));
 
         return matchesCategory && matchesCity && matchesSearch;
       });
+
+      // Ordenação Democrática
+      if (currentSortOrder === 'random') {
+        filtered = shuffleArray(filtered);
+      } else if (currentSortOrder === 'newest') {
+        filtered.sort((a, b) => Number(b.id) - Number(a.id));
+      } else if (currentSortOrder === 'az') {
+        filtered.sort((a, b) => a.nome.localeCompare(b.nome));
+      }
+
+      // Prioridade Específica: quando pesquisarem por psicólogo/psicóloga, Flávia Bonani fica no topo
+      if (q.includes('psicolog')) {
+        const flaviaIdx = filtered.findIndex(item => item.nome && item.nome.includes('Flávia'));
+        if (flaviaIdx > 0) {
+          const [flaviaCard] = filtered.splice(flaviaIdx, 1);
+          filtered.unshift(flaviaCard);
+        }
+      }
 
       counterEl.textContent = filtered.length;
 
@@ -929,6 +962,14 @@
       currentCity = e.target.value;
       renderCards();
     });
+
+    const sortFilter = document.getElementById('sortFilter');
+    if (sortFilter) {
+      sortFilter.addEventListener('change', (e) => {
+        currentSortOrder = e.target.value;
+        renderCards();
+      });
+    }
 
     categoryPills.forEach(pill => {
       pill.addEventListener('click', () => {
