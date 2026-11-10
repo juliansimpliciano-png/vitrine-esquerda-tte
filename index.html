@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vitrine da Esquerda de Taubaté — Esquerda ajuda Esquerda</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <!-- PWA & Mobile App Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#991b1b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Vitrine">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -471,6 +481,21 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- Banner de Instalação do Aplicativo (PWA) -->
+  <div id="pwaInstallBanner" class="fixed bottom-4 left-4 right-4 max-w-sm mx-auto bg-stone-900 text-white p-3.5 rounded-2xl shadow-2xl border border-stone-700 flex items-center justify-between gap-3 z-50 hidden transition-all">
+    <div class="flex items-center gap-2.5 min-w-0">
+      <span class="w-8 h-8 rounded-xl bg-red-700 text-white flex items-center justify-center font-bold text-base shrink-0 shadow-inner">★</span>
+      <div class="truncate">
+        <p class="text-xs font-bold leading-tight truncate">Instalar o App da Vitrine</p>
+        <p class="text-[10px] text-stone-400">Acesse direto da tela do seu celular</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-1.5 shrink-0">
+      <button id="btnDismissPwa" class="text-stone-400 hover:text-white text-xs px-2 py-1 cursor-pointer">Depois</button>
+      <button id="btnInstallPwa" class="bg-red-700 hover:bg-red-800 text-white font-bold text-xs px-3 py-1.5 rounded-xl transition-all shadow-sm active:scale-95 cursor-pointer">Instalar</button>
     </div>
   </div>
 
@@ -1464,6 +1489,51 @@
         closeModal();
         await carregarDadosDaPlanilha();
 
+    // =========================================================================
+    // REGISTRO DO SERVICE WORKER E INSTALAÇÃO DO PWA
+    // =========================================================================
+    let deferredPrompt = null;
+    const pwaInstallBanner = document.getElementById('pwaInstallBanner');
+    const btnInstallPwa = document.getElementById('btnInstallPwa');
+    const btnDismissPwa = document.getElementById('btnDismissPwa');
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => console.log('PWA ServiceWorker ativo!', reg.scope))
+          .catch((err) => console.log('PWA SW error:', err));
+      });
+    }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (pwaInstallBanner && !sessionStorage.getItem('pwaDismissed')) {
+        pwaInstallBanner.classList.remove('hidden');
+      }
+    });
+
+    if (btnInstallPwa) {
+      btnInstallPwa.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          showToast('Aplicativo instalado com sucesso!', '📲');
+        }
+        deferredPrompt = null;
+        if (pwaInstallBanner) pwaInstallBanner.classList.add('hidden');
+      });
+    }
+
+    if (btnDismissPwa) {
+      btnDismissPwa.addEventListener('click', () => {
+        sessionStorage.setItem('pwaDismissed', 'true');
+        if (pwaInstallBanner) pwaInstallBanner.classList.add('hidden');
+      });
+    }
+
+
       } catch (err) {
         showToast('Erro ao salvar na nuvem, tente novamente.', '⚠️');
         console.error(err);
@@ -1634,6 +1704,51 @@
 
     // Inicia carregando da planilha Google e depois renderiza
     carregarDadosDaPlanilha();
+
+    // =========================================================================
+    // REGISTRO DO SERVICE WORKER E INSTALAÇÃO DO PWA
+    // =========================================================================
+    let deferredPrompt = null;
+    const pwaInstallBanner = document.getElementById('pwaInstallBanner');
+    const btnInstallPwa = document.getElementById('btnInstallPwa');
+    const btnDismissPwa = document.getElementById('btnDismissPwa');
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => console.log('PWA ServiceWorker ativo!', reg.scope))
+          .catch((err) => console.log('PWA SW error:', err));
+      });
+    }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (pwaInstallBanner && !sessionStorage.getItem('pwaDismissed')) {
+        pwaInstallBanner.classList.remove('hidden');
+      }
+    });
+
+    if (btnInstallPwa) {
+      btnInstallPwa.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          showToast('Aplicativo instalado com sucesso!', '📲');
+        }
+        deferredPrompt = null;
+        if (pwaInstallBanner) pwaInstallBanner.classList.add('hidden');
+      });
+    }
+
+    if (btnDismissPwa) {
+      btnDismissPwa.addEventListener('click', () => {
+        sessionStorage.setItem('pwaDismissed', 'true');
+        if (pwaInstallBanner) pwaInstallBanner.classList.add('hidden');
+      });
+    }
+
   </script>
 </body>
 </html>
