@@ -1,0 +1,19 @@
+{
+  "name": "Vitrine da Esquerda de Taubaté",
+  "short_name": "Vitrine",
+  "description": "Catálogo solidário de prestadores de serviços, profissionais e comércios da comunidade de Taubaté e região.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#991b1b",
+  "theme_color": "#991b1b",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
