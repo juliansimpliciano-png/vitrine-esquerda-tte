@@ -1,31 +1,31 @@
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;pt-BR&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;title&gt;Vitrine da Esquerda de Taubaté — Esquerda ajuda Esquerda&lt;/title&gt;
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitrine da Esquerda de Taubaté — Esquerda ajuda Esquerda</title>
   
-  &lt;!-- PWA &amp; Mobile App Meta Tags --&gt;
-  &lt;link rel=&quot;manifest&quot; href=&quot;manifest.json&quot;&gt;
-  &lt;meta name=&quot;theme-color&quot; content=&quot;#991b1b&quot;&gt;
-  &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
-  &lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot;&gt;
-  &lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;Vitrine&quot;&gt;
-  &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;icon.svg&quot;&gt;
-  &lt;link rel=&quot;icon&quot; type=&quot;image/svg+xml&quot; href=&quot;icon.svg&quot;&gt;
-  &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;192x192&quot; href=&quot;icon-192.png&quot;&gt;
+  <!-- PWA & Mobile App Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#991b1b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Vitrine">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 
-  &lt;!-- Tailwind CSS CDN --&gt;
-  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4&quot;&gt;&lt;/script&gt;
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   
-  &lt;!-- Google Fonts: Inter --&gt;
-  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
-  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
-  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  &lt;style&gt;
+  <style>
     body {
-      font-family: &#39;Inter&#39;, sans-serif;
+      font-family: 'Inter', sans-serif;
     }
     .custom-scrollbar::-webkit-scrollbar {
       height: 6px;
@@ -39,26 +39,26 @@
       background: #dc2626;
       border-radius: 9999px;
     }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body class=&quot;bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col selection:bg-red-700 selection:text-white&quot;&gt;
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col selection:bg-red-700 selection:text-white">
 
-  &lt;!-- Header Superior --&gt;
-  &lt;header class=&quot;bg-red-800 text-white shadow-md sticky top-0 z-40&quot;&gt;
-    &lt;div class=&quot;max-w-6xl mx-auto px-4 py-3 flex items-center justify-between&quot;&gt;
-      &lt;div class=&quot;flex items-center gap-3&quot;&gt;
-        &lt;div class=&quot;w-10 h-10 rounded-xl bg-white text-red-800 flex items-center justify-center font-extrabold text-xl shadow-inner shrink-0&quot;&gt;
+  <!-- Header Superior -->
+  <header class="bg-red-800 text-white shadow-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-white text-red-800 flex items-center justify-center font-extrabold text-xl shadow-inner shrink-0">
           ★
-        &lt;/div&gt;
-        &lt;div&gt;
-          &lt;h1 class=&quot;font-extrabold text-lg sm:text-xl tracking-tight leading-tight&quot;&gt;
+        </div>
+        <div>
+          <h1 class="font-extrabold text-lg sm:text-xl tracking-tight leading-tight">
             Vitrine da Esquerda de Taubaté
-          &lt;/h1&gt;
-          &lt;p class=&quot;text-[11px] sm:text-xs text-red-200 uppercase font-semibold tracking-wider&quot;&gt;
+          </h1>
+          <p class="text-[11px] sm:text-xs text-red-200 uppercase font-semibold tracking-wider">
             Esquerda ajuda Esquerda
-          &lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+          </p>
+        </div>
+      </div>
 
       <div class="flex items-center gap-2">
         <button id="btnOpenModal" onclick="openModal()" class="bg-white hover:bg-stone-100 text-red-800 font-bold px-3.5 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all shadow-sm active:scale-95 border border-stone-200 cursor-pointer shrink-0">
@@ -71,20 +71,20 @@
         </button>
       </div>
     </div>
-  &lt;/header&gt;
+  </header>
 
-  &lt;!-- Hero Banner --&gt;
-  &lt;section class=&quot;bg-gradient-to-b from-red-800 to-red-900 text-white py-8 px-4 text-center&quot;&gt;
-    &lt;div class=&quot;max-w-3xl mx-auto space-y-2.5&quot;&gt;
-      &lt;div class=&quot;inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-700/60 border border-red-500/30 text-xs font-medium text-red-100&quot;&gt;
-        &lt;span&gt;✊&lt;/span&gt; Economia Popular &amp; Apoio Mútuo em Taubaté
-      &lt;/div&gt;
-      &lt;h2 class=&quot;text-2xl sm:text-3xl font-extrabold tracking-tight&quot;&gt;
+  <!-- Hero Banner -->
+  <section class="bg-gradient-to-b from-red-800 to-red-900 text-white py-8 px-4 text-center">
+    <div class="max-w-3xl mx-auto space-y-2.5">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-700/60 border border-red-500/30 text-xs font-medium text-red-100">
+        <span>✊</span> Economia Popular & Apoio Mútuo em Taubaté
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
         Compre e contrate de quem fortalece a nossa rede
-      &lt;/h2&gt;
-      &lt;p class=&quot;text-red-100 text-xs sm:text-sm max-w-xl mx-auto font-normal leading-relaxed&quot;&gt;
+      </h2>
+      <p class="text-red-100 text-xs sm:text-sm max-w-xl mx-auto font-normal leading-relaxed">
         Catálogo unificado de prestadores de serviços, profissionais e comércios da comunidade. Toque para seguir no Instagram ou chamar no WhatsApp com 1 clique.
-      &lt;/p&gt;
+      </p>
       
       <div class="pt-2 flex flex-wrap items-center justify-center gap-3 text-xs text-red-200">
         <span class="flex items-center gap-1 bg-red-950/40 px-2.5 py-1 rounded-lg border border-red-800/60">
@@ -92,10 +92,10 @@
         </span>
       </div>
     </div>
-  &lt;/section&gt;
+  </section>
 
-  &lt;!-- Main Content --&gt;
-  &lt;main class=&quot;max-w-6xl mx-auto px-4 py-6 flex-1 w-full space-y-6&quot;&gt;
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 py-6 flex-1 w-full space-y-6">
 
     <!-- Busca e Filtros -->
     <div class="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs space-y-3">
@@ -219,36 +219,36 @@
         </button>
       </div>
     </div>
-  &lt;/main&gt;
+  </main>
 
-  &lt;!-- Banner de Instalação do Aplicativo (PWA) --&gt;
-  &lt;div id=&quot;pwaInstallBanner&quot; class=&quot;fixed bottom-4 left-4 right-4 max-w-sm mx-auto bg-stone-900 text-white p-3.5 rounded-2xl shadow-2xl border border-stone-700 flex items-center justify-between gap-3 z-50 hidden transition-all&quot;&gt;
-    &lt;div class=&quot;flex items-center gap-2.5 min-w-0&quot;&gt;
-      &lt;span class=&quot;w-8 h-8 rounded-xl bg-red-700 text-white flex items-center justify-center font-bold text-base shrink-0 shadow-inner&quot;&gt;★&lt;/span&gt;
-      &lt;div class=&quot;truncate&quot;&gt;
-        &lt;p class=&quot;text-xs font-bold leading-tight truncate&quot;&gt;Instalar o App da Vitrine&lt;/p&gt;
-        &lt;p class=&quot;text-[10px] text-stone-400&quot;&gt;Acesse direto da tela do seu celular&lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;flex items-center gap-1.5 shrink-0&quot;&gt;
-      &lt;button id=&quot;btnDismissPwa&quot; class=&quot;text-stone-400 hover:text-white text-xs px-2 py-1 cursor-pointer&quot;&gt;Depois&lt;/button&gt;
-      &lt;button id=&quot;btnInstallPwa&quot; class=&quot;bg-red-700 hover:bg-red-800 text-white font-bold text-xs px-3 py-1.5 rounded-xl transition-all shadow-sm active:scale-95 cursor-pointer&quot;&gt;Instalar&lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+  <!-- Banner de Instalação do Aplicativo (PWA) -->
+  <div id="pwaInstallBanner" class="fixed bottom-4 left-4 right-4 max-w-sm mx-auto bg-stone-900 text-white p-3.5 rounded-2xl shadow-2xl border border-stone-700 flex items-center justify-between gap-3 z-50 hidden transition-all">
+    <div class="flex items-center gap-2.5 min-w-0">
+      <span class="w-8 h-8 rounded-xl bg-red-700 text-white flex items-center justify-center font-bold text-base shrink-0 shadow-inner">★</span>
+      <div class="truncate">
+        <p class="text-xs font-bold leading-tight truncate">Instalar o App da Vitrine</p>
+        <p class="text-[10px] text-stone-400">Acesse direto da tela do seu celular</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-1.5 shrink-0">
+      <button id="btnDismissPwa" class="text-stone-400 hover:text-white text-xs px-2 py-1 cursor-pointer">Depois</button>
+      <button id="btnInstallPwa" class="bg-red-700 hover:bg-red-800 text-white font-bold text-xs px-3 py-1.5 rounded-xl transition-all shadow-sm active:scale-95 cursor-pointer">Instalar</button>
+    </div>
+  </div>
 
-  &lt;!-- Modal Cadastro / Edição de Negócio --&gt;
-  &lt;div id=&quot;modalCadastro&quot; class=&quot;fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden&quot;&gt;
-    &lt;div class=&quot;bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[92vh] overflow-y-auto custom-scrollbar border border-stone-100&quot;&gt;
-      &lt;div class=&quot;p-5 sm:p-6 border-b border-stone-100 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur z-10&quot;&gt;
-        &lt;div class=&quot;flex items-center gap-2.5&quot;&gt;
-          &lt;span class=&quot;w-7 h-7 rounded-lg bg-red-100 text-red-700 flex items-center justify-center text-sm font-bold&quot;&gt;★&lt;/span&gt;
-          &lt;div&gt;
-            &lt;h3 id=&quot;modalTitle&quot; class=&quot;text-base font-bold text-stone-900&quot;&gt;Cadastrar Negócio na Vitrine&lt;/h3&gt;
-            &lt;p id=&quot;modalSubtitle&quot; class=&quot;text-xs text-stone-500&quot;&gt;Categorias oficiais da comunidade Esquerda ajuda Esquerda&lt;/p&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;button id=&quot;btnCloseModal&quot; onclick=&quot;closeModal()&quot; class=&quot;w-8 h-8 rounded-full bg-stone-100 text-stone-500 hover:bg-stone-200 flex items-center justify-center transition-all cursor-pointer&quot;&gt;✕&lt;/button&gt;
-      &lt;/div&gt;
+  <!-- Modal Cadastro / Edição de Negócio -->
+  <div id="modalCadastro" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full max-h-[92vh] overflow-y-auto custom-scrollbar border border-stone-100">
+      <div class="p-5 sm:p-6 border-b border-stone-100 flex items-center justify-between sticky top-0 bg-white/95 backdrop-blur z-10">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-red-100 text-red-700 flex items-center justify-center text-sm font-bold">★</span>
+          <div>
+            <h3 id="modalTitle" class="text-base font-bold text-stone-900">Cadastrar Negócio na Vitrine</h3>
+            <p id="modalSubtitle" class="text-xs text-stone-500">Categorias oficiais da comunidade Esquerda ajuda Esquerda</p>
+          </div>
+        </div>
+        <button id="btnCloseModal" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 hover:bg-stone-200 flex items-center justify-center transition-all cursor-pointer">✕</button>
+      </div>
 
       <form id="formCadastro" class="p-5 sm:p-6 space-y-4">
         <input type="hidden" id="editCardId" value="">
@@ -389,11 +389,11 @@
         </div>
       </form>
     </div>
-  &lt;/div&gt;
+  </div>
 
-  &lt;!-- Modal Autenticação e Recuperação Inteligente de PIN --&gt;
-  &lt;div id=&quot;modalPinAuth&quot; class=&quot;fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden&quot;&gt;
-    &lt;div class=&quot;bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 border border-stone-100 space-y-4&quot;&gt;
+  <!-- Modal Autenticação e Recuperação Inteligente de PIN -->
+  <div id="modalPinAuth" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 border border-stone-100 space-y-4">
 
       <!-- VISTA 1: DIGITAR PIN NORMAL -->
       <div id="viewPinNormal" class="space-y-4">
@@ -491,18 +491,18 @@
       </div>
 
     </div>
-  &lt;/div&gt;
+  </div>
 
-  &lt;!-- Modal Confirmar Exclusão de Cartão --&gt;
-  &lt;div id=&quot;modalDeleteConfirm&quot; class=&quot;fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden&quot;&gt;
-    &lt;div class=&quot;bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 border border-stone-100 space-y-4&quot;&gt;
-      &lt;div class=&quot;flex items-center gap-2.5&quot;&gt;
-        &lt;span class=&quot;w-8 h-8 rounded-xl bg-red-100 text-red-700 flex items-center justify-center text-base font-bold&quot;&gt;🗑️&lt;/span&gt;
-        &lt;div&gt;
-          &lt;h3 class=&quot;text-sm font-bold text-stone-900&quot;&gt;Excluir Cartão&lt;/h3&gt;
-          &lt;p class=&quot;text-xs text-stone-500&quot;&gt;Confirmação de segurança&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
+  <!-- Modal Confirmar Exclusão de Cartão -->
+  <div id="modalDeleteConfirm" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 border border-stone-100 space-y-4">
+      <div class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded-xl bg-red-100 text-red-700 flex items-center justify-center text-base font-bold">🗑️</span>
+        <div>
+          <h3 class="text-sm font-bold text-stone-900">Excluir Cartão</h3>
+          <p class="text-xs text-stone-500">Confirmação de segurança</p>
+        </div>
+      </div>
       
       <p class="text-xs text-stone-600 leading-relaxed">
         Tem certeza que deseja remover o negócio <strong id="txtDeleteCardNome" class="text-stone-900"></strong> da Vitrine? Esta ação é irreversível.
@@ -521,11 +521,11 @@
         </button>
       </div>
     </div>
-  &lt;/div&gt;
+  </div>
 
-  &lt;!-- Modal Painel do Administrador (Julian Simpliciano) --&gt;
-  &lt;div id=&quot;modalAdminPanel&quot; class=&quot;fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden&quot;&gt;
-    &lt;div class=&quot;bg-white rounded-3xl shadow-2xl max-w-md w-full max-h-[92vh] overflow-y-auto custom-scrollbar border border-stone-100 p-5 sm:p-6 space-y-4&quot;&gt;
+  <!-- Modal Painel do Administrador (Julian Simpliciano) -->
+  <div id="modalAdminPanel" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full max-h-[92vh] overflow-y-auto custom-scrollbar border border-stone-100 p-5 sm:p-6 space-y-4">
       
       <!-- Topo do Modal -->
       <div class="flex items-center justify-between border-b border-stone-100 pb-3">
@@ -579,249 +579,249 @@
       </div>
 
     </div>
-  &lt;/div&gt;
+  </div>
 
-  &lt;!-- Modal Zoom da Foto / Lightbox --&gt;
-  &lt;div id=&quot;modalPhotoZoom&quot; class=&quot;fixed inset-0 bg-stone-950/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden transition-all duration-300&quot; onclick=&quot;closePhotoZoom()&quot;&gt;
-    &lt;div class=&quot;relative max-w-lg w-full max-h-[90vh] flex flex-col items-center justify-center&quot; onclick=&quot;event.stopPropagation()&quot;&gt;
-      &lt;button onclick=&quot;closePhotoZoom()&quot; class=&quot;absolute -top-12 right-0 sm:-right-4 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-lg font-bold transition-all cursor-pointer shadow-lg&quot;&gt;
+  <!-- Modal Zoom da Foto / Lightbox -->
+  <div id="modalPhotoZoom" class="fixed inset-0 bg-stone-950/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden transition-all duration-300" onclick="closePhotoZoom()">
+    <div class="relative max-w-lg w-full max-h-[90vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+      <button onclick="closePhotoZoom()" class="absolute -top-12 right-0 sm:-right-4 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-lg font-bold transition-all cursor-pointer shadow-lg">
         ✕
-      &lt;/button&gt;
-      &lt;div class=&quot;bg-white p-2 rounded-3xl shadow-2xl overflow-hidden border border-white/20 max-h-[80vh] flex items-center justify-center&quot;&gt;
-        &lt;img id=&quot;imgZoomTarget&quot; src=&quot;&quot; alt=&quot;Foto Ampliada&quot; class=&quot;max-h-[75vh] w-auto max-w-full object-contain rounded-2xl&quot;&gt;
-      &lt;/div&gt;
-      &lt;p id=&quot;txtZoomCaption&quot; class=&quot;text-white text-xs sm:text-sm font-bold text-center mt-3 drop-shadow-md truncate max-w-full px-2&quot;&gt;&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+      </button>
+      <div class="bg-white p-2 rounded-3xl shadow-2xl overflow-hidden border border-white/20 max-h-[80vh] flex items-center justify-center">
+        <img id="imgZoomTarget" src="" alt="Foto Ampliada" class="max-h-[75vh] w-auto max-w-full object-contain rounded-2xl">
+      </div>
+      <p id="txtZoomCaption" class="text-white text-xs sm:text-sm font-bold text-center mt-3 drop-shadow-md truncate max-w-full px-2"></p>
+    </div>
+  </div>
 
-  &lt;!-- Toast Notification --&gt;
-  &lt;div id=&quot;toast&quot; class=&quot;fixed bottom-5 right-5 z-50 bg-stone-900 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs font-medium translate-y-20 opacity-0 transition-all duration-300 pointer-events-none border border-stone-700&quot;&gt;
-    &lt;span class=&quot;text-base&quot; id=&quot;toastIcon&quot;&gt;★&lt;/span&gt;
-    &lt;span id=&quot;toastMsg&quot;&gt;Mensagem&lt;/span&gt;
-  &lt;/div&gt;
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-stone-900 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs font-medium translate-y-20 opacity-0 transition-all duration-300 pointer-events-none border border-stone-700">
+    <span class="text-base" id="toastIcon">★</span>
+    <span id="toastMsg">Mensagem</span>
+  </div>
 
-  &lt;footer class=&quot;bg-stone-900 text-stone-400 py-6 text-center text-xs border-t border-stone-800&quot;&gt;
-    &lt;div class=&quot;max-w-6xl mx-auto px-4 space-y-1&quot;&gt;
-      &lt;p class=&quot;text-stone-200 font-bold&quot;&gt;Vitrine da Esquerda de Taubaté — Esquerda ajuda Esquerda&lt;/p&gt;
-      &lt;p class=&quot;text-stone-500&quot;&gt;Desenvolvido como ferramenta comunitária aberta para fortalecer os negócios da nossa rede.&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/footer&gt;
+  <footer class="bg-stone-900 text-stone-400 py-6 text-center text-xs border-t border-stone-800">
+    <div class="max-w-6xl mx-auto px-4 space-y-1">
+      <p class="text-stone-200 font-bold">Vitrine da Esquerda de Taubaté — Esquerda ajuda Esquerda</p>
+      <p class="text-stone-500">Desenvolvido como ferramenta comunitária aberta para fortalecer os negócios da nossa rede.</p>
+    </div>
+  </footer>
 
-  &lt;script&gt;
+  <script>
     // Taxonomia Oficial extraída das pastas do Google Drive da comunidade
     const taxonomia = {
-      &quot;ALIMENTAÇÃO&quot;: [
-        &quot;Açougues&quot;,
-        &quot;Bares&quot;,
-        &quot;Confeitarias&quot;,
-        &quot;Lanchonetes&quot;,
-        &quot;Padarias&quot;,
-        &quot;Restaurantes&quot;,
-        &quot;Sorveterias&quot;,
-        &quot;Outros em Alimentação&quot;
+      "ALIMENTAÇÃO": [
+        "Açougues",
+        "Bares",
+        "Confeitarias",
+        "Lanchonetes",
+        "Padarias",
+        "Restaurantes",
+        "Sorveterias",
+        "Outros em Alimentação"
       ],
-      &quot;SAÚDE&quot;: [
-        &quot;Psicólogos&quot;,
-        &quot;Dentistas&quot;,
-        &quot;Médicos&quot;,
-        &quot;Fisioterapeutas / Massoterapeutas&quot;,
-        &quot;Nutricionistas&quot;,
-        &quot;Fono / Terapia Ocupacional&quot;,
-        &quot;Personais Trainer&quot;,
-        &quot;Academias / Clínicas / Studios Pilates&quot;,
-        &quot;Outros em Saúde&quot;
+      "SAÚDE": [
+        "Psicólogos",
+        "Dentistas",
+        "Médicos",
+        "Fisioterapeutas / Massoterapeutas",
+        "Nutricionistas",
+        "Fono / Terapia Ocupacional",
+        "Personais Trainer",
+        "Academias / Clínicas / Studios Pilates",
+        "Outros em Saúde"
       ],
-      &quot;SERVIÇOS GERAIS&quot;: [
-        &quot;Diaristas&quot;,
-        &quot;Faxineiras&quot;,
-        &quot;Cozinheiras&quot;,
-        &quot;Cuidadores(as)&quot;,
-        &quot;Manutenção Residencial&quot;,
-        &quot;Outros em Serviços Gerais&quot;
+      "SERVIÇOS GERAIS": [
+        "Diaristas",
+        "Faxineiras",
+        "Cozinheiras",
+        "Cuidadores(as)",
+        "Manutenção Residencial",
+        "Outros em Serviços Gerais"
       ],
-      &quot;CONSTRUÇÃO&quot;: [
-        &quot;Arquitetos&quot;,
-        &quot;Engenheiros em Geral&quot;,
-        &quot;Pedreiros&quot;,
-        &quot;Pintores&quot;,
-        &quot;Eletricistas&quot;,
-        &quot;Encanadores&quot;,
-        &quot;Jardineiros&quot;,
-        &quot;Dedetizadores&quot;,
-        &quot;Outros em Construção&quot;
+      "CONSTRUÇÃO": [
+        "Arquitetos",
+        "Engenheiros em Geral",
+        "Pedreiros",
+        "Pintores",
+        "Eletricistas",
+        "Encanadores",
+        "Jardineiros",
+        "Dedetizadores",
+        "Outros em Construção"
       ],
-      &quot;COMÉRCIO&quot;: [
-        &quot;Mercados e Mercearias&quot;,
-        &quot;Lojas de Roupas&quot;,
-        &quot;Lojas de Calçados&quot;,
-        &quot;Lojas de Acessórios&quot;,
-        &quot;Lojas de Eletrônicos&quot;,
-        &quot;Papelaria&quot;,
-        &quot;Casa de Construção&quot;,
-        &quot;Gráficas&quot;,
-        &quot;Aluguel de Artigos para Festas&quot;,
-        &quot;Gelo para Bebidas&quot;,
-        &quot;Outros no Comércio&quot;
+      "COMÉRCIO": [
+        "Mercados e Mercearias",
+        "Lojas de Roupas",
+        "Lojas de Calçados",
+        "Lojas de Acessórios",
+        "Lojas de Eletrônicos",
+        "Papelaria",
+        "Casa de Construção",
+        "Gráficas",
+        "Aluguel de Artigos para Festas",
+        "Gelo para Bebidas",
+        "Outros no Comércio"
       ],
-      &quot;JURÍDICOS&quot;: [
-        &quot;Advogados&quot;,
-        &quot;Contadores&quot;,
-        &quot;Despachantes&quot;,
-        &quot;Corretoras de Seguros&quot;,
-        &quot;Outros em Jurídicos &amp; Finanças&quot;
+      "JURÍDICOS": [
+        "Advogados",
+        "Contadores",
+        "Despachantes",
+        "Corretoras de Seguros",
+        "Outros em Jurídicos & Finanças"
       ],
-      &quot;TI&quot;: [
-        &quot;Designers&quot;,
-        &quot;Desenvolvedores&quot;,
-        &quot;Gestores de Tráfego / Marketing&quot;,
-        &quot;Assistência Técnica de Celular e PC&quot;,
-        &quot;Audiovisual / Fotógrafos&quot;,
-        &quot;Outros em TI &amp; Mídia&quot;
+      "TI": [
+        "Designers",
+        "Desenvolvedores",
+        "Gestores de Tráfego / Marketing",
+        "Assistência Técnica de Celular e PC",
+        "Audiovisual / Fotógrafos",
+        "Outros em TI & Mídia"
       ],
-      &quot;EDUCAÇÃO&quot;: [
-        &quot;Professores Particulares&quot;,
-        &quot;Aulas de Idiomas&quot;,
-        &quot;Reforço Escolar&quot;,
-        &quot;Música e Artes&quot;,
-        &quot;Outros em Educação&quot;
+      "EDUCAÇÃO": [
+        "Professores Particulares",
+        "Aulas de Idiomas",
+        "Reforço Escolar",
+        "Música e Artes",
+        "Outros em Educação"
       ],
-      &quot;BELEZA&quot;: [
-        &quot;Cabeleireiros(as)&quot;,
-        &quot;Barbeiros&quot;,
-        &quot;Manicures / Pedicures&quot;,
-        &quot;Design de Sobrancelhas&quot;,
-        &quot;Esteticistas&quot;,
-        &quot;Maquiadoras&quot;,
-        &quot;Tatuadores / Body Piercing&quot;,
-        &quot;Outros em Beleza&quot;
+      "BELEZA": [
+        "Cabeleireiros(as)",
+        "Barbeiros",
+        "Manicures / Pedicures",
+        "Design de Sobrancelhas",
+        "Esteticistas",
+        "Maquiadoras",
+        "Tatuadores / Body Piercing",
+        "Outros em Beleza"
       ],
-      &quot;ARTE&quot;: [
-        &quot;Artesanato &amp; Artes Plásticas&quot;,
-        &quot;Músicos para Eventos&quot;,
-        &quot;DJs e Sonorização&quot;,
-        &quot;Costura e Confecção&quot;,
-        &quot;Outros em Artes &amp; Eventos&quot;
+      "ARTE": [
+        "Artesanato & Artes Plásticas",
+        "Músicos para Eventos",
+        "DJs e Sonorização",
+        "Costura e Confecção",
+        "Outros em Artes & Eventos"
       ],
-      &quot;AUTOMOTIVO&quot;: [
-        &quot;Mecânicas&quot;,
-        &quot;Auto Elétricas&quot;,
-        &quot;Funilaria e Pintura&quot;,
-        &quot;Lava-Rápido&quot;,
-        &quot;Borracharia&quot;,
-        &quot;Outros em Automotivo&quot;
+      "AUTOMOTIVO": [
+        "Mecânicas",
+        "Auto Elétricas",
+        "Funilaria e Pintura",
+        "Lava-Rápido",
+        "Borracharia",
+        "Outros em Automotivo"
       ],
-      &quot;PETS&quot;: [
-        &quot;Veterinários&quot;,
-        &quot;Banho e Tosa&quot;,
-        &quot;Passeadores(as) / Pet Sitters&quot;,
-        &quot;Outros em Pets&quot;
+      "PETS": [
+        "Veterinários",
+        "Banho e Tosa",
+        "Passeadores(as) / Pet Sitters",
+        "Outros em Pets"
       ],
-      &quot;IMÓVEIS&quot;: [
-        &quot;Corretores de Imóveis&quot;,
-        &quot;Outros em Imóveis&quot;
+      "IMÓVEIS": [
+        "Corretores de Imóveis",
+        "Outros em Imóveis"
       ]
     };
 
     // CONEXÃO OFICIAL GOOGLE APPS SCRIPT (ILIMITADA E GRATUITA)
-    const API_URL = &quot;https://script.google.com/macros/s/AKfycbz_OxyVm-3ASRLpW5lpoTKVOyleOdnqosFuT64Nw1Lzbv7fNvPmsLLjozPBntccUUGWvQ/exec&quot;;
+    const API_URL = "https://script.google.com/macros/s/AKfycbz_OxyVm-3ASRLpW5lpoTKVOyleOdnqosFuT64Nw1Lzbv7fNvPmsLLjozPBntccUUGWvQ/exec";
 
     // FOTO REAL DA FLÁVIA BONANI EMBUTIDA COMO GARANTIA VISUAL
-    const FLAVIA_AVATAR_B64 = &quot;data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABDAEIDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+qF5qkVqjEfOyjOBRqV2YItqn5mrmrxyLaVicnaaAOa1f4sX1vdCCysYeuMysT/LFXrHx9qlx5ZkS12sMnapFeOK7X/iFolPVioI9Sa7/SvDUdi/mCeaRjjh24Fc1Wo46JnfRoqWrR2V/wCNb62QeWkO8/3+mKwdY+KOq6ZYi6igtJ8MFdSCKp6hZpfXDW8rMBjb8pwa5zxJoltZeHriO3DfLh8k5zisYVpXV2bzw0eV2R6N4I+KUHiszxTWJtJoQCcSbwwPpwK9BjlSVA6MGB7ivmH4WT+V4mnizxJbtx9CK910jUWtrkROf3TnHPau5HlSVjrKKQEEZzRTEc9qr7r1h6Vkag2LCcj+4f5Vp6n/AMfz/wCe9ZV/zZTD1Qj9KAR4PoExTxFbzMPv3DD9Dj+VetR3CR4824jiJHy7z1/xrxzVN1gkVzCdrLOHX8K9P0DUbXxTo8dxbttuI+qt1Rscg+1cdeOqZ6uEn9lkl7eQfaBK15HgDkjv7k1ieMLvZoBcNlZmVFI7gmtm6sbxx5U8kaxHrsUAsPyrzjxxrX2vWLXS4CfJtwWYjoWAOMfSsacFKasdOJnyQLPgZvs3jS2HA3oydfavZt2CCOorwXRrzyNW0y8H8MwB/PBr3UPlQR3r0jw5HZQ3jNBG3qoP6UVWtf8Aj0h/65r/ACooJK2qn/iYPWXdfPbSqe61o6vxqD1SSL7TJ5WcAj5j6Ck2luVFNvQ+fvEJG+OHJP708fQf/XroPh/ayw3M5ViqPnBB9KwvEaK2s3KpykTvj866LwBdh9SurfP3GDfTI/8ArVjU1idNN2lc7Wa0nmG0zZU9cDmvLvF2h/ZtWW6UdiG9v85r3SFECZCqCR6VynizQvttmXRSzKxLY6kHr/j+Fc9L3ZXNqknNWZ4pDIVJhzg7t6f7wNe3+HNXi1TRLeYN+827XXuGHWvFNRs3geRBnfE3I9q6TwR4gjsNQ8m7OIJuN2Put0BrsctLo5OW7sz6KtP+PODv+7X+VFNsP+QdbbSCPKXGPoKKOd9ieTzHa1ak3AkP3SOaoQhQkioecY/GuourdbmExt36GucjsJ7SaVJeU3ZDeowa5q0Jc/N0OijUjyOPU+dPEEbQzXrnlzMw/AGrHw5kaLxSFduJ0x+lS+Jgg1K8QcoJH6fWoPC4FvrtuyH5lUKpPc4JrVu8RW9497ijygOO1EsIZcEU/TXWe1DDoecVaeIGuY0Z4d8Q9ITTtVjuYl2xzqQR7965PSdGuNX1m0sLVSzzyKgK9h3P0A5P0r27x14dl1vQ3itoWluUIKIg5NXvhp8OR4Yh/tDUtr6lIuAo5EI9Ae59T/k9VLVGFRpandwWUcNvHEowqIFA9ABRV2itbGFwpjorjDKCPeiimI5bU/B/h2/neS50i1d2HzHbgn6461BD4L8OW8yzRaTAkiHKsM8H86KKku7NWC0t7eMJDEqKOgHapNi5HyiiipSRTbNGCCJFyqAGrAooq0ZsWiiimI//2Q==&quot;;
+    const FLAVIA_AVATAR_B64 = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABDAEIDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+qF5qkVqjEfOyjOBRqV2YItqn5mrmrxyLaVicnaaAOa1f4sX1vdCCysYeuMysT/LFXrHx9qlx5ZkS12sMnapFeOK7X/iFolPVioI9Sa7/SvDUdi/mCeaRjjh24Fc1Wo46JnfRoqWrR2V/wCNb62QeWkO8/3+mKwdY+KOq6ZYi6igtJ8MFdSCKp6hZpfXDW8rMBjb8pwa5zxJoltZeHriO3DfLh8k5zisYVpXV2bzw0eV2R6N4I+KUHiszxTWJtJoQCcSbwwPpwK9BjlSVA6MGB7ivmH4WT+V4mnizxJbtx9CK910jUWtrkROf3TnHPau5HlSVjrKKQEEZzRTEc9qr7r1h6Vkag2LCcj+4f5Vp6n/AMfz/wCe9ZV/zZTD1Qj9KAR4PoExTxFbzMPv3DD9Dj+VetR3CR4824jiJHy7z1/xrxzVN1gkVzCdrLOHX8K9P0DUbXxTo8dxbttuI+qt1Rscg+1cdeOqZ6uEn9lkl7eQfaBK15HgDkjv7k1ieMLvZoBcNlZmVFI7gmtm6sbxx5U8kaxHrsUAsPyrzjxxrX2vWLXS4CfJtwWYjoWAOMfSsacFKasdOJnyQLPgZvs3jS2HA3oydfavZt2CCOorwXRrzyNW0y8H8MwB/PBr3UPlQR3r0jw5HZQ3jNBG3qoP6UVWtf8Aj0h/65r/ACooJK2qn/iYPWXdfPbSqe61o6vxqD1SSL7TJ5WcAj5j6Ck2luVFNvQ+fvEJG+OHJP708fQf/XroPh/ayw3M5ViqPnBB9KwvEaK2s3KpykTvj866LwBdh9SurfP3GDfTI/8ArVjU1idNN2lc7Wa0nmG0zZU9cDmvLvF2h/ZtWW6UdiG9v85r3SFECZCqCR6VynizQvttmXRSzKxLY6kHr/j+Fc9L3ZXNqknNWZ4pDIVJhzg7t6f7wNe3+HNXi1TRLeYN+827XXuGHWvFNRs3geRBnfE3I9q6TwR4gjsNQ8m7OIJuN2Put0BrsctLo5OW7sz6KtP+PODv+7X+VFNsP+QdbbSCPKXGPoKKOd9ieTzHa1ak3AkP3SOaoQhQkioecY/GuourdbmExt36GucjsJ7SaVJeU3ZDeowa5q0Jc/N0OijUjyOPU+dPEEbQzXrnlzMw/AGrHw5kaLxSFduJ0x+lS+Jgg1K8QcoJH6fWoPC4FvrtuyH5lUKpPc4JrVu8RW9497ijygOO1EsIZcEU/TXWe1DDoecVaeIGuY0Z4d8Q9ITTtVjuYl2xzqQR7965PSdGuNX1m0sLVSzzyKgK9h3P0A5P0r27x14dl1vQ3itoWluUIKIg5NXvhp8OR4Yh/tDUtr6lIuAo5EI9Ae59T/k9VLVGFRpandwWUcNvHEowqIFA9ABRV2itbGFwpjorjDKCPeiimI5bU/B/h2/neS50i1d2HzHbgn6461BD4L8OW8yzRaTAkiHKsM8H86KKku7NWC0t7eMJDEqKOgHapNi5HyiiipSRTbNGCCJFyqAGrAooq0ZsWiiimI//2Q==";
 
     let negocios = [];
-    let currentCategory = &#39;todas&#39;;
-    let currentCity = &#39;todas&#39;;
-    let searchQuery = &#39;&#39;;
-    let currentPhotoBase64 = &#39;&#39;;
+    let currentCategory = 'todas';
+    let currentCity = 'todas';
+    let searchQuery = '';
+    let currentPhotoBase64 = '';
     let pendingEditCardId = null;
 
     // DOM Elements
-    const cardsGrid = document.getElementById(&#39;cardsGrid&#39;);
-    const emptyState = document.getElementById(&#39;emptyState&#39;);
-    const counterEl = document.getElementById(&#39;counter&#39;);
-    const searchInput = document.getElementById(&#39;searchInput&#39;);
-    const cityFilter = document.getElementById(&#39;cityFilter&#39;);
-    const sortFilter = document.getElementById(&#39;sortFilter&#39;);
-    const categoryPills = document.querySelectorAll(&#39;.cat-pill&#39;);
+    const cardsGrid = document.getElementById('cardsGrid');
+    const emptyState = document.getElementById('emptyState');
+    const counterEl = document.getElementById('counter');
+    const searchInput = document.getElementById('searchInput');
+    const cityFilter = document.getElementById('cityFilter');
+    const sortFilter = document.getElementById('sortFilter');
+    const categoryPills = document.querySelectorAll('.cat-pill');
 
     // Modal Form Elements
-    const modalCadastro = document.getElementById(&#39;modalCadastro&#39;);
-    const formCadastro = document.getElementById(&#39;formCadastro&#39;);
-    const modalTitle = document.getElementById(&#39;modalTitle&#39;);
-    const modalSubtitle = document.getElementById(&#39;modalSubtitle&#39;);
-    const editCardId = document.getElementById(&#39;editCardId&#39;);
-    const inputCategoria = document.getElementById(&#39;inputCategoria&#39;);
-    const inputSubcategoria = document.getElementById(&#39;inputSubcategoria&#39;);
-    const inputPin = document.getElementById(&#39;inputPin&#39;);
-    const inputEmail = document.getElementById(&#39;inputEmail&#39;);
-    const btnSubmitForm = document.getElementById(&#39;btnSubmitForm&#39;);
-    const btnSubmitText = document.getElementById(&#39;btnSubmitText&#39;);
-    const submitSpinner = document.getElementById(&#39;submitSpinner&#39;);
-    const btnOpenModal = document.getElementById(&#39;btnOpenModal&#39;);
-    const btnCloseModal = document.getElementById(&#39;btnCloseModal&#39;);
-    const btnCancelCadastro = document.getElementById(&#39;btnCancelCadastro&#39;);
-    const btnCadastrarPrimeiro = document.getElementById(&#39;btnCadastrarPrimeiro&#39;);
-    const btnDeleteFromEditModal = document.getElementById(&#39;btnDeleteFromEditModal&#39;);
-    const inputFoto = document.getElementById(&#39;inputFoto&#39;);
-    const imgPreview = document.getElementById(&#39;imgPreview&#39;);
-    const previewPlaceholder = document.getElementById(&#39;previewPlaceholder&#39;);
-    const btnRemoveFoto = document.getElementById(&#39;btnRemoveFoto&#39;);
+    const modalCadastro = document.getElementById('modalCadastro');
+    const formCadastro = document.getElementById('formCadastro');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const editCardId = document.getElementById('editCardId');
+    const inputCategoria = document.getElementById('inputCategoria');
+    const inputSubcategoria = document.getElementById('inputSubcategoria');
+    const inputPin = document.getElementById('inputPin');
+    const inputEmail = document.getElementById('inputEmail');
+    const btnSubmitForm = document.getElementById('btnSubmitForm');
+    const btnSubmitText = document.getElementById('btnSubmitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+    const btnOpenModal = document.getElementById('btnOpenModal');
+    const btnCloseModal = document.getElementById('btnCloseModal');
+    const btnCancelCadastro = document.getElementById('btnCancelCadastro');
+    const btnCadastrarPrimeiro = document.getElementById('btnCadastrarPrimeiro');
+    const btnDeleteFromEditModal = document.getElementById('btnDeleteFromEditModal');
+    const inputFoto = document.getElementById('inputFoto');
+    const imgPreview = document.getElementById('imgPreview');
+    const previewPlaceholder = document.getElementById('previewPlaceholder');
+    const btnRemoveFoto = document.getElementById('btnRemoveFoto');
 
     // PIN Authentication Modal Elements
-    const modalPinAuth = document.getElementById(&#39;modalPinAuth&#39;);
-    const viewPinNormal = document.getElementById(&#39;viewPinNormal&#39;);
-    const viewPinReset = document.getElementById(&#39;viewPinReset&#39;);
-    const inputAuthPin = document.getElementById(&#39;inputAuthPin&#39;);
-    const btnCancelPinAuth = document.getElementById(&#39;btnCancelPinAuth&#39;);
-    const btnConfirmPinAuth = document.getElementById(&#39;btnConfirmPinAuth&#39;);
-    const btnHelpWhatsapp = document.getElementById(&#39;btnHelpWhatsapp&#39;);
-    const btnGoToResetPin = document.getElementById(&#39;btnGoToResetPin&#39;);
-    const btnBackToPinNormal = document.getElementById(&#39;btnBackToPinNormal&#39;);
+    const modalPinAuth = document.getElementById('modalPinAuth');
+    const viewPinNormal = document.getElementById('viewPinNormal');
+    const viewPinReset = document.getElementById('viewPinReset');
+    const inputAuthPin = document.getElementById('inputAuthPin');
+    const btnCancelPinAuth = document.getElementById('btnCancelPinAuth');
+    const btnConfirmPinAuth = document.getElementById('btnConfirmPinAuth');
+    const btnHelpWhatsapp = document.getElementById('btnHelpWhatsapp');
+    const btnGoToResetPin = document.getElementById('btnGoToResetPin');
+    const btnBackToPinNormal = document.getElementById('btnBackToPinNormal');
 
     // Reset PIN via Email Elements
-    const boxStepSendCode = document.getElementById(&#39;boxStepSendCode&#39;);
-    const boxStepVerifyCode = document.getElementById(&#39;boxStepVerifyCode&#39;);
-    const boxFirstTimeInputs = document.getElementById(&#39;boxFirstTimeInputs&#39;);
-    const inputResetWhats = document.getElementById(&#39;inputResetWhats&#39;);
-    const inputResetResponsavel = document.getElementById(&#39;inputResetResponsavel&#39;);
-    const titleResetModal = document.getElementById(&#39;titleResetModal&#39;);
-    const subResetModal = document.getElementById(&#39;subResetModal&#39;);
-    const labelResetEmail = document.getElementById(&#39;labelResetEmail&#39;);
-    const descResetEmail = document.getElementById(&#39;descResetEmail&#39;);
-    const inputResetEmail = document.getElementById(&#39;inputResetEmail&#39;);
-    const btnSendResetCode = document.getElementById(&#39;btnSendResetCode&#39;);
-    const txtSendCode = document.getElementById(&#39;txtSendCode&#39;);
-    const spinnerSendCode = document.getElementById(&#39;spinnerSendCode&#39;);
-    const inputResetCode = document.getElementById(&#39;inputResetCode&#39;);
-    const inputResetNewPin = document.getElementById(&#39;inputResetNewPin&#39;);
-    const btnBackToSendCode = document.getElementById(&#39;btnBackToSendCode&#39;);
-    const btnSubmitResetPin = document.getElementById(&#39;btnSubmitResetPin&#39;);
-    const txtSubmitReset = document.getElementById(&#39;txtSubmitReset&#39;);
-    const spinnerResetPin = document.getElementById(&#39;spinnerResetPin&#39;);
-    let lastResetEmailTyped = &#39;&#39;;
+    const boxStepSendCode = document.getElementById('boxStepSendCode');
+    const boxStepVerifyCode = document.getElementById('boxStepVerifyCode');
+    const boxFirstTimeInputs = document.getElementById('boxFirstTimeInputs');
+    const inputResetWhats = document.getElementById('inputResetWhats');
+    const inputResetResponsavel = document.getElementById('inputResetResponsavel');
+    const titleResetModal = document.getElementById('titleResetModal');
+    const subResetModal = document.getElementById('subResetModal');
+    const labelResetEmail = document.getElementById('labelResetEmail');
+    const descResetEmail = document.getElementById('descResetEmail');
+    const inputResetEmail = document.getElementById('inputResetEmail');
+    const btnSendResetCode = document.getElementById('btnSendResetCode');
+    const txtSendCode = document.getElementById('txtSendCode');
+    const spinnerSendCode = document.getElementById('spinnerSendCode');
+    const inputResetCode = document.getElementById('inputResetCode');
+    const inputResetNewPin = document.getElementById('inputResetNewPin');
+    const btnBackToSendCode = document.getElementById('btnBackToSendCode');
+    const btnSubmitResetPin = document.getElementById('btnSubmitResetPin');
+    const txtSubmitReset = document.getElementById('txtSubmitReset');
+    const spinnerResetPin = document.getElementById('spinnerResetPin');
+    let lastResetEmailTyped = '';
 
     // Convites Elements
-    const boxInviteField = document.getElementById(&#39;boxInviteField&#39;);
-    const boxMemberInvites = document.getElementById(&#39;boxMemberInvites&#39;);
-    const inputInviteCode = document.getElementById(&#39;inputInviteCode&#39;);
-    const btnGenerateInvite = document.getElementById(&#39;btnGenerateInvite&#39;);
-    const listMemberInvites = document.getElementById(&#39;listMemberInvites&#39;);
+    const boxInviteField = document.getElementById('boxInviteField');
+    const boxMemberInvites = document.getElementById('boxMemberInvites');
+    const inputInviteCode = document.getElementById('inputInviteCode');
+    const btnGenerateInvite = document.getElementById('btnGenerateInvite');
+    const listMemberInvites = document.getElementById('listMemberInvites');
     let currentEditingItem = null;
 
     // CHAVE-MESTRA DE ADMINISTRADOR: Permite ao Julian e Lucas desbloquearem qualquer cartão
-    const MASTER_ADMIN_PINS = [&#39;191219&#39;, &#39;131313&#39;, &#39;991839&#39;, &#39;50720&#39;, &#39;1234&#39;];
+    const MASTER_ADMIN_PINS = ['191219', '131313', '991839', '50720', '1234'];
 
     // Toast Elements
-    const toast = document.getElementById(&#39;toast&#39;);
-    const toastMsg = document.getElementById(&#39;toastMsg&#39;);
-    const toastIcon = document.getElementById(&#39;toastIcon&#39;);
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+    const toastIcon = document.getElementById('toastIcon');
 
-    function showToast(msg, icon = &#39;★&#39;) {
+    function showToast(msg, icon = '★') {
       toastMsg.textContent = msg;
       toastIcon.textContent = icon;
-      toast.classList.remove(&#39;translate-y-20&#39;, &#39;opacity-0&#39;);
-      setTimeout(() =&gt; {
-        toast.classList.add(&#39;translate-y-20&#39;, &#39;opacity-0&#39;);
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
       }, 3500);
     }
 
@@ -833,57 +833,57 @@
         const dados = await resp.json();
         if (!Array.isArray(dados) || dados.length === 0) return;
 
-        negocios = dados.filter(item =&gt; item.Nome_Negocio &amp;&amp; item.Nome_Negocio.trim() !== &#39;&#39;).map(item =&gt; {
-          let fotoFinal = item.Foto_URL || &#39;&#39;;
-          if (!fotoFinal || fotoFinal.includes(&#39;lh3.googleusercontent&#39;)) {
-            if (item.Nome_Negocio &amp;&amp; item.Nome_Negocio.includes(&#39;Flávia&#39;)) {
+        negocios = dados.filter(item => item.Nome_Negocio && item.Nome_Negocio.trim() !== '').map(item => {
+          let fotoFinal = item.Foto_URL || '';
+          if (!fotoFinal || fotoFinal.includes('lh3.googleusercontent')) {
+            if (item.Nome_Negocio && item.Nome_Negocio.includes('Flávia')) {
               fotoFinal = FLAVIA_AVATAR_B64;
             }
           }
           return {
             id: String(item.ID || Date.now()),
             nome: item.Nome_Negocio,
-            responsavel: item.Responsavel || &#39;&#39;,
-            categoria: item.Categoria || &#39;COMÉRCIO&#39;,
-            subcategoria: item.Subcategoria || &#39;&#39;,
-            cidade: item.Cidade || &#39;Taubaté&#39;,
-            bairro: item.Bairro || &#39;&#39;,
-            instagram: item.Instagram || &#39;&#39;,
-            whatsapp: item.WhatsApp || &#39;&#39;,
-            descricao: item.Descricao || &#39;&#39;,
+            responsavel: item.Responsavel || '',
+            categoria: item.Categoria || 'COMÉRCIO',
+            subcategoria: item.Subcategoria || '',
+            cidade: item.Cidade || 'Taubaté',
+            bairro: item.Bairro || '',
+            instagram: item.Instagram || '',
+            whatsapp: item.WhatsApp || '',
+            descricao: item.Descricao || '',
             foto: fotoFinal,
-            pin: String(item.Senha_PIN || item.PIN || &#39;1234&#39;),
-            email: item.Email_Recuperacao || item.Email || &#39;&#39;
+            pin: String(item.Senha_PIN || item.PIN || '1234'),
+            email: item.Email_Recuperacao || item.Email || ''
           };
         });
 
         renderCards();
       } catch (e) {
-        console.log(&#39;Erro de leitura da API Google Sheets:&#39;, e);
+        console.log('Erro de leitura da API Google Sheets:', e);
       }
     }
 
     // Foto Upload e Compactação
-    inputFoto.addEventListener(&#39;change&#39;, (e) =&gt; {
+    inputFoto.addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (!file) return;
 
       const reader = new FileReader();
-      reader.onload = (event) =&gt; {
+      reader.onload = (event) => {
         const img = new Image();
-        img.onload = () =&gt; {
-          const canvas = document.createElement(&#39;canvas&#39;);
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
           const maxDim = 250;
           let w = img.width;
           let h = img.height;
 
-          if (w &gt; h) {
-            if (w &gt; maxDim) {
+          if (w > h) {
+            if (w > maxDim) {
               h *= maxDim / w;
               w = maxDim;
             }
           } else {
-            if (h &gt; maxDim) {
+            if (h > maxDim) {
               w *= maxDim / h;
               h = maxDim;
             }
@@ -891,96 +891,96 @@
 
           canvas.width = w;
           canvas.height = h;
-          const ctx = canvas.getContext(&#39;2d&#39;);
+          const ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0, w, h);
 
-          currentPhotoBase64 = canvas.toDataURL(&#39;image/jpeg&#39;, 0.8);
+          currentPhotoBase64 = canvas.toDataURL('image/jpeg', 0.8);
           imgPreview.src = currentPhotoBase64;
-          imgPreview.classList.remove(&#39;hidden&#39;);
-          previewPlaceholder.classList.add(&#39;hidden&#39;);
-          btnRemoveFoto.classList.remove(&#39;hidden&#39;);
+          imgPreview.classList.remove('hidden');
+          previewPlaceholder.classList.add('hidden');
+          btnRemoveFoto.classList.remove('hidden');
         };
         img.src = event.target.result;
       };
       reader.readAsDataURL(file);
     });
 
-    btnRemoveFoto.addEventListener(&#39;click&#39;, () =&gt; {
-      currentPhotoBase64 = &#39;&#39;;
-      inputFoto.value = &#39;&#39;;
-      imgPreview.src = &#39;&#39;;
-      imgPreview.classList.add(&#39;hidden&#39;);
-      previewPlaceholder.classList.remove(&#39;hidden&#39;);
-      btnRemoveFoto.classList.add(&#39;hidden&#39;);
+    btnRemoveFoto.addEventListener('click', () => {
+      currentPhotoBase64 = '';
+      inputFoto.value = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
     });
 
     // Populate Category Selectors
     function initCategorySelectors() {
-      inputCategoria.innerHTML = Object.keys(taxonomia).map(cat =&gt; {
-        return `&lt;option value=&quot;${cat}&quot;&gt;${cat}&lt;/option&gt;`;
-      }).join(&#39;&#39;);
+      inputCategoria.innerHTML = Object.keys(taxonomia).map(cat => {
+        return `<option value="${cat}">${cat}</option>`;
+      }).join('');
 
       updateSubcategories();
 
-      inputCategoria.addEventListener(&#39;change&#39;, updateSubcategories);
+      inputCategoria.addEventListener('change', updateSubcategories);
     }
 
     function updateSubcategories() {
       const selectedCat = inputCategoria.value;
       const subs = taxonomia[selectedCat] || [];
-      inputSubcategoria.innerHTML = subs.map(sub =&gt; {
-        return `&lt;option value=&quot;${sub}&quot;&gt;${sub}&lt;/option&gt;`;
-      }).join(&#39;&#39;);
+      inputSubcategoria.innerHTML = subs.map(sub => {
+        return `<option value="${sub}">${sub}</option>`;
+      }).join('');
     }
 
     initCategorySelectors();
 
     function stripAccents(str) {
-      return String(str || &#39;&#39;).normalize(&quot;NFD&quot;).replace(/[̀-ͯ]/g, &quot;&quot;).toLowerCase().trim();
+      return String(str || '').normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
     }
 
     // Função de embaralhamento democrático (Fisher-Yates)
     function shuffleArray(arr) {
       const copy = [...arr];
-      for (let i = copy.length - 1; i &gt; 0; i--) {
+      for (let i = copy.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [copy[i], copy[j]] = [copy[j], copy[i]];
       }
       return copy;
     }
 
-    let currentSortOrder = &#39;random&#39;; // &#39;random&#39;, &#39;newest&#39;, &#39;az&#39;
+    let currentSortOrder = 'random'; // 'random', 'newest', 'az'
 
     function renderCards() {
       const q = stripAccents(searchQuery);
       const terms = q.split(/\s+/).filter(Boolean);
 
-      let filtered = negocios.filter(item =&gt; {
-        const matchesCategory = currentCategory === &#39;todas&#39; || item.categoria === currentCategory;
-        const matchesCity = currentCity === &#39;todas&#39; || item.cidade === currentCity;
+      let filtered = negocios.filter(item => {
+        const matchesCategory = currentCategory === 'todas' || item.categoria === currentCategory;
+        const matchesCity = currentCity === 'todas' || item.cidade === currentCity;
         
         const haystack = stripAccents(
-          `${item.nome} ${item.responsavel} ${item.descricao} ${item.categoria} ${item.subcategoria || &#39;&#39;} ${item.instagram} ${item.cidade} ${item.bairro || &#39;&#39;}`
+          `${item.nome} ${item.responsavel} ${item.descricao} ${item.categoria} ${item.subcategoria || ''} ${item.instagram} ${item.cidade} ${item.bairro || ''}`
         );
 
-        const matchesSearch = terms.length === 0 || terms.every(term =&gt; haystack.includes(term));
+        const matchesSearch = terms.length === 0 || terms.every(term => haystack.includes(term));
 
-        return matchesCategory &amp;&amp; matchesCity &amp;&amp; matchesSearch;
+        return matchesCategory && matchesCity && matchesSearch;
       });
 
       // Ordenação Democrática
-      if (currentSortOrder === &#39;random&#39;) {
+      if (currentSortOrder === 'random') {
         filtered = shuffleArray(filtered);
-      } else if (currentSortOrder === &#39;newest&#39;) {
-        filtered.sort((a, b) =&gt; Number(b.id) - Number(a.id));
-      } else if (currentSortOrder === &#39;az&#39;) {
-        filtered.sort((a, b) =&gt; a.nome.localeCompare(b.nome));
+      } else if (currentSortOrder === 'newest') {
+        filtered.sort((a, b) => Number(b.id) - Number(a.id));
+      } else if (currentSortOrder === 'az') {
+        filtered.sort((a, b) => a.nome.localeCompare(b.nome));
       }
 
       // Prioridade Específica: quando pesquisarem por psicólogo/psicóloga, Flávia Bonani fica no topo
-      if (q.includes(&#39;psicolog&#39;)) {
-        const flaviaIdx = filtered.findIndex(item =&gt; item.nome &amp;&amp; item.nome.includes(&#39;Flávia&#39;));
-        if (flaviaIdx &gt; 0) {
+      if (q.includes('psicolog')) {
+        const flaviaIdx = filtered.findIndex(item => item.nome && item.nome.includes('Flávia'));
+        if (flaviaIdx > 0) {
           const [flaviaCard] = filtered.splice(flaviaIdx, 1);
           filtered.unshift(flaviaCard);
         }
@@ -989,15 +989,15 @@
       counterEl.textContent = filtered.length;
 
       if (filtered.length === 0) {
-        cardsGrid.innerHTML = &#39;&#39;;
-        emptyState.classList.remove(&#39;hidden&#39;);
+        cardsGrid.innerHTML = '';
+        emptyState.classList.remove('hidden');
         return;
       }
 
-      emptyState.classList.add(&#39;hidden&#39;);
-      cardsGrid.innerHTML = filtered.map(item =&gt; {
-        const cleanInsta = item.instagram.replace(&#39;@&#39;, &#39;&#39;).trim();
-        const cleanWhats = item.whatsapp.replace(/\D/g, &#39;&#39;);
+      emptyState.classList.add('hidden');
+      cardsGrid.innerHTML = filtered.map(item => {
+        const cleanInsta = item.instagram.replace('@', '').trim();
+        const cleanWhats = item.whatsapp.replace(/\D/g, '');
         const whatsUrl = `https://wa.me/55${cleanWhats}?text=Ol%C3%A1!%20Vi%20seu%20contato%20na%20Vitrine%20de%20Taubat%C3%A9%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento.`;
         const instaUrl = `https://instagram.com/${cleanInsta}`;
 
@@ -1006,9 +1006,9 @@
 ` +
           `👤 *Responsável:* ${item.responsavel}
 ` +
-          `🏷️ *Área:* ${item.categoria}${item.subcategoria ? ` (${item.subcategoria})` : &#39;&#39;}
+          `🏷️ *Área:* ${item.categoria}${item.subcategoria ? ` (${item.subcategoria})` : ''}
 ` +
-          `📍 *Local:* ${item.cidade}${item.bairro ? ` - ${item.bairro}` : &#39;&#39;}
+          `📍 *Local:* ${item.cidade}${item.bairro ? ` - ${item.bairro}` : ''}
 ` +
           `📝 *Sobre:* ${item.descricao}
 
@@ -1021,294 +1021,294 @@
           `✊ _Serviço de confiança e qualidade da nossa região!_`;
         
         const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareMsg)}`;
-        const cleanNomeEscaped = item.nome.replace(/&#39;/g, &quot;\&#39;&quot;);
+        const cleanNomeEscaped = item.nome.replace(/'/g, "\'");
 
         const avatarHtml = item.foto 
-          ? `&lt;img src=&quot;${item.foto}&quot; alt=&quot;${item.nome}&quot; class=&quot;w-12 h-12 rounded-2xl object-cover border border-stone-200 shadow-2xs shrink-0 cursor-zoom-in hover:scale-105 hover:opacity-90 transition-all cursor-pointer&quot; onclick=&quot;openPhotoZoom(&#39;${item.foto}&#39;, &#39;${cleanNomeEscaped}&#39;)&quot; title=&quot;Toque para ampliar a foto&quot;&gt;`
-          : `&lt;div class=&quot;w-12 h-12 rounded-2xl bg-red-100 text-red-800 font-extrabold flex items-center justify-center text-base border border-red-200 shadow-2xs shrink-0&quot;&gt;${item.nome.charAt(0).toUpperCase()}&lt;/div&gt;`;
+          ? `<img src="${item.foto}" alt="${item.nome}" class="w-12 h-12 rounded-2xl object-cover border border-stone-200 shadow-2xs shrink-0 cursor-zoom-in hover:scale-105 hover:opacity-90 transition-all cursor-pointer" onclick="openPhotoZoom('${item.foto}', '${cleanNomeEscaped}')" title="Toque para ampliar a foto">`
+          : `<div class="w-12 h-12 rounded-2xl bg-red-100 text-red-800 font-extrabold flex items-center justify-center text-base border border-red-200 shadow-2xs shrink-0">${item.nome.charAt(0).toUpperCase()}</div>`;
 
         return `
-          &lt;div class=&quot;bg-white rounded-2xl p-5 shadow-sm hover:shadow-md border border-stone-200 transition-all flex flex-col justify-between group relative&quot; data-id=&quot;${item.id}&quot;&gt;
-            &lt;div&gt;
-              &lt;div class=&quot;flex items-start justify-between gap-2 mb-3&quot;&gt;
-                &lt;span class=&quot;inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-red-50 text-red-800 border-red-200&quot;&gt;
-                  ${item.categoria} ${item.subcategoria ? `• ${item.subcategoria}` : &#39;&#39;}
-                &lt;/span&gt;
+          <div class="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md border border-stone-200 transition-all flex flex-col justify-between group relative" data-id="${item.id}">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-3">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-red-50 text-red-800 border-red-200">
+                  ${item.categoria} ${item.subcategoria ? `• ${item.subcategoria}` : ''}
+                </span>
                 
-                &lt;div class=&quot;flex items-center gap-1.5&quot;&gt;
-                  &lt;span class=&quot;text-[11px] text-stone-600 flex items-center gap-1 font-medium bg-stone-100 px-2 py-0.5 rounded-md&quot;&gt;
-                    📍 ${item.cidade}${item.bairro ? ` • ${item.bairro}` : &#39;&#39;}
-                  &lt;/span&gt;
-                  &lt;button class=&quot;btn-edit-card p-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-red-700 transition-all cursor-pointer&quot; title=&quot;Editar este cartão com seu PIN&quot;&gt;
-                    &lt;svg class=&quot;w-3.5 h-3.5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z&quot;/&gt;&lt;/svg&gt;
-                  &lt;/button&gt;
-                  &lt;button class=&quot;btn-delete-card p-1.5 rounded-lg bg-stone-100 hover:bg-red-50 text-stone-400 hover:text-red-700 transition-all cursor-pointer&quot; title=&quot;Excluir este cartão da vitrine&quot;&gt;
-                    &lt;svg class=&quot;w-3.5 h-3.5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16&quot;/&gt;&lt;/svg&gt;
-                  &lt;/button&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
+                <div class="flex items-center gap-1.5">
+                  <span class="text-[11px] text-stone-600 flex items-center gap-1 font-medium bg-stone-100 px-2 py-0.5 rounded-md">
+                    📍 ${item.cidade}${item.bairro ? ` • ${item.bairro}` : ''}
+                  </span>
+                  <button class="btn-edit-card p-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-red-700 transition-all cursor-pointer" title="Editar este cartão com seu PIN">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                  </button>
+                  <button class="btn-delete-card p-1.5 rounded-lg bg-stone-100 hover:bg-red-50 text-stone-400 hover:text-red-700 transition-all cursor-pointer" title="Excluir este cartão da vitrine">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                  </button>
+                </div>
+              </div>
 
-              &lt;div class=&quot;flex items-start gap-3 mb-2.5&quot;&gt;
+              <div class="flex items-start gap-3 mb-2.5">
                 ${avatarHtml}
-                &lt;div class=&quot;min-w-0 flex-1&quot;&gt;
-                  &lt;h3 class=&quot;font-bold text-base text-stone-900 group-hover:text-red-700 transition-colors leading-snug truncate&quot;&gt;
+                <div class="min-w-0 flex-1">
+                  <h3 class="font-bold text-base text-stone-900 group-hover:text-red-700 transition-colors leading-snug truncate">
                     ${item.nome}
-                  &lt;/h3&gt;
-                  &lt;p class=&quot;text-xs text-stone-500 truncate&quot;&gt;Por &lt;strong&gt;${item.responsavel}&lt;/strong&gt;&lt;/p&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
+                  </h3>
+                  <p class="text-xs text-stone-500 truncate">Por <strong>${item.responsavel}</strong></p>
+                </div>
+              </div>
 
-              &lt;p class=&quot;text-xs text-stone-600 line-clamp-3 mb-4 leading-relaxed font-normal&quot;&gt;
+              <p class="text-xs text-stone-600 line-clamp-3 mb-4 leading-relaxed font-normal">
                 ${item.descricao}
-              &lt;/p&gt;
-            &lt;/div&gt;
+              </p>
+            </div>
 
-            &lt;div class=&quot;pt-3 border-t border-stone-100 space-y-2 mt-2&quot;&gt;
-              &lt;div class=&quot;grid grid-cols-2 gap-2&quot;&gt;
-                &lt;a href=&quot;${instaUrl}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; class=&quot;flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 hover:bg-red-50 hover:text-red-700 text-stone-800 border border-stone-200 font-bold text-xs transition-all active:scale-95 text-center truncate&quot; title=&quot;Abrir perfil @${cleanInsta}&quot;&gt;
-                  &lt;svg class=&quot;w-3.5 h-3.5 text-red-600 shrink-0&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z&quot;/&gt;&lt;/svg&gt;
-                  &lt;span class=&quot;truncate&quot;&gt;@${cleanInsta}&lt;/span&gt;
-                &lt;/a&gt;
-                &lt;a href=&quot;${whatsUrl}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; class=&quot;flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white font-bold text-xs transition-all active:scale-95 text-center shadow-xs&quot; title=&quot;Fale no WhatsApp&quot;&gt;
-                  &lt;svg class=&quot;w-3.5 h-3.5 text-white shrink-0&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z&quot;/&gt;&lt;/svg&gt;
-                  &lt;span&gt;Fale no WhatsApp&lt;/span&gt;
-                &lt;/a&gt;
-              &lt;/div&gt;
+            <div class="pt-3 border-t border-stone-100 space-y-2 mt-2">
+              <div class="grid grid-cols-2 gap-2">
+                <a href="${instaUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 hover:bg-red-50 hover:text-red-700 text-stone-800 border border-stone-200 font-bold text-xs transition-all active:scale-95 text-center truncate" title="Abrir perfil @${cleanInsta}">
+                  <svg class="w-3.5 h-3.5 text-red-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  <span class="truncate">@${cleanInsta}</span>
+                </a>
+                <a href="${whatsUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white font-bold text-xs transition-all active:scale-95 text-center shadow-xs" title="Fale no WhatsApp">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                  <span>Fale no WhatsApp</span>
+                </a>
+              </div>
 
-              &lt;a href=&quot;${shareUrl}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; class=&quot;w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/90 font-bold text-xs transition-all active:scale-95 shadow-2xs&quot;&gt;
-                &lt;svg class=&quot;w-3.5 h-3.5 text-emerald-600&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.31A9.95 9.95 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm3.8 14.2c-.2.5-.9 1-1.5 1.1-.4.1-.9.1-2.6-.6-2.1-.9-3.5-3-3.6-3.1-.1-.1-.8-1.1-.8-2.1s.5-1.5.7-1.7c.2-.2.4-.3.6-.3.2 0 .3 0 .4.1.2.4.6 1.4.6 1.5.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.3-.1.5.2.4.8 1.4 1.8 2.2 1.2 1 2.2 1.3 2.5 1.4.2.1.4 0 .5-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1.2.1 1.4.7 1.6.8.2.1.4.2.4.3 0 .2 0 1.2-.5 1.7z&quot;/&gt;&lt;/svg&gt;
-                &lt;span&gt;Recomendar para um amigo&lt;/span&gt;
-              &lt;/a&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
+              <a href="${shareUrl}" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/90 font-bold text-xs transition-all active:scale-95 shadow-2xs">
+                <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.31A9.95 9.95 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm3.8 14.2c-.2.5-.9 1-1.5 1.1-.4.1-.9.1-2.6-.6-2.1-.9-3.5-3-3.6-3.1-.1-.1-.8-1.1-.8-2.1s.5-1.5.7-1.7c.2-.2.4-.3.6-.3.2 0 .3 0 .4.1.2.4.6 1.4.6 1.5.1.1.1.2 0 .4-.1.2-.2.3-.3.4-.1.1-.2.3-.1.5.2.4.8 1.4 1.8 2.2 1.2 1 2.2 1.3 2.5 1.4.2.1.4 0 .5-.1.2-.2.6-.7.8-.9.2-.2.4-.2.6-.1.2.1 1.4.7 1.6.8.2.1.4.2.4.3 0 .2 0 1.2-.5 1.7z"/></svg>
+                <span>Recomendar para um amigo</span>
+              </a>
+            </div>
+          </div>
         `;
-      }).join(&#39;&#39;);
+      }).join('');
 
-      document.querySelectorAll(&#39;.btn-edit-card&#39;).forEach(btn =&gt; {
-        btn.addEventListener(&#39;click&#39;, (e) =&gt; {
-          const card = e.target.closest(&#39;[data-id]&#39;);
-          const id = card.getAttribute(&#39;data-id&#39;);
+      document.querySelectorAll('.btn-edit-card').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('[data-id]');
+          const id = card.getAttribute('data-id');
           promptPinForEdit(id);
         });
       });
 
-      document.querySelectorAll(&#39;.btn-delete-card&#39;).forEach(btn =&gt; {
-        btn.addEventListener(&#39;click&#39;, (e) =&gt; {
-          const card = e.target.closest(&#39;[data-id]&#39;);
-          const id = card.getAttribute(&#39;data-id&#39;);
+      document.querySelectorAll('.btn-delete-card').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('[data-id]');
+          const id = card.getAttribute('data-id');
           promptDeleteCard(id);
         });
       });
     }
 
     // Event Listeners for Filters
-    searchInput.addEventListener(&#39;input&#39;, (e) =&gt; {
+    searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
       renderCards();
     });
 
-    cityFilter.addEventListener(&#39;change&#39;, (e) =&gt; {
+    cityFilter.addEventListener('change', (e) => {
       currentCity = e.target.value;
       renderCards();
     });
 
     if (sortFilter) {
-      sortFilter.addEventListener(&#39;change&#39;, (e) =&gt; {
+      sortFilter.addEventListener('change', (e) => {
         currentSortOrder = e.target.value;
         renderCards();
       });
     }
 
-    categoryPills.forEach(pill =&gt; {
-      pill.addEventListener(&#39;click&#39;, () =&gt; {
-        categoryPills.forEach(p =&gt; {
-          p.classList.remove(&#39;bg-red-700&#39;, &#39;text-white&#39;, &#39;font-semibold&#39;);
-          p.classList.add(&#39;bg-stone-100&#39;, &#39;text-stone-700&#39;);
+    categoryPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        categoryPills.forEach(p => {
+          p.classList.remove('bg-red-700', 'text-white', 'font-semibold');
+          p.classList.add('bg-stone-100', 'text-stone-700');
         });
-        pill.classList.remove(&#39;bg-stone-100&#39;, &#39;text-stone-700&#39;);
-        pill.classList.add(&#39;bg-red-700&#39;, &#39;text-white&#39;, &#39;font-semibold&#39;);
-        currentCategory = pill.getAttribute(&#39;data-cat&#39;);
+        pill.classList.remove('bg-stone-100', 'text-stone-700');
+        pill.classList.add('bg-red-700', 'text-white', 'font-semibold');
+        currentCategory = pill.getAttribute('data-cat');
         renderCards();
       });
     });
 
     // Modal Handlers Globais
     window.openModal = function openModal() {
-      editCardId.value = &#39;&#39;;
+      editCardId.value = '';
       currentEditingItem = null;
-      modalTitle.textContent = &#39;Cadastrar Negócio na Vitrine&#39;;
-      modalSubtitle.textContent = &#39;Categorias oficiais da comunidade Esquerda ajuda Esquerda&#39;;
-      btnSubmitText.textContent = &#39;Salvar na Vitrine&#39;;
+      modalTitle.textContent = 'Cadastrar Negócio na Vitrine';
+      modalSubtitle.textContent = 'Categorias oficiais da comunidade Esquerda ajuda Esquerda';
+      btnSubmitText.textContent = 'Salvar na Vitrine';
       
-      currentPhotoBase64 = &#39;&#39;;
-      inputFoto.value = &#39;&#39;;
-      imgPreview.src = &#39;&#39;;
-      imgPreview.classList.add(&#39;hidden&#39;);
-      previewPlaceholder.classList.remove(&#39;hidden&#39;);
-      btnRemoveFoto.classList.add(&#39;hidden&#39;);
-      btnDeleteFromEditModal.classList.add(&#39;hidden&#39;);
-      inputPin.value = &#39;&#39;;
-      inputEmail.value = &#39;&#39;;
-      inputInviteCode.value = &#39;&#39;;
+      currentPhotoBase64 = '';
+      inputFoto.value = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
+      btnDeleteFromEditModal.classList.add('hidden');
+      inputPin.value = '';
+      inputEmail.value = '';
+      inputInviteCode.value = '';
 
-      boxInviteField.classList.remove(&#39;hidden&#39;);
-      boxMemberInvites.classList.add(&#39;hidden&#39;);
+      boxInviteField.classList.remove('hidden');
+      boxMemberInvites.classList.add('hidden');
 
       formCadastro.reset();
       updateSubcategories();
 
-      modalCadastro.classList.remove(&#39;hidden&#39;);
-      document.body.style.overflow = &#39;hidden&#39;;
+      modalCadastro.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     };
 
     function promptPinForEdit(id) {
       pendingEditCardId = id;
-      inputAuthPin.value = &#39;&#39;;
+      inputAuthPin.value = '';
 
-      if (viewPinNormal) viewPinNormal.classList.remove(&#39;hidden&#39;);
-      if (viewPinReset) viewPinReset.classList.add(&#39;hidden&#39;);
-      if (boxStepSendCode) boxStepSendCode.classList.remove(&#39;hidden&#39;);
-      if (boxStepVerifyCode) boxStepVerifyCode.classList.add(&#39;hidden&#39;);
+      if (viewPinNormal) viewPinNormal.classList.remove('hidden');
+      if (viewPinReset) viewPinReset.classList.add('hidden');
+      if (boxStepSendCode) boxStepSendCode.classList.remove('hidden');
+      if (boxStepVerifyCode) boxStepVerifyCode.classList.add('hidden');
 
-      const item = negocios.find(n =&gt; String(n.id) === String(id));
-      if (item &amp;&amp; btnHelpWhatsapp) {
-        const adminPhone = &#39;12991839298&#39;;
-        const msg = `Olá Julian! Sou responsável pelo negócio &quot;${item.nome}&quot; na Vitrine da Esquerda. Esqueci meu PIN e gostaria de auxílio para redefinir.`;
+      const item = negocios.find(n => String(n.id) === String(id));
+      if (item && btnHelpWhatsapp) {
+        const adminPhone = '12991839298';
+        const msg = `Olá Julian! Sou responsável pelo negócio "${item.nome}" na Vitrine da Esquerda. Esqueci meu PIN e gostaria de auxílio para redefinir.`;
         btnHelpWhatsapp.href = `https://wa.me/55${adminPhone}?text=${encodeURIComponent(msg)}`;
       }
 
-      modalPinAuth.classList.remove(&#39;hidden&#39;);
-      document.body.style.overflow = &#39;hidden&#39;;
+      modalPinAuth.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
       inputAuthPin.focus();
     }
 
-    btnCancelPinAuth.addEventListener(&#39;click&#39;, () =&gt; {
-      modalPinAuth.classList.add(&#39;hidden&#39;);
-      document.body.style.overflow = &#39;&#39;;
+    btnCancelPinAuth.addEventListener('click', () => {
+      modalPinAuth.classList.add('hidden');
+      document.body.style.overflow = '';
       pendingEditCardId = null;
     });
 
     // Permite apertar Enter no teclado do celular para confirmar
-    inputAuthPin.addEventListener(&#39;keyup&#39;, (e) =&gt; {
-      if (e.key === &#39;Enter&#39;) btnConfirmPinAuth.click();
+    inputAuthPin.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') btnConfirmPinAuth.click();
     });
 
-    btnConfirmPinAuth.addEventListener(&#39;click&#39;, () =&gt; {
+    btnConfirmPinAuth.addEventListener('click', () => {
       if (!pendingEditCardId) {
-        showToast(&#39;Erro ao identificar cartão.&#39;, &#39;⚠️&#39;);
+        showToast('Erro ao identificar cartão.', '⚠️');
         return;
       }
-      const item = negocios.find(n =&gt; String(n.id) === String(pendingEditCardId));
+      const item = negocios.find(n => String(n.id) === String(pendingEditCardId));
       if (!item) {
-        showToast(&#39;Cartão não encontrado.&#39;, &#39;⚠️&#39;);
+        showToast('Cartão não encontrado.', '⚠️');
         return;
       }
 
       const enteredPin = inputAuthPin.value.trim();
       if (!enteredPin) {
-        showToast(&#39;Digite o seu PIN de segurança.&#39;, &#39;⚠️&#39;);
+        showToast('Digite o seu PIN de segurança.', '⚠️');
         return;
       }
 
-      const correctPin = String(item.pin || &#39;1234&#39;).trim();
+      const correctPin = String(item.pin || '1234').trim();
       const isMaster = MASTER_ADMIN_PINS.includes(enteredPin);
 
-      if (enteredPin !== correctPin &amp;&amp; !isMaster) {
-        showToast(&#39;PIN incorreto! Se esqueceu o seu, use o botão verde de ajuda abaixo.&#39;, &#39;❌&#39;);
+      if (enteredPin !== correctPin && !isMaster) {
+        showToast('PIN incorreto! Se esqueceu o seu, use o botão verde de ajuda abaixo.', '❌');
         return;
       }
 
       if (isMaster) {
-        showToast(`Acesso Master de Administrador liberado para &quot;${item.nome}&quot;!`, &#39;👑&#39;);
+        showToast(`Acesso Master de Administrador liberado para "${item.nome}"!`, '👑');
       }
 
-      modalPinAuth.classList.add(&#39;hidden&#39;);
+      modalPinAuth.classList.add('hidden');
       openEditModal(item);
     });
 
     // Alternar para a tela de Recuperar por E-mail ou Vincular E-mail no 1º Acesso
-    btnGoToResetPin.addEventListener(&#39;click&#39;, () =&gt; {
+    btnGoToResetPin.addEventListener('click', () => {
       if (!pendingEditCardId) return;
-      const item = negocios.find(n =&gt; String(n.id) === String(pendingEditCardId));
+      const item = negocios.find(n => String(n.id) === String(pendingEditCardId));
       if (!item) return;
 
-      viewPinNormal.classList.add(&#39;hidden&#39;);
-      viewPinReset.classList.remove(&#39;hidden&#39;);
-      boxStepSendCode.classList.remove(&#39;hidden&#39;);
-      boxStepVerifyCode.classList.add(&#39;hidden&#39;);
+      viewPinNormal.classList.add('hidden');
+      viewPinReset.classList.remove('hidden');
+      boxStepSendCode.classList.remove('hidden');
+      boxStepVerifyCode.classList.add('hidden');
 
-      inputResetEmail.value = &#39;&#39;;
-      inputResetCode.value = &#39;&#39;;
-      inputResetNewPin.value = &#39;&#39;;
+      inputResetEmail.value = '';
+      inputResetCode.value = '';
+      inputResetNewPin.value = '';
 
-      const hasEmail = Boolean(item.email &amp;&amp; item.email.includes(&#39;@&#39;));
+      const hasEmail = Boolean(item.email && item.email.includes('@'));
       if (hasEmail) {
-        boxFirstTimeInputs.classList.add(&#39;hidden&#39;);
-        titleResetModal.textContent = &#39;Recuperar Meu PIN&#39;;
-        subResetModal.textContent = &#39;Código de verificação no seu e-mail&#39;;
-        labelResetEmail.textContent = &#39;Seu E-mail de Recuperação Cadastrado *&#39;;
-        descResetEmail.textContent = &#39;Enviaremos um código confidencial de 6 dígitos.&#39;;
+        boxFirstTimeInputs.classList.add('hidden');
+        titleResetModal.textContent = 'Recuperar Meu PIN';
+        subResetModal.textContent = 'Código de verificação no seu e-mail';
+        labelResetEmail.textContent = 'Seu E-mail de Recuperação Cadastrado *';
+        descResetEmail.textContent = 'Enviaremos um código confidencial de 6 dígitos.';
         inputResetEmail.focus();
       } else {
-        boxFirstTimeInputs.classList.remove(&#39;hidden&#39;);
-        titleResetModal.textContent = &#39;Cadastrar E-mail de Recuperação&#39;;
-        subResetModal.textContent = &#39;Confirme seus dados para vincular seu e-mail&#39;;
-        labelResetEmail.textContent = &#39;E-mail a ser vinculado para este cartão *&#39;;
-        descResetEmail.textContent = &#39;Este e-mail passará a ser o seu e-mail oficial para recuperar seu PIN.&#39;;
-        inputResetWhats.value = &#39;&#39;;
-        inputResetResponsavel.value = &#39;&#39;;
+        boxFirstTimeInputs.classList.remove('hidden');
+        titleResetModal.textContent = 'Cadastrar E-mail de Recuperação';
+        subResetModal.textContent = 'Confirme seus dados para vincular seu e-mail';
+        labelResetEmail.textContent = 'E-mail a ser vinculado para este cartão *';
+        descResetEmail.textContent = 'Este e-mail passará a ser o seu e-mail oficial para recuperar seu PIN.';
+        inputResetWhats.value = '';
+        inputResetResponsavel.value = '';
         inputResetWhats.focus();
       }
     });
 
-    btnBackToPinNormal.addEventListener(&#39;click&#39;, () =&gt; {
-      viewPinReset.classList.add(&#39;hidden&#39;);
-      viewPinNormal.classList.remove(&#39;hidden&#39;);
+    btnBackToPinNormal.addEventListener('click', () => {
+      viewPinReset.classList.add('hidden');
+      viewPinNormal.classList.remove('hidden');
       inputAuthPin.focus();
     });
 
-    btnBackToSendCode.addEventListener(&#39;click&#39;, () =&gt; {
-      boxStepVerifyCode.classList.add(&#39;hidden&#39;);
-      boxStepSendCode.classList.remove(&#39;hidden&#39;);
+    btnBackToSendCode.addEventListener('click', () => {
+      boxStepVerifyCode.classList.add('hidden');
+      boxStepSendCode.classList.remove('hidden');
       inputResetEmail.focus();
     });
 
     // ETAPA 1: Enviar Código de 6 dígitos para o E-mail Privado
-    btnSendResetCode.addEventListener(&#39;click&#39;, async () =&gt; {
+    btnSendResetCode.addEventListener('click', async () => {
       if (!pendingEditCardId) return;
-      const item = negocios.find(n =&gt; String(n.id) === String(pendingEditCardId));
+      const item = negocios.find(n => String(n.id) === String(pendingEditCardId));
       if (!item) return;
 
       const emailTyped = inputResetEmail.value.trim().toLowerCase();
-      if (!emailTyped || !emailTyped.includes(&#39;@&#39;)) {
-        showToast(&#39;Por favor, digite um e-mail válido.&#39;, &#39;⚠️&#39;);
+      if (!emailTyped || !emailTyped.includes('@')) {
+        showToast('Por favor, digite um e-mail válido.', '⚠️');
         return;
       }
 
-      const hasEmail = Boolean(item.email &amp;&amp; item.email.includes(&#39;@&#39;));
-      let whatsTyped = &#39;&#39;;
-      let respTyped = &#39;&#39;;
+      const hasEmail = Boolean(item.email && item.email.includes('@'));
+      let whatsTyped = '';
+      let respTyped = '';
 
       if (!hasEmail) {
         whatsTyped = inputResetWhats.value.trim();
         respTyped = inputResetResponsavel.value.trim();
         if (!whatsTyped || !respTyped) {
-          showToast(&#39;Preencha seu WhatsApp e o Nome do Responsável.&#39;, &#39;⚠️&#39;);
+          showToast('Preencha seu WhatsApp e o Nome do Responsável.', '⚠️');
           return;
         }
       }
 
       lastResetEmailTyped = emailTyped;
       btnSendResetCode.disabled = true;
-      spinnerSendCode.classList.remove(&#39;hidden&#39;);
-      txtSendCode.textContent = &#39;Enviando...&#39;;
+      spinnerSendCode.classList.remove('hidden');
+      txtSendCode.textContent = 'Enviando...';
 
       try {
         const resp = await fetch(API_URL, {
-          method: &#39;POST&#39;,
-          headers: { &#39;Content-Type&#39;: &#39;text/plain;charset=utf-8&#39; },
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
-            action: &#39;send_reset_code&#39;,
+            action: 'send_reset_code',
             cardId: pendingEditCardId,
             email: emailTyped,
             whatsapp: whatsTyped,
@@ -1318,52 +1318,52 @@
         });
 
         const res = await resp.json();
-        if (res.status === &#39;success&#39;) {
-          showToast(res.message || &#39;Código enviado para sua caixa de entrada!&#39;, &#39;✉️&#39;);
-          boxStepSendCode.classList.add(&#39;hidden&#39;);
-          boxStepVerifyCode.classList.remove(&#39;hidden&#39;);
+        if (res.status === 'success') {
+          showToast(res.message || 'Código enviado para sua caixa de entrada!', '✉️');
+          boxStepSendCode.classList.add('hidden');
+          boxStepVerifyCode.classList.remove('hidden');
           inputResetCode.focus();
         } else {
-          showToast(res.message || &#39;Dados não conferem com o cadastro.&#39;, &#39;⚠️&#39;);
+          showToast(res.message || 'Dados não conferem com o cadastro.', '⚠️');
         }
       } catch (err) {
-        showToast(&#39;Erro de conexão ao enviar código.&#39;, &#39;⚠️&#39;);
+        showToast('Erro de conexão ao enviar código.', '⚠️');
       } finally {
         btnSendResetCode.disabled = false;
-        spinnerSendCode.classList.add(&#39;hidden&#39;);
-        txtSendCode.textContent = &#39;Enviar Código&#39;;
+        spinnerSendCode.classList.add('hidden');
+        txtSendCode.textContent = 'Enviar Código';
       }
     });
 
     // ETAPA 2: Validar Código OTP, Salvar Novo PIN e Vincular E-mail
-    btnSubmitResetPin.addEventListener(&#39;click&#39;, async () =&gt; {
+    btnSubmitResetPin.addEventListener('click', async () => {
       if (!pendingEditCardId) return;
-      const item = negocios.find(n =&gt; String(n.id) === String(pendingEditCardId));
+      const item = negocios.find(n => String(n.id) === String(pendingEditCardId));
       if (!item) return;
 
       const codeTyped = inputResetCode.value.trim();
       const newPinTyped = inputResetNewPin.value.trim();
 
       if (!codeTyped || codeTyped.length !== 6) {
-        showToast(&#39;Digite o código de 6 dígitos recebido no e-mail.&#39;, &#39;⚠️&#39;);
+        showToast('Digite o código de 6 dígitos recebido no e-mail.', '⚠️');
         return;
       }
 
-      if (!newPinTyped || newPinTyped.length &lt; 4) {
-        showToast(&#39;O novo PIN deve ter pelo menos 4 dígitos.&#39;, &#39;⚠️&#39;);
+      if (!newPinTyped || newPinTyped.length < 4) {
+        showToast('O novo PIN deve ter pelo menos 4 dígitos.', '⚠️');
         return;
       }
 
       btnSubmitResetPin.disabled = true;
-      spinnerResetPin.classList.remove(&#39;hidden&#39;);
-      txtSubmitReset.textContent = &#39;Salvando...&#39;;
+      spinnerResetPin.classList.remove('hidden');
+      txtSubmitReset.textContent = 'Salvando...';
 
       try {
         const resp = await fetch(API_URL, {
-          method: &#39;POST&#39;,
-          headers: { &#39;Content-Type&#39;: &#39;text/plain;charset=utf-8&#39; },
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
-            action: &#39;verify_and_reset_pin&#39;,
+            action: 'verify_and_reset_pin',
             cardId: pendingEditCardId,
             code: codeTyped,
             newPin: newPinTyped,
@@ -1372,21 +1372,21 @@
         });
 
         const res = await resp.json();
-        if (res.status === &#39;success&#39;) {
+        if (res.status === 'success') {
           item.pin = newPinTyped;
           if (lastResetEmailTyped) item.email = lastResetEmailTyped;
-          showToast(&#39;PIN redefinido e e-mail vinculado com sucesso!&#39;, &#39;🔑&#39;);
-          modalPinAuth.classList.add(&#39;hidden&#39;);
+          showToast('PIN redefinido e e-mail vinculado com sucesso!', '🔑');
+          modalPinAuth.classList.add('hidden');
           openEditModal(item);
         } else {
-          showToast(res.message || &#39;Código incorreto ou expirado.&#39;, &#39;⚠️&#39;);
+          showToast(res.message || 'Código incorreto ou expirado.', '⚠️');
         }
       } catch (err) {
-        showToast(&#39;Erro de conexão ao redefinir PIN.&#39;, &#39;⚠️&#39;);
+        showToast('Erro de conexão ao redefinir PIN.', '⚠️');
       } finally {
         btnSubmitResetPin.disabled = false;
-        spinnerResetPin.classList.add(&#39;hidden&#39;);
-        txtSubmitReset.textContent = &#39;Salvar Novo PIN&#39;;
+        spinnerResetPin.classList.add('hidden');
+        txtSubmitReset.textContent = 'Salvar Novo PIN';
       }
     });
 
@@ -1394,290 +1394,290 @@
     // EXCLUSÃO SEGURA DE CARTÃO (COM VALIDAÇÃO DE PIN)
     // =========================================================================
     let pendingDeleteCardId = null;
-    const modalDeleteConfirm = document.getElementById(&#39;modalDeleteConfirm&#39;);
-    const txtDeleteCardNome = document.getElementById(&#39;txtDeleteCardNome&#39;);
-    const inputDeletePin = document.getElementById(&#39;inputDeletePin&#39;);
-    const btnCancelDelete = document.getElementById(&#39;btnCancelDelete&#39;);
-    const btnConfirmDelete = document.getElementById(&#39;btnConfirmDelete&#39;);
-    const txtBtnDelete = document.getElementById(&#39;txtBtnDelete&#39;);
-    const spinnerDelete = document.getElementById(&#39;spinnerDelete&#39;);
+    const modalDeleteConfirm = document.getElementById('modalDeleteConfirm');
+    const txtDeleteCardNome = document.getElementById('txtDeleteCardNome');
+    const inputDeletePin = document.getElementById('inputDeletePin');
+    const btnCancelDelete = document.getElementById('btnCancelDelete');
+    const btnConfirmDelete = document.getElementById('btnConfirmDelete');
+    const txtBtnDelete = document.getElementById('txtBtnDelete');
+    const spinnerDelete = document.getElementById('spinnerDelete');
 
     function promptDeleteCard(id) {
       pendingDeleteCardId = id;
-      const item = negocios.find(n =&gt; String(n.id) === String(id));
+      const item = negocios.find(n => String(n.id) === String(id));
       if (!item) return;
 
-      txtDeleteCardNome.textContent = `&quot;${item.nome}&quot;`;
-      inputDeletePin.value = &#39;&#39;;
-      modalDeleteConfirm.classList.remove(&#39;hidden&#39;);
-      document.body.style.overflow = &#39;hidden&#39;;
+      txtDeleteCardNome.textContent = `"${item.nome}"`;
+      inputDeletePin.value = '';
+      modalDeleteConfirm.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
       inputDeletePin.focus();
     }
 
-    btnCancelDelete.addEventListener(&#39;click&#39;, () =&gt; {
-      modalDeleteConfirm.classList.add(&#39;hidden&#39;);
-      document.body.style.overflow = &#39;&#39;;
+    btnCancelDelete.addEventListener('click', () => {
+      modalDeleteConfirm.classList.add('hidden');
+      document.body.style.overflow = '';
       pendingDeleteCardId = null;
     });
 
-    modalDeleteConfirm.addEventListener(&#39;click&#39;, (e) =&gt; {
+    modalDeleteConfirm.addEventListener('click', (e) => {
       if (e.target === modalDeleteConfirm) {
-        modalDeleteConfirm.classList.add(&#39;hidden&#39;);
-        document.body.style.overflow = &#39;&#39;;
+        modalDeleteConfirm.classList.add('hidden');
+        document.body.style.overflow = '';
         pendingDeleteCardId = null;
       }
     });
 
-    inputDeletePin.addEventListener(&#39;keyup&#39;, (e) =&gt; {
-      if (e.key === &#39;Enter&#39;) btnConfirmDelete.click();
+    inputDeletePin.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') btnConfirmDelete.click();
     });
 
-    btnConfirmDelete.addEventListener(&#39;click&#39;, async () =&gt; {
+    btnConfirmDelete.addEventListener('click', async () => {
       if (!pendingDeleteCardId) return;
-      const item = negocios.find(n =&gt; String(n.id) === String(pendingDeleteCardId));
+      const item = negocios.find(n => String(n.id) === String(pendingDeleteCardId));
       if (!item) return;
 
       const enteredPin = inputDeletePin.value.trim();
       if (!enteredPin) {
-        showToast(&#39;Digite seu PIN para confirmar a exclusão.&#39;, &#39;⚠️&#39;);
+        showToast('Digite seu PIN para confirmar a exclusão.', '⚠️');
         return;
       }
 
       const isMaster = MASTER_ADMIN_PINS.includes(enteredPin);
-      if (enteredPin !== String(item.pin || &#39;1234&#39;).trim() &amp;&amp; !isMaster) {
-        showToast(&#39;PIN incorreto! Exclusão não autorizada.&#39;, &#39;❌&#39;);
+      if (enteredPin !== String(item.pin || '1234').trim() && !isMaster) {
+        showToast('PIN incorreto! Exclusão não autorizada.', '❌');
         return;
       }
 
       btnConfirmDelete.disabled = true;
-      spinnerDelete.classList.remove(&#39;hidden&#39;);
-      txtBtnDelete.textContent = &#39;Excluindo...&#39;;
+      spinnerDelete.classList.remove('hidden');
+      txtBtnDelete.textContent = 'Excluindo...';
 
       try {
         const resp = await fetch(API_URL, {
-          method: &#39;POST&#39;,
-          headers: { &#39;Content-Type&#39;: &#39;text/plain;charset=utf-8&#39; },
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
-            action: &#39;delete_business&#39;,
+            action: 'delete_business',
             cardId: pendingDeleteCardId,
             pin: enteredPin
           })
         });
 
         const res = await resp.json();
-        if (res.status === &#39;success&#39;) {
-          showToast(`Cartão &quot;${item.nome}&quot; excluído da vitrine!`, &#39;🗑️&#39;);
-          negocios = negocios.filter(n =&gt; String(n.id) !== String(pendingDeleteCardId));
-          modalDeleteConfirm.classList.add(&#39;hidden&#39;);
-          document.body.style.overflow = &#39;&#39;;
+        if (res.status === 'success') {
+          showToast(`Cartão "${item.nome}" excluído da vitrine!`, '🗑️');
+          negocios = negocios.filter(n => String(n.id) !== String(pendingDeleteCardId));
+          modalDeleteConfirm.classList.add('hidden');
+          document.body.style.overflow = '';
           pendingDeleteCardId = null;
           renderCards();
         } else {
-          showToast(res.message || &#39;Erro ao excluir cartão.&#39;, &#39;⚠️&#39;);
+          showToast(res.message || 'Erro ao excluir cartão.', '⚠️');
         }
       } catch (err) {
-        showToast(&#39;Erro de conexão ao excluir.&#39;, &#39;⚠️&#39;);
+        showToast('Erro de conexão ao excluir.', '⚠️');
       } finally {
         btnConfirmDelete.disabled = false;
-        spinnerDelete.classList.add(&#39;hidden&#39;);
-        txtBtnDelete.textContent = &#39;Confirmar Exclusão&#39;;
+        spinnerDelete.classList.add('hidden');
+        txtBtnDelete.textContent = 'Confirmar Exclusão';
       }
     });
 
     function openEditModal(item) {
       currentEditingItem = item;
       editCardId.value = item.id;
-      modalTitle.textContent = &#39;Editar Meu Negócio&#39;;
-      modalSubtitle.textContent = &#39;Atualize as informações do seu cartão na vitrine&#39;;
-      btnSubmitText.textContent = &#39;Salvar Alterações&#39;;
+      modalTitle.textContent = 'Editar Meu Negócio';
+      modalSubtitle.textContent = 'Atualize as informações do seu cartão na vitrine';
+      btnSubmitText.textContent = 'Salvar Alterações';
 
-      boxInviteField.classList.add(&#39;hidden&#39;);
-      boxMemberInvites.classList.remove(&#39;hidden&#39;);
-      btnDeleteFromEditModal.classList.remove(&#39;hidden&#39;);
+      boxInviteField.classList.add('hidden');
+      boxMemberInvites.classList.remove('hidden');
+      btnDeleteFromEditModal.classList.remove('hidden');
       carregarConvitesDoMembro(item.id);
 
-      document.getElementById(&#39;inputNomeNegocio&#39;).value = item.nome;
-      document.getElementById(&#39;inputResponsavel&#39;).value = item.responsavel;
-      document.getElementById(&#39;inputCategoria&#39;).value = item.categoria;
+      document.getElementById('inputNomeNegocio').value = item.nome;
+      document.getElementById('inputResponsavel').value = item.responsavel;
+      document.getElementById('inputCategoria').value = item.categoria;
       updateSubcategories();
       if (item.subcategoria) {
-        document.getElementById(&#39;inputSubcategoria&#39;).value = item.subcategoria;
+        document.getElementById('inputSubcategoria').value = item.subcategoria;
       }
-      document.getElementById(&#39;inputInstagram&#39;).value = item.instagram.replace(&#39;@&#39;, &#39;&#39;);
-      document.getElementById(&#39;inputWhatsapp&#39;).value = item.whatsapp;
-      document.getElementById(&#39;inputCidade&#39;).value = item.cidade;
-      document.getElementById(&#39;inputBairro&#39;).value = item.bairro || &#39;&#39;;
-      document.getElementById(&#39;inputDescricao&#39;).value = item.descricao;
-      inputPin.value = item.pin || &#39;&#39;;
-      inputEmail.value = item.email || &#39;&#39;;
+      document.getElementById('inputInstagram').value = item.instagram.replace('@', '');
+      document.getElementById('inputWhatsapp').value = item.whatsapp;
+      document.getElementById('inputCidade').value = item.cidade;
+      document.getElementById('inputBairro').value = item.bairro || '';
+      document.getElementById('inputDescricao').value = item.descricao;
+      inputPin.value = item.pin || '';
+      inputEmail.value = item.email || '';
 
       if (item.foto) {
         currentPhotoBase64 = item.foto;
         imgPreview.src = item.foto;
-        imgPreview.classList.remove(&#39;hidden&#39;);
-        previewPlaceholder.classList.add(&#39;hidden&#39;);
-        btnRemoveFoto.classList.remove(&#39;hidden&#39;);
+        imgPreview.classList.remove('hidden');
+        previewPlaceholder.classList.add('hidden');
+        btnRemoveFoto.classList.remove('hidden');
       } else {
-        currentPhotoBase64 = &#39;&#39;;
-        imgPreview.src = &#39;&#39;;
-        imgPreview.classList.add(&#39;hidden&#39;);
-        previewPlaceholder.classList.remove(&#39;hidden&#39;);
-        btnRemoveFoto.classList.add(&#39;hidden&#39;);
+        currentPhotoBase64 = '';
+        imgPreview.src = '';
+        imgPreview.classList.add('hidden');
+        previewPlaceholder.classList.remove('hidden');
+        btnRemoveFoto.classList.add('hidden');
       }
 
-      modalCadastro.classList.remove(&#39;hidden&#39;);
-      document.body.style.overflow = &#39;hidden&#39;;
+      modalCadastro.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     }
 
-    btnDeleteFromEditModal.addEventListener(&#39;click&#39;, () =&gt; {
+    btnDeleteFromEditModal.addEventListener('click', () => {
       if (!currentEditingItem) return;
       closeModal();
       promptDeleteCard(currentEditingItem.id);
     });
 
     async function carregarConvitesDoMembro(memberId) {
-      listMemberInvites.innerHTML = &#39;&lt;p class=&quot;text-stone-500 text-[11px] italic&quot;&gt;Carregando convites...&lt;/p&gt;&#39;;
+      listMemberInvites.innerHTML = '<p class="text-stone-500 text-[11px] italic">Carregando convites...</p>';
       try {
-        const res = await fetch(`${API_URL}?action=get_invites&amp;id=${encodeURIComponent(memberId)}`);
+        const res = await fetch(`${API_URL}?action=get_invites&id=${encodeURIComponent(memberId)}`);
         const data = await res.json();
         const convites = data.invites || [];
 
-        const isSpecialAdmin = currentEditingItem &amp;&amp; (
-          currentEditingItem.whatsapp.includes(&#39;99782-2266&#39;) ||
-          currentEditingItem.whatsapp.includes(&#39;99183-9298&#39;) ||
-          currentEditingItem.whatsapp.includes(&#39;97406-3257&#39;)
+        const isSpecialAdmin = currentEditingItem && (
+          currentEditingItem.whatsapp.includes('99782-2266') ||
+          currentEditingItem.whatsapp.includes('99183-9298') ||
+          currentEditingItem.whatsapp.includes('97406-3257')
         );
         const restantes = isSpecialAdmin ? 999 : (data.restantes_hoje !== undefined ? data.restantes_hoje : 5);
 
-        btnGenerateInvite.disabled = restantes &lt;= 0;
-        btnGenerateInvite.textContent = restantes &gt;= 99 ? &#39;+ Gerar Convite (Ilimitados - Admin)&#39; : (restantes &gt; 0 ? `+ Gerar Convite (${restantes} restantes hoje)` : &#39;Limite atingido hoje (0)&#39;);
+        btnGenerateInvite.disabled = restantes <= 0;
+        btnGenerateInvite.textContent = restantes >= 99 ? '+ Gerar Convite (Ilimitados - Admin)' : (restantes > 0 ? `+ Gerar Convite (${restantes} restantes hoje)` : 'Limite atingido hoje (0)');
 
         if (convites.length === 0) {
-          listMemberInvites.innerHTML = &#39;&lt;p class=&quot;text-stone-500 text-[11px]&quot;&gt;Nenhum convite gerado ainda. Clique em &quot;+ Gerar Convite&quot; acima para convidar amigos!&lt;/p&gt;&#39;;
+          listMemberInvites.innerHTML = '<p class="text-stone-500 text-[11px]">Nenhum convite gerado ainda. Clique em "+ Gerar Convite" acima para convidar amigos!</p>';
           return;
         }
 
-        listMemberInvites.innerHTML = convites.map(c =&gt; {
-          const isUsado = c.status === &#39;Usado&#39;;
-          const badgeClass = isUsado ? &#39;bg-stone-200 text-stone-700&#39; : &#39;bg-emerald-100 text-emerald-800 font-bold&#39;;
+        listMemberInvites.innerHTML = convites.map(c => {
+          const isUsado = c.status === 'Usado';
+          const badgeClass = isUsado ? 'bg-stone-200 text-stone-700' : 'bg-emerald-100 text-emerald-800 font-bold';
           const shareText = `Olá! Te convido a cadastrar seu trabalho na *Vitrine da Esquerda de Taubaté*. Acesse https://vitrinedaesquerda.com.br e use meu código de convite exclusivo: *${c.codigo}*`;
           const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
 
           return `
-            &lt;div class=&quot;flex items-center justify-between p-2 rounded-lg bg-white border border-emerald-100 gap-2&quot;&gt;
-              &lt;div class=&quot;min-w-0&quot;&gt;
-                &lt;span class=&quot;font-mono font-bold text-xs text-stone-800&quot;&gt;${c.codigo}&lt;/span&gt;
-                &lt;span class=&quot;ml-2 text-[10px] px-1.5 py-0.5 rounded ${badgeClass}&quot;&gt;${c.status}&lt;/span&gt;
-                ${isUsado &amp;&amp; c.usado_por ? `&lt;p class=&quot;text-[10px] text-stone-400&quot;&gt;Usado por: ${c.usado_por}&lt;/p&gt;` : &#39;&#39;}
-              &lt;/div&gt;
+            <div class="flex items-center justify-between p-2 rounded-lg bg-white border border-emerald-100 gap-2">
+              <div class="min-w-0">
+                <span class="font-mono font-bold text-xs text-stone-800">${c.codigo}</span>
+                <span class="ml-2 text-[10px] px-1.5 py-0.5 rounded ${badgeClass}">${c.status}</span>
+                ${isUsado && c.usado_por ? `<p class="text-[10px] text-stone-400">Usado por: ${c.usado_por}</p>` : ''}
+              </div>
               ${!isUsado ? `
-                &lt;a href=&quot;${shareUrl}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; class=&quot;px-2 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] shrink-0 flex items-center gap-1&quot;&gt;
+                <a href="${shareUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] shrink-0 flex items-center gap-1">
                   WhatsApp
-                &lt;/a&gt;
-              ` : &#39;&#39;}
-            &lt;/div&gt;
+                </a>
+              ` : ''}
+            </div>
           `;
-        }).join(&#39;&#39;);
+        }).join('');
 
       } catch (e) {
-        listMemberInvites.innerHTML = &#39;&lt;p class=&quot;text-red-500 text-[11px]&quot;&gt;Erro ao buscar convites.&lt;/p&gt;&#39;;
+        listMemberInvites.innerHTML = '<p class="text-red-500 text-[11px]">Erro ao buscar convites.</p>';
       }
     }
 
-    btnGenerateInvite.addEventListener(&#39;click&#39;, async () =&gt; {
+    btnGenerateInvite.addEventListener('click', async () => {
       if (!currentEditingItem) return;
       btnGenerateInvite.disabled = true;
-      btnGenerateInvite.textContent = &#39;Gerando...&#39;;
+      btnGenerateInvite.textContent = 'Gerando...';
 
       try {
         const res = await fetch(API_URL, {
-          method: &#39;POST&#39;,
-          headers: { &#39;Content-Type&#39;: &#39;text/plain;charset=utf-8&#39; },
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
-            action: &#39;generate_invite&#39;,
+            action: 'generate_invite',
             memberId: currentEditingItem.id,
             memberPhone: currentEditingItem.whatsapp,
             pin: inputPin.value.trim()
           })
         });
         const data = await res.json();
-        if (data.status === &#39;success&#39;) {
-          showToast(`Convite ${data.codigo} gerado com sucesso!`, &#39;🎟️&#39;);
+        if (data.status === 'success') {
+          showToast(`Convite ${data.codigo} gerado com sucesso!`, '🎟️');
           await carregarConvitesDoMembro(currentEditingItem.id);
         } else {
-          showToast(data.message || &#39;Erro ao gerar convite&#39;, &#39;⚠️&#39;);
+          showToast(data.message || 'Erro ao gerar convite', '⚠️');
           btnGenerateInvite.disabled = false;
         }
       } catch (err) {
-        showToast(&#39;Erro de conexão ao gerar convite&#39;, &#39;⚠️&#39;);
+        showToast('Erro de conexão ao gerar convite', '⚠️');
         btnGenerateInvite.disabled = false;
       }
     });
 
     window.closeModal = function closeModal() {
-      modalCadastro.classList.add(&#39;hidden&#39;);
-      document.body.style.overflow = &#39;&#39;;
+      modalCadastro.classList.add('hidden');
+      document.body.style.overflow = '';
       formCadastro.reset();
-      editCardId.value = &#39;&#39;;
+      editCardId.value = '';
       currentEditingItem = null;
-      currentPhotoBase64 = &#39;&#39;;
-      imgPreview.src = &#39;&#39;;
-      imgPreview.classList.add(&#39;hidden&#39;);
-      previewPlaceholder.classList.remove(&#39;hidden&#39;);
-      btnRemoveFoto.classList.add(&#39;hidden&#39;);
-      btnDeleteFromEditModal.classList.add(&#39;hidden&#39;);
-      inputInviteCode.value = &#39;&#39;;
-      inputEmail.value = &#39;&#39;;
+      currentPhotoBase64 = '';
+      imgPreview.src = '';
+      imgPreview.classList.add('hidden');
+      previewPlaceholder.classList.remove('hidden');
+      btnRemoveFoto.classList.add('hidden');
+      btnDeleteFromEditModal.classList.add('hidden');
+      inputInviteCode.value = '';
+      inputEmail.value = '';
       updateSubcategories();
     };
 
-    btnOpenModal.addEventListener(&#39;click&#39;, openModal);
-    btnCadastrarPrimeiro.addEventListener(&#39;click&#39;, openModal);
-    btnCloseModal.addEventListener(&#39;click&#39;, closeModal);
-    btnCancelCadastro.addEventListener(&#39;click&#39;, closeModal);
-    modalCadastro.addEventListener(&#39;click&#39;, (e) =&gt; {
+    btnOpenModal.addEventListener('click', openModal);
+    btnCadastrarPrimeiro.addEventListener('click', openModal);
+    btnCloseModal.addEventListener('click', closeModal);
+    btnCancelCadastro.addEventListener('click', closeModal);
+    modalCadastro.addEventListener('click', (e) => {
       if (e.target === modalCadastro) closeModal();
     });
 
     // Formatação de Telefone
-    const inputWhatsapp = document.getElementById(&#39;inputWhatsapp&#39;);
-    inputWhatsapp.addEventListener(&#39;input&#39;, (e) =&gt; {
-      let v = e.target.value.replace(/\D/g, &#39;&#39;);
-      if (v.length &gt; 11) v = v.slice(0, 11);
-      if (v.length &gt; 6) {
+    const inputWhatsapp = document.getElementById('inputWhatsapp');
+    inputWhatsapp.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
         e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
-      } else if (v.length &gt; 2) {
+      } else if (v.length > 2) {
         e.target.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
-      } else if (v.length &gt; 0) {
+      } else if (v.length > 0) {
         e.target.value = `(${v}`;
       }
     });
 
     // Envio direto para o Google Apps Script conectado à sua Planilha
-    formCadastro.addEventListener(&#39;submit&#39;, async (e) =&gt; {
+    formCadastro.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const idEdit = editCardId.value;
-      const nome = document.getElementById(&#39;inputNomeNegocio&#39;).value.trim();
-      const responsavel = document.getElementById(&#39;inputResponsavel&#39;).value.trim();
-      const categoria = document.getElementById(&#39;inputCategoria&#39;).value;
-      const subcategoria = document.getElementById(&#39;inputSubcategoria&#39;).value;
-      const instagram = document.getElementById(&#39;inputInstagram&#39;).value.replace(&#39;@&#39;, &#39;&#39;).trim();
-      const whatsapp = document.getElementById(&#39;inputWhatsapp&#39;).value.trim();
-      const cidade = document.getElementById(&#39;inputCidade&#39;).value;
-      const bairro = document.getElementById(&#39;inputBairro&#39;).value.trim();
-      const descricao = document.getElementById(&#39;inputDescricao&#39;).value.trim();
+      const nome = document.getElementById('inputNomeNegocio').value.trim();
+      const responsavel = document.getElementById('inputResponsavel').value.trim();
+      const categoria = document.getElementById('inputCategoria').value;
+      const subcategoria = document.getElementById('inputSubcategoria').value;
+      const instagram = document.getElementById('inputInstagram').value.replace('@', '').trim();
+      const whatsapp = document.getElementById('inputWhatsapp').value.trim();
+      const cidade = document.getElementById('inputCidade').value;
+      const bairro = document.getElementById('inputBairro').value.trim();
+      const descricao = document.getElementById('inputDescricao').value.trim();
       const pin = inputPin.value.trim();
       const emailVal = inputEmail.value.trim().toLowerCase();
 
       if (!nome || !responsavel || !instagram || !whatsapp || !descricao || !pin || !emailVal) {
-        showToast(&#39;Por favor, preencha todos os campos obrigatórios, PIN e E-mail.&#39;, &#39;⚠️&#39;);
+        showToast('Por favor, preencha todos os campos obrigatórios, PIN e E-mail.', '⚠️');
         return;
       }
 
       btnSubmitForm.disabled = true;
-      submitSpinner.classList.remove(&#39;hidden&#39;);
-      btnSubmitText.textContent = &#39;Enviando para a planilha...&#39;;
+      submitSpinner.classList.remove('hidden');
+      btnSubmitText.textContent = 'Enviando para a planilha...';
 
       const payload = {
         ID: idEdit || String(Date.now()),
@@ -1688,11 +1688,11 @@
         Subcategoria: subcategoria,
         Cidade: cidade,
         Bairro: bairro,
-        Instagram: instagram.startsWith(&#39;@&#39;) ? instagram : &#39;@&#39; + instagram,
+        Instagram: instagram.startsWith('@') ? instagram : '@' + instagram,
         WhatsApp: whatsapp,
         Descricao: descricao,
-        Foto_URL: currentPhotoBase64 || &#39;&#39;,
-        Status: &#39;Ativo&#39;,
+        Foto_URL: currentPhotoBase64 || '',
+        Status: 'Ativo',
         Senha_PIN: pin,
         Email_Recuperacao: emailVal,
         Codigo_Convite: inputInviteCode.value.trim().toUpperCase()
@@ -1700,197 +1700,197 @@
 
       try {
         const respSubmit = await fetch(API_URL, {
-          method: &#39;POST&#39;,
+          method: 'POST',
           headers: {
-            &#39;Content-Type&#39;: &#39;text/plain;charset=utf-8&#39;
+            'Content-Type': 'text/plain;charset=utf-8'
           },
           body: JSON.stringify(payload)
         });
 
         const resData = await respSubmit.json();
-        if (resData.status === &#39;error&#39;) {
-          showToast(resData.message || &#39;Erro ao salvar. Verifique suas informações.&#39;, &#39;⚠️&#39;);
+        if (resData.status === 'error') {
+          showToast(resData.message || 'Erro ao salvar. Verifique suas informações.', '⚠️');
           return;
         }
 
-        showToast(resData.message || (idEdit ? `Negócio &quot;${nome}&quot; atualizado!` : `Negócio &quot;${nome}&quot; cadastrado com sucesso!`), &#39;★&#39;);
+        showToast(resData.message || (idEdit ? `Negócio "${nome}" atualizado!` : `Negócio "${nome}" cadastrado com sucesso!`), '★');
         closeModal();
         await carregarDadosDaPlanilha();
 
       } catch (err) {
-        showToast(&#39;Erro ao salvar na nuvem, tente novamente.&#39;, &#39;⚠️&#39;);
+        showToast('Erro ao salvar na nuvem, tente novamente.', '⚠️');
         console.error(err);
       } finally {
         btnSubmitForm.disabled = false;
-        submitSpinner.classList.add(&#39;hidden&#39;);
-        btnSubmitText.textContent = idEdit ? &#39;Salvar Alterações&#39; : &#39;Salvar na Vitrine&#39;;
+        submitSpinner.classList.add('hidden');
+        btnSubmitText.textContent = idEdit ? 'Salvar Alterações' : 'Salvar na Vitrine';
       }
     });
 
     // Exportar CSV
-    document.getElementById(&#39;btnExportCSV&#39;).addEventListener(&#39;click&#39;, () =&gt; {
+    document.getElementById('btnExportCSV').addEventListener('click', () => {
       if (negocios.length === 0) {
-        showToast(&#39;Nenhum negócio para exportar ainda.&#39;, &#39;⚠️&#39;);
+        showToast('Nenhum negócio para exportar ainda.', '⚠️');
         return;
       }
 
-      const headers = [&#39;Nome&#39;, &#39;Responsavel&#39;, &#39;Categoria&#39;, &#39;Subcategoria&#39;, &#39;Cidade&#39;, &#39;Bairro&#39;, &#39;Instagram&#39;, &#39;WhatsApp&#39;, &#39;Descricao&#39;];
-      const rows = negocios.map(n =&gt; [
-        `&quot;${n.nome.replace(/&quot;/g, &#39;&quot;&quot;&#39;)}&quot;`,
-        `&quot;${n.responsavel.replace(/&quot;/g, &#39;&quot;&quot;&#39;)}&quot;`,
-        `&quot;${n.categoria}&quot;`,
-        `&quot;${n.subcategoria}&quot;`,
-        `&quot;${n.cidade}&quot;`,
-        `&quot;${n.bairro}&quot;`,
-        `&quot;${n.instagram}&quot;`,
-        `&quot;${n.whatsapp}&quot;`,
-        `&quot;${n.descricao.replace(/&quot;/g, &#39;&quot;&quot;&#39;)}&quot;`
+      const headers = ['Nome', 'Responsavel', 'Categoria', 'Subcategoria', 'Cidade', 'Bairro', 'Instagram', 'WhatsApp', 'Descricao'];
+      const rows = negocios.map(n => [
+        `"${n.nome.replace(/"/g, '""')}"`,
+        `"${n.responsavel.replace(/"/g, '""')}"`,
+        `"${n.categoria}"`,
+        `"${n.subcategoria}"`,
+        `"${n.cidade}"`,
+        `"${n.bairro}"`,
+        `"${n.instagram}"`,
+        `"${n.whatsapp}"`,
+        `"${n.descricao.replace(/"/g, '""')}"`
       ]);
 
-      const csvContent = &#39;﻿&#39; + [headers.join(&#39;,&#39;), ...rows.map(r =&gt; r.join(&#39;,&#39;))].join(&#39;
-&#39;);
-      const blob = new Blob([csvContent], { type: &#39;text/csv;charset=utf-8;&#39; });
+      const csvContent = '﻿' + [headers.join(','), ...rows.map(r => r.join(','))].join('
+');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
-      const a = document.createElement(&#39;a&#39;);
+      const a = document.createElement('a');
       a.href = url;
       a.download = `vitrine_esquerda_taubate_${new Date().toISOString().slice(0, 10)}.csv`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      showToast(&#39;Lista exportada com sucesso!&#39;, &#39;📊&#39;);
+      showToast('Lista exportada com sucesso!', '📊');
     });
 
     // =========================================================================
     // PAINEL DO ADMINISTRADOR (JULIAN SIMPLICIANO - CONVITES ILIMITADOS)
     // =========================================================================
-    const btnOpenAdminModal = document.getElementById(&#39;btnOpenAdminModal&#39;);
-    const modalAdminPanel = document.getElementById(&#39;modalAdminPanel&#39;);
-    const btnCloseAdminModal = document.getElementById(&#39;btnCloseAdminModal&#39;);
-    const adminAuthView = document.getElementById(&#39;adminAuthView&#39;);
-    const adminDashboardView = document.getElementById(&#39;adminDashboardView&#39;);
-    const inputAdminMasterPin = document.getElementById(&#39;inputAdminMasterPin&#39;);
-    const btnCancelAdminAuth = document.getElementById(&#39;btnCancelAdminAuth&#39;);
-    const btnConfirmAdminAuth = document.getElementById(&#39;btnConfirmAdminAuth&#39;);
-    const btnAdminGenerateInvite = document.getElementById(&#39;btnAdminGenerateInvite&#39;);
-    const adminInvitesList = document.getElementById(&#39;adminInvitesList&#39;);
-    const btnRefreshAdminInvites = document.getElementById(&#39;btnRefreshAdminInvites&#39;);
+    const btnOpenAdminModal = document.getElementById('btnOpenAdminModal');
+    const modalAdminPanel = document.getElementById('modalAdminPanel');
+    const btnCloseAdminModal = document.getElementById('btnCloseAdminModal');
+    const adminAuthView = document.getElementById('adminAuthView');
+    const adminDashboardView = document.getElementById('adminDashboardView');
+    const inputAdminMasterPin = document.getElementById('inputAdminMasterPin');
+    const btnCancelAdminAuth = document.getElementById('btnCancelAdminAuth');
+    const btnConfirmAdminAuth = document.getElementById('btnConfirmAdminAuth');
+    const btnAdminGenerateInvite = document.getElementById('btnAdminGenerateInvite');
+    const adminInvitesList = document.getElementById('adminInvitesList');
+    const btnRefreshAdminInvites = document.getElementById('btnRefreshAdminInvites');
 
-    const ADMIN_IDENTIFIER = &#39;ADMIN_JULIAN&#39;;
-    const ADMIN_PHONE_NUMBER = &#39;12991839298&#39;;
+    const ADMIN_IDENTIFIER = 'ADMIN_JULIAN';
+    const ADMIN_PHONE_NUMBER = '12991839298';
 
     function openAdminModal() {
-      inputAdminMasterPin.value = &#39;&#39;;
-      adminAuthView.classList.remove(&#39;hidden&#39;);
-      adminDashboardView.classList.add(&#39;hidden&#39;);
-      modalAdminPanel.classList.remove(&#39;hidden&#39;);
-      document.body.style.overflow = &#39;hidden&#39;;
+      inputAdminMasterPin.value = '';
+      adminAuthView.classList.remove('hidden');
+      adminDashboardView.classList.add('hidden');
+      modalAdminPanel.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
       inputAdminMasterPin.focus();
     }
 
     function closeAdminModal() {
-      modalAdminPanel.classList.add(&#39;hidden&#39;);
-      document.body.style.overflow = &#39;&#39;;
-      inputAdminMasterPin.value = &#39;&#39;;
+      modalAdminPanel.classList.add('hidden');
+      document.body.style.overflow = '';
+      inputAdminMasterPin.value = '';
     }
 
-    btnOpenAdminModal.addEventListener(&#39;click&#39;, openAdminModal);
-    btnCloseAdminModal.addEventListener(&#39;click&#39;, closeAdminModal);
-    btnCancelAdminAuth.addEventListener(&#39;click&#39;, closeAdminModal);
-    modalAdminPanel.addEventListener(&#39;click&#39;, (e) =&gt; {
+    btnOpenAdminModal.addEventListener('click', openAdminModal);
+    btnCloseAdminModal.addEventListener('click', closeAdminModal);
+    btnCancelAdminAuth.addEventListener('click', closeAdminModal);
+    modalAdminPanel.addEventListener('click', (e) => {
       if (e.target === modalAdminPanel) closeAdminModal();
     });
 
-    inputAdminMasterPin.addEventListener(&#39;keyup&#39;, (e) =&gt; {
-      if (e.key === &#39;Enter&#39;) btnConfirmAdminAuth.click();
+    inputAdminMasterPin.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') btnConfirmAdminAuth.click();
     });
 
-    btnConfirmAdminAuth.addEventListener(&#39;click&#39;, () =&gt; {
+    btnConfirmAdminAuth.addEventListener('click', () => {
       const enteredPin = inputAdminMasterPin.value.trim();
       if (!MASTER_ADMIN_PINS.includes(enteredPin)) {
-        showToast(&#39;PIN Mestre incorreto.&#39;, &#39;❌&#39;);
+        showToast('PIN Mestre incorreto.', '❌');
         return;
       }
 
-      showToast(&#39;Painel do Administrador liberado!&#39;, &#39;👑&#39;);
-      adminAuthView.classList.add(&#39;hidden&#39;);
-      adminDashboardView.classList.remove(&#39;hidden&#39;);
+      showToast('Painel do Administrador liberado!', '👑');
+      adminAuthView.classList.add('hidden');
+      adminDashboardView.classList.remove('hidden');
       loadAdminInvites();
     });
 
     async function loadAdminInvites() {
-      adminInvitesList.innerHTML = &#39;&lt;p class=&quot;text-stone-400 text-xs italic text-center py-4&quot;&gt;Carregando seus convites...&lt;/p&gt;&#39;;
+      adminInvitesList.innerHTML = '<p class="text-stone-400 text-xs italic text-center py-4">Carregando seus convites...</p>';
       try {
-        const res = await fetch(`${API_URL}?action=get_invites&amp;id=${ADMIN_IDENTIFIER}&amp;phone=${ADMIN_PHONE_NUMBER}`);
+        const res = await fetch(`${API_URL}?action=get_invites&id=${ADMIN_IDENTIFIER}&phone=${ADMIN_PHONE_NUMBER}`);
         const data = await res.json();
         const convites = data.invites || [];
 
         if (convites.length === 0) {
-          adminInvitesList.innerHTML = &#39;&lt;p class=&quot;text-stone-500 text-xs text-center py-4&quot;&gt;Você ainda não gerou convites. Clique em &quot;+ Gerar Convite&quot; acima para emitir seu primeiro convite ilimitado!&lt;/p&gt;&#39;;
+          adminInvitesList.innerHTML = '<p class="text-stone-500 text-xs text-center py-4">Você ainda não gerou convites. Clique em "+ Gerar Convite" acima para emitir seu primeiro convite ilimitado!</p>';
           return;
         }
 
-        adminInvitesList.innerHTML = convites.map(c =&gt; {
-          const isUsado = c.status === &#39;Usado&#39;;
-          const badgeClass = isUsado ? &#39;bg-stone-200 text-stone-700&#39; : &#39;bg-emerald-100 text-emerald-800 font-bold&#39;;
+        adminInvitesList.innerHTML = convites.map(c => {
+          const isUsado = c.status === 'Usado';
+          const badgeClass = isUsado ? 'bg-stone-200 text-stone-700' : 'bg-emerald-100 text-emerald-800 font-bold';
           const shareText = `Olá! Te convido a cadastrar seu negócio/serviço na *Vitrine da Esquerda de Taubaté*. Acesse https://vitrinedaesquerda.com.br e use meu convite exclusivo de administrador: *${c.codigo}*`;
           const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
 
           return `
-            &lt;div class=&quot;flex items-center justify-between p-2.5 rounded-xl bg-stone-50 border border-stone-200 gap-2&quot;&gt;
-              &lt;div class=&quot;min-w-0&quot;&gt;
-                &lt;span class=&quot;font-mono font-bold text-xs text-stone-900 tracking-wider&quot;&gt;${c.codigo}&lt;/span&gt;
-                &lt;span class=&quot;ml-2 text-[10px] px-2 py-0.5 rounded-md ${badgeClass}&quot;&gt;${c.status}&lt;/span&gt;
-                &lt;p class=&quot;text-[10px] text-stone-400 mt-0.5&quot;&gt;Gerado em: ${c.data}${isUsado &amp;&amp; c.usado_por ? ` • Usado por: ${c.usado_por}` : &#39;&#39;}&lt;/p&gt;
-              &lt;/div&gt;
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-stone-50 border border-stone-200 gap-2">
+              <div class="min-w-0">
+                <span class="font-mono font-bold text-xs text-stone-900 tracking-wider">${c.codigo}</span>
+                <span class="ml-2 text-[10px] px-2 py-0.5 rounded-md ${badgeClass}">${c.status}</span>
+                <p class="text-[10px] text-stone-400 mt-0.5">Gerado em: ${c.data}${isUsado && c.usado_por ? ` • Usado por: ${c.usado_por}` : ''}</p>
+              </div>
               ${!isUsado ? `
-                &lt;a href=&quot;${shareUrl}&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; class=&quot;px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shrink-0 flex items-center gap-1 shadow-2xs&quot;&gt;
+                <a href="${shareUrl}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shrink-0 flex items-center gap-1 shadow-2xs">
                   WhatsApp
-                &lt;/a&gt;
-              ` : &#39;&#39;}
-            &lt;/div&gt;
+                </a>
+              ` : ''}
+            </div>
           `;
-        }).join(&#39;&#39;);
+        }).join('');
 
       } catch (e) {
-        adminInvitesList.innerHTML = &#39;&lt;p class=&quot;text-red-500 text-xs text-center py-4&quot;&gt;Erro ao carregar convites da planilha.&lt;/p&gt;&#39;;
+        adminInvitesList.innerHTML = '<p class="text-red-500 text-xs text-center py-4">Erro ao carregar convites da planilha.</p>';
       }
     }
 
-    btnAdminGenerateInvite.addEventListener(&#39;click&#39;, async () =&gt; {
+    btnAdminGenerateInvite.addEventListener('click', async () => {
       btnAdminGenerateInvite.disabled = true;
-      btnAdminGenerateInvite.textContent = &#39;Gerando...&#39;;
+      btnAdminGenerateInvite.textContent = 'Gerando...';
 
       try {
         const res = await fetch(API_URL, {
-          method: &#39;POST&#39;,
-          headers: { &#39;Content-Type&#39;: &#39;text/plain;charset=utf-8&#39; },
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
-            action: &#39;generate_invite&#39;,
+            action: 'generate_invite',
             memberId: ADMIN_IDENTIFIER,
             memberPhone: ADMIN_PHONE_NUMBER,
-            pin: &#39;191219&#39;
+            pin: '191219'
           })
         });
 
         const data = await res.json();
-        if (data.status === &#39;success&#39;) {
-          showToast(`Convite ${data.codigo} gerado com sucesso!`, &#39;🎟️&#39;);
+        if (data.status === 'success') {
+          showToast(`Convite ${data.codigo} gerado com sucesso!`, '🎟️');
           await loadAdminInvites();
         } else {
-          showToast(data.message || &#39;Erro ao gerar convite&#39;, &#39;⚠️&#39;);
+          showToast(data.message || 'Erro ao gerar convite', '⚠️');
         }
       } catch (err) {
-        showToast(&#39;Erro de conexão ao gerar convite&#39;, &#39;⚠️&#39;);
+        showToast('Erro de conexão ao gerar convite', '⚠️');
       } finally {
         btnAdminGenerateInvite.disabled = false;
-        btnAdminGenerateInvite.textContent = &#39;+ Gerar Convite&#39;;
+        btnAdminGenerateInvite.textContent = '+ Gerar Convite';
       }
     });
 
-    btnRefreshAdminInvites.addEventListener(&#39;click&#39;, loadAdminInvites);
+    btnRefreshAdminInvites.addEventListener('click', loadAdminInvites);
 
     // Se a URL tiver ?admin=1, abre o modal de admin automaticamente
-    if (window.location.search.includes(&#39;admin=1&#39;) || window.location.hash.includes(&#39;admin&#39;)) {
+    if (window.location.search.includes('admin=1') || window.location.hash.includes('admin')) {
       setTimeout(openAdminModal, 500);
     }
 
@@ -1899,27 +1899,27 @@
     // =========================================================================
     window.openPhotoZoom = function(imgSrc, title) {
       if (!imgSrc) return;
-      const modal = document.getElementById(&#39;modalPhotoZoom&#39;);
-      const img = document.getElementById(&#39;imgZoomTarget&#39;);
-      const caption = document.getElementById(&#39;txtZoomCaption&#39;);
-      if (modal &amp;&amp; img) {
+      const modal = document.getElementById('modalPhotoZoom');
+      const img = document.getElementById('imgZoomTarget');
+      const caption = document.getElementById('txtZoomCaption');
+      if (modal && img) {
         img.src = imgSrc;
-        if (caption) caption.textContent = title || &#39;&#39;;
-        modal.classList.remove(&#39;hidden&#39;);
-        document.body.style.overflow = &#39;hidden&#39;;
+        if (caption) caption.textContent = title || '';
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
       }
     };
 
     window.closePhotoZoom = function() {
-      const modal = document.getElementById(&#39;modalPhotoZoom&#39;);
+      const modal = document.getElementById('modalPhotoZoom');
       if (modal) {
-        modal.classList.add(&#39;hidden&#39;);
-        document.body.style.overflow = &#39;&#39;;
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
       }
     };
 
-    document.addEventListener(&#39;keydown&#39;, (e) =&gt; {
-      if (e.key === &#39;Escape&#39;) {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
         closePhotoZoom();
       }
     });
@@ -1931,45 +1931,45 @@
     // REGISTRO DO SERVICE WORKER E INSTALAÇÃO DO PWA
     // =========================================================================
     let deferredPrompt = null;
-    const pwaInstallBanner = document.getElementById(&#39;pwaInstallBanner&#39;);
-    const btnInstallPwa = document.getElementById(&#39;btnInstallPwa&#39;);
-    const btnDismissPwa = document.getElementById(&#39;btnDismissPwa&#39;);
+    const pwaInstallBanner = document.getElementById('pwaInstallBanner');
+    const btnInstallPwa = document.getElementById('btnInstallPwa');
+    const btnDismissPwa = document.getElementById('btnDismissPwa');
 
-    if (&#39;serviceWorker&#39; in navigator) {
-      window.addEventListener(&#39;load&#39;, () =&gt; {
-        navigator.serviceWorker.register(&#39;./sw.js&#39;)
-          .then((reg) =&gt; console.log(&#39;PWA ServiceWorker ativo!&#39;, reg.scope))
-          .catch((err) =&gt; console.log(&#39;PWA SW error:&#39;, err));
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => console.log('PWA ServiceWorker ativo!', reg.scope))
+          .catch((err) => console.log('PWA SW error:', err));
       });
     }
 
-    window.addEventListener(&#39;beforeinstallprompt&#39;, (e) =&gt; {
+    window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      if (pwaInstallBanner &amp;&amp; !sessionStorage.getItem(&#39;pwaDismissed&#39;)) {
-        pwaInstallBanner.classList.remove(&#39;hidden&#39;);
+      if (pwaInstallBanner && !sessionStorage.getItem('pwaDismissed')) {
+        pwaInstallBanner.classList.remove('hidden');
       }
     });
 
     if (btnInstallPwa) {
-      btnInstallPwa.addEventListener(&#39;click&#39;, async () =&gt; {
+      btnInstallPwa.addEventListener('click', async () => {
         if (!deferredPrompt) return;
         deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === &#39;accepted&#39;) {
-          showToast(&#39;Aplicativo instalado com sucesso!&#39;, &#39;📲&#39;);
+        if (outcome === 'accepted') {
+          showToast('Aplicativo instalado com sucesso!', '📲');
         }
         deferredPrompt = null;
-        if (pwaInstallBanner) pwaInstallBanner.classList.add(&#39;hidden&#39;);
+        if (pwaInstallBanner) pwaInstallBanner.classList.add('hidden');
       });
     }
 
     if (btnDismissPwa) {
-      btnDismissPwa.addEventListener(&#39;click&#39;, () =&gt; {
-        sessionStorage.setItem(&#39;pwaDismissed&#39;, &#39;true&#39;);
-        if (pwaInstallBanner) pwaInstallBanner.classList.add(&#39;hidden&#39;);
+      btnDismissPwa.addEventListener('click', () => {
+        sessionStorage.setItem('pwaDismissed', 'true');
+        if (pwaInstallBanner) pwaInstallBanner.classList.add('hidden');
       });
     }
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+  </script>
+</body>
+</html>
