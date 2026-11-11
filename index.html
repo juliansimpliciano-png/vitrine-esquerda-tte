@@ -593,7 +593,35 @@
       <p id="txtZoomCaption" class="text-white text-xs sm:text-sm font-bold text-center mt-3 drop-shadow-md truncate max-w-full px-2"></p>
     </div>
   </div>
+<!-- Modal Confirmar Exclusão de Cartão -->
+  <div id="modalDeleteConfirm" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 border border-stone-100 space-y-4">
+      <div class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded-xl bg-red-100 text-red-700 flex items-center justify-center text-base font-bold">🗑️</span>
+        <div>
+          <h3 class="text-sm font-bold text-stone-900">Excluir Cartão</h3>
+          <p class="text-xs text-stone-500">Confirmação de segurança</p>
+        </div>
+      </div>
+      
+      <p class="text-xs text-stone-600 leading-relaxed">
+        Tem certeza que deseja remover o negócio <strong id="txtDeleteCardNome" class="text-stone-900"></strong> da Vitrine? Esta ação é irreversível.
+      </p>
 
+      <div>
+        <label class="block text-xs font-bold text-stone-700 mb-1">Digite seu PIN (ou PIN Mestre) para confirmar *</label>
+        <input type="password" id="inputDeletePin" maxlength="6" placeholder="Digite seu PIN" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-stone-50/60">
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <button type="button" id="btnCancelDelete" class="px-4 py-2 rounded-xl border border-stone-200 text-stone-600 hover:bg-stone-100 text-xs font-bold transition-all cursor-pointer">Cancelar</button>
+        <button type="button" id="btnConfirmDelete" class="px-4 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer flex items-center gap-1.5">
+          <span id="txtBtnDelete">Confirmar Exclusão</span>
+          <svg id="spinnerDelete" class="w-3.5 h-3.5 animate-spin hidden" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </div>
   <!-- Toast Notification -->
   <div id="toast" class="fixed bottom-5 right-5 z-50 bg-stone-900 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs font-medium translate-y-20 opacity-0 transition-all duration-300 pointer-events-none border border-stone-700">
     <span class="text-base" id="toastIcon">★</span>
@@ -1035,6 +1063,9 @@
                   <button class="btn-delete-card p-1.5 rounded-lg bg-stone-100 hover:bg-red-50 text-stone-400 hover:text-red-700 transition-all cursor-pointer" title="Excluir este cartão da vitrine">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
                   </button>
+                <button class="btn-delete-card p-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-800 transition-all cursor-pointer" title="Excluir este cartão da vitrine">
+  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+</button>
                 </div>
               </div>
 
@@ -1622,6 +1653,107 @@
     };
 
     btnOpenModal.addEventListener('click', openModal);
+    document.querySelectorAll('.btn-delete-card').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('[data-id]');
+          const id = card.getAttribute('data-id');
+          promptDeleteCard(id);
+        });
+      });
+
+    // =========================================================================
+    // EXCLUSÃO DE CARTÃO COM PIN
+    // =========================================================================
+    let pendingDeleteCardId = null;
+    const modalDeleteConfirm = document.getElementById('modalDeleteConfirm');
+    const txtDeleteCardNome = document.getElementById('txtDeleteCardNome');
+    const inputDeletePin = document.getElementById('inputDeletePin');
+    const btnCancelDelete = document.getElementById('btnCancelDelete');
+    const btnConfirmDelete = document.getElementById('btnConfirmDelete');
+    const txtBtnDelete = document.getElementById('txtBtnDelete');
+    const spinnerDelete = document.getElementById('spinnerDelete');
+
+    function promptDeleteCard(id) {
+      pendingDeleteCardId = id;
+      const item = negocios.find(n => String(n.id) === String(id));
+      if (!item) return;
+
+      txtDeleteCardNome.textContent = `"${item.nome}"`;
+      inputDeletePin.value = '';
+      modalDeleteConfirm.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      inputDeletePin.focus();
+    }
+
+    btnCancelDelete.addEventListener('click', () => {
+      modalDeleteConfirm.classList.add('hidden');
+      document.body.style.overflow = '';
+      pendingDeleteCardId = null;
+    });
+
+    modalDeleteConfirm.addEventListener('click', (e) => {
+      if (e.target === modalDeleteConfirm) {
+        modalDeleteConfirm.classList.add('hidden');
+        document.body.style.overflow = '';
+        pendingDeleteCardId = null;
+      }
+    });
+
+    inputDeletePin.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') btnConfirmDelete.click();
+    });
+
+    btnConfirmDelete.addEventListener('click', async () => {
+      if (!pendingDeleteCardId) return;
+      const item = negocios.find(n => String(n.id) === String(pendingDeleteCardId));
+      if (!item) return;
+
+      const enteredPin = inputDeletePin.value.trim();
+      if (!enteredPin) {
+        showToast('Digite seu PIN para confirmar a exclusão.', '⚠️');
+        return;
+      }
+
+      const isMaster = MASTER_ADMIN_PINS.includes(enteredPin);
+      if (enteredPin !== String(item.pin || '1234').trim() && !isMaster) {
+        showToast('PIN incorreto! Exclusão não autorizada.', '❌');
+        return;
+      }
+
+      btnConfirmDelete.disabled = true;
+      spinnerDelete.classList.remove('hidden');
+      txtBtnDelete.textContent = 'Excluindo...';
+
+      try {
+        const resp = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            action: 'delete_business',
+            cardId: pendingDeleteCardId,
+            pin: enteredPin
+          })
+        });
+
+        const res = await resp.json();
+        if (res.status === 'success') {
+          showToast(`Cartão "${item.nome}" excluído da vitrine!`, '🗑️');
+          negocios = negocios.filter(n => String(n.id) !== String(pendingDeleteCardId));
+          modalDeleteConfirm.classList.add('hidden');
+          document.body.style.overflow = '';
+          pendingDeleteCardId = null;
+          renderCards();
+        } else {
+          showToast(res.message || 'Erro ao excluir cartão.', '⚠️');
+        }
+      } catch (err) {
+        showToast('Erro de conexão ao excluir.', '⚠️');
+      } finally {
+        btnConfirmDelete.disabled = false;
+        spinnerDelete.classList.add('hidden');
+        txtBtnDelete.textContent = 'Confirmar Exclusão';
+      }
+    });
     btnCadastrarPrimeiro.addEventListener('click', openModal);
     btnCloseModal.addEventListener('click', closeModal);
     btnCancelCadastro.addEventListener('click', closeModal);
