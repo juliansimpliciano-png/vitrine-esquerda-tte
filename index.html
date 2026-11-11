@@ -436,7 +436,7 @@
           </div>
         </div>
 
-        <!-- ETAPA 1: SOLICITAR CÓDIGO (COM FORMULÁRIO DE PRIMEIRO VÍNCULO SE NÃO TIVER E-MAIL) -->
+        <!-- ETAPA 1: SOLICITAR CÓDIGO -->
         <div id="boxStepSendCode" class="space-y-3">
           <div id="boxFirstTimeInputs" class="space-y-2.5 hidden">
             <div class="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-[11px] text-amber-900 leading-tight">
@@ -936,7 +936,7 @@
     initCategorySelectors();
 
     function stripAccents(str) {
-      return String(str || '').normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+      return String(str || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
     }
 
     // Função de embaralhamento democrático (Fisher-Yates)
@@ -1001,27 +1001,17 @@
         const whatsUrl = `https://wa.me/55${cleanWhats}?text=Ol%C3%A1!%20Vi%20seu%20contato%20na%20Vitrine%20de%20Taubat%C3%A9%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento.`;
         const instaUrl = `https://instagram.com/${cleanInsta}`;
 
-        const shareMsg = `🌟 *Indicação de Confiança — ${item.nome}*
-
-` +
-          `👤 *Responsável:* ${item.responsavel}
-` +
-          `🏷️ *Área:* ${item.categoria}${item.subcategoria ? ` (${item.subcategoria})` : ''}
-` +
-          `📍 *Local:* ${item.cidade}${item.bairro ? ` - ${item.bairro}` : ''}
-` +
-          `📝 *Sobre:* ${item.descricao}
-
-` +
-          `📲 *WhatsApp direto:* https://wa.me/55${cleanWhats}
-` +
-          `📸 *Instagram:* https://instagram.com/${cleanInsta}
-
-` +
+        const shareMsg = `🌟 *Indicação de Confiança — ${item.nome}*\n\n` +
+          `👤 *Responsável:* ${item.responsavel}\n` +
+          `🏷️ *Área:* ${item.categoria}${item.subcategoria ? ` (${item.subcategoria})` : ''}\n` +
+          `📍 *Local:* ${item.cidade}${item.bairro ? ` - ${item.bairro}` : ''}\n` +
+          `📝 *Sobre:* ${item.descricao}\n\n` +
+          `📲 *WhatsApp direto:* https://wa.me/55${cleanWhats}\n` +
+          `📸 *Instagram:* https://instagram.com/${cleanInsta}\n\n` +
           `✊ _Serviço de confiança e qualidade da nossa região!_`;
         
         const shareUrl = `https://wa.me/?text=${encodeURIComponent(shareMsg)}`;
-        const cleanNomeEscaped = item.nome.replace(/'/g, "\'");
+        const cleanNomeEscaped = item.nome.replace(/'/g, "\\'");
 
         const avatarHtml = item.foto 
           ? `<img src="${item.foto}" alt="${item.nome}" class="w-12 h-12 rounded-2xl object-cover border border-stone-200 shadow-2xs shrink-0 cursor-zoom-in hover:scale-105 hover:opacity-90 transition-all cursor-pointer" onclick="openPhotoZoom('${item.foto}', '${cleanNomeEscaped}')" title="Toque para ampliar a foto">`
@@ -1747,8 +1737,7 @@
         `"${n.descricao.replace(/"/g, '""')}"`
       ]);
 
-      const csvContent = '﻿' + [headers.join(','), ...rows.map(r => r.join(','))].join('
-');
+      const csvContent = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
