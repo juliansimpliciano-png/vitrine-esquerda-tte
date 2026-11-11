@@ -24,8 +24,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    html, body {
       font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      max-width: 100vw;
     }
     .custom-scrollbar::-webkit-scrollbar {
       height: 6px;
@@ -44,28 +46,30 @@
 <body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col selection:bg-red-700 selection:text-white">
 
   <!-- Header Superior -->
+  <!-- Header Superior -->
   <header class="bg-red-800 text-white shadow-md sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-white text-red-800 flex items-center justify-center font-extrabold text-xl shadow-inner shrink-0">
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 py-2 sm:py-3 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white text-red-800 flex items-center justify-center font-extrabold text-base sm:text-xl shadow-inner shrink-0">
           ★
         </div>
-        <div>
-          <h1 class="font-extrabold text-lg sm:text-xl tracking-tight leading-tight">
-            Vitrine da Esquerda de Taubaté
+        <div class="min-w-0">
+          <h1 class="font-extrabold text-sm sm:text-xl tracking-tight leading-tight truncate">
+            Vitrine da Esquerda
           </h1>
-          <p class="text-[11px] sm:text-xs text-red-200 uppercase font-semibold tracking-wider">
+          <p class="text-[10px] sm:text-xs text-red-200 uppercase font-semibold tracking-wider truncate">
             Esquerda ajuda Esquerda
           </p>
         </div>
       </div>
 
-      <div class="flex items-center gap-2">
-        <button id="btnOpenModal" onclick="openModal()" class="bg-white hover:bg-stone-100 text-red-800 font-bold px-3.5 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all shadow-sm active:scale-95 border border-stone-200 cursor-pointer shrink-0">
-          <svg class="w-4 h-4 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
-          <span>Cadastrar Meu Negócio</span>
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <button id="btnOpenModal" onclick="openModal()" class="bg-white hover:bg-stone-100 text-red-800 font-bold px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1 sm:gap-1.5 transition-all shadow-sm active:scale-95 border border-stone-200 cursor-pointer shrink-0">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          <span class="hidden sm:inline">Cadastrar Meu Negócio</span>
+          <span class="sm:hidden">Cadastrar</span>
         </button>
-        <button id="btnOpenAdminModal" class="bg-red-950/60 hover:bg-red-950 border border-red-700/60 text-white font-bold p-2 sm:px-2.5 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer shrink-0" title="Painel do Administrador">
+        <button id="btnOpenAdminModal" class="bg-red-950/60 hover:bg-red-950 border border-red-700/60 text-white font-bold p-1.5 sm:px-2.5 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1 sm:gap-1.5 transition-all active:scale-95 cursor-pointer shrink-0" title="Painel do Administrador">
           <span>👑</span>
           <span class="hidden sm:inline">Admin</span>
         </button>
