@@ -285,12 +285,7 @@
           <span>Compartilhe o contato dos nossos companheiros nos grupos e fortaleça quem fortalece você.</span>
         </div>
       </div>
-      <div class="flex items-center gap-2">
-        <button id="btnExportCSV" class="bg-white hover:bg-stone-50 border border-stone-200 text-stone-800 font-semibold px-3 py-1.5 rounded-lg transition-all active:scale-95 flex items-center gap-1 shadow-2xs cursor-pointer">
-          <svg class="w-3.5 h-3.5 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-          Exportar Lista (CSV)
-        </button>
-      </div>
+
     </div>
   </main>
   </div><!-- /publicCatalogWrapper -->
@@ -804,6 +799,16 @@
 
       <!-- VISTA B: CENTRAL DE CONVITES ILIMITADOS (APÓS DIGITAR O PIN MESTRE) -->
       <div id="adminDashboardView" class="space-y-4 hidden">
+        <div class="flex items-center justify-between gap-2 p-3 bg-stone-50 border border-stone-200 rounded-2xl">
+          <div>
+            <h4 class="text-xs font-bold text-stone-900">Backup de Contatos (Admin)</h4>
+            <p class="text-[11px] text-stone-500">Baixe a lista completa apenas no seu acesso de administrador.</p>
+          </div>
+          <button id="btnExportCSV" type="button" class="bg-white hover:bg-stone-100 border border-stone-300 text-stone-800 font-bold px-3 py-1.5 rounded-xl text-xs transition-all active:scale-95 flex items-center gap-1.5 shadow-2xs cursor-pointer shrink-0">
+            <svg class="w-3.5 h-3.5 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Exportar CSV
+          </button>
+        </div>
         <div class="p-3.5 bg-gradient-to-r from-red-50 to-amber-50 border border-red-200/80 rounded-2xl flex items-center justify-between gap-3">
           <div>
             <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-red-700 text-white uppercase tracking-wider mb-1">
@@ -2508,7 +2513,6 @@
               body: JSON.stringify({
                 action: 'claim_mural_offer',
                 offerId: offerId,
-                whatsapp: session.whatsapp,
                 pin: session.pin
               })
             });
@@ -2544,7 +2548,6 @@
               body: JSON.stringify({
                 action: 'delete_mural_offer',
                 offerId: offerId,
-                whatsapp: session.whatsapp,
                 pin: session.pin
               })
             });
@@ -2659,7 +2662,6 @@
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
             action: 'create_mural_offer',
-            whatsapp: session.whatsapp,
             pin: session.pin,
             categoria: muralOfferCat.value,
             subcategoria: muralOfferSubcat.value,
