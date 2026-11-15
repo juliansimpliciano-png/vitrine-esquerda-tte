@@ -11,7 +11,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Vitrine">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="icon.svg">
   <link rel="icon" type="image/svg+xml" href="icon.svg">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 
@@ -41,41 +41,110 @@
       background: #dc2626;
       border-radius: 9999px;
     }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    /* Cupom de Cinema - Mural de Oportunidades */
+    .cinema-ticket {
+      background-color: #f6efe2;
+      position: relative;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px -4px rgba(28, 25, 23, 0.16), 0 2px 6px -1px rgba(28, 25, 23, 0.08);
+      overflow: hidden;
+      border: 1px solid #e5dac3;
+    }
+    .cinema-ticket-black {
+      background-color: #fafafa;
+      position: relative;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px -4px rgba(24, 24, 27, 0.22), 0 2px 6px -1px rgba(24, 24, 27, 0.08);
+      overflow: hidden;
+      border: 1px solid #d4d4d8;
+      color: #18181b;
+    }
+    .ticket-notch-left, .ticket-notch-right {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background-color: #fafaf9;
+      border-radius: 9999px;
+      z-index: 20;
+      border: 1px solid #e5dac3;
+    }
+    .ticket-barcode {
+      background: repeating-linear-gradient(90deg, #1c1917 0px, #1c1917 2px, transparent 2px, transparent 4px, #1c1917 4px, #1c1917 5px, transparent 5px, transparent 8px, #1c1917 8px, #1c1917 11px, transparent 11px, transparent 13px, #1c1917 13px, #1c1917 14px, transparent 14px, transparent 17px);
+    }
+    .ticket-barcode-white {
+      background: repeating-linear-gradient(90deg, #ffffff 0px, #ffffff 2px, transparent 2px, transparent 4px, #ffffff 4px, #ffffff 5px, transparent 5px, transparent 8px, #ffffff 8px, #ffffff 11px, transparent 11px, transparent 13px, #ffffff 13px, #ffffff 14px, transparent 14px, transparent 17px);
+    }
+    .vertical-serial {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+    .ticket-bookmark {
+      width: 28px;
+      height: 38px;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.28);
+    }
   </style>
 </head>
 <body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col selection:bg-red-700 selection:text-white">
 
-  <!-- Header Superior -->
-  <!-- Header Superior -->
+  <!-- Header Superior (Linha 1: Botões + Oportunidades BETA + Admin PC | Linha 2: Marca ★ + Admin Celular) -->
   <header class="bg-red-800 text-white shadow-md sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-3 sm:px-4 py-2 sm:py-3 flex items-center justify-between gap-2">
-      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
-        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white text-red-800 flex items-center justify-center font-extrabold text-base sm:text-xl shadow-inner shrink-0">
-          ★
-        </div>
-        <div class="min-w-0">
-          <h1 class="font-extrabold text-sm sm:text-xl tracking-tight leading-tight truncate">
-            Vitrine da Esquerda
-          </h1>
-          <p class="text-[10px] sm:text-xs text-red-200 uppercase font-semibold tracking-wider truncate">
-            Esquerda ajuda Esquerda
-          </p>
-        </div>
-      </div>
+    <div class="max-w-6xl mx-auto px-2.5 sm:px-4 pt-2 pb-1.5 flex flex-wrap items-center justify-between gap-1.5">
+      <button id="btnOpenModal" onclick="openModal()" class="bg-white hover:bg-stone-100 text-red-800 font-bold px-2.5 sm:px-3.5 py-1.5 rounded-xl text-[11px] sm:text-xs flex items-center gap-1 transition-all shadow-sm active:scale-95 border border-stone-200 cursor-pointer shrink-0">
+        <svg class="w-3.5 h-3.5 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+        <span class="sm:hidden">Cadastrar Negócio</span>
+        <span class="hidden sm:inline">Cadastrar Meu Negócio</span>
+      </button>
 
-      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-        <button id="btnOpenModal" onclick="openModal()" class="bg-white hover:bg-stone-100 text-red-800 font-bold px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1 sm:gap-1.5 transition-all shadow-sm active:scale-95 border border-stone-200 cursor-pointer shrink-0">
-          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
-          <span class="hidden sm:inline">Cadastrar Meu Negócio</span>
-          <span class="sm:hidden">Cadastrar</span>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <!-- Botão Mural de Oportunidades (BETA) -->
+        <button id="btnTabMural" type="button" onclick="switchToMural()" class="relative bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 font-extrabold px-2 sm:px-3 py-1.5 rounded-xl text-[11px] sm:text-xs flex items-center gap-1 transition-all shadow-md border-b-2 border-amber-700 active:translate-y-0.5 active:border-b-0 cursor-pointer shrink-0" title="Mural de Oportunidades (Versão Beta em testes)">
+          <span id="muralHeaderLockIcon">🔒</span>
+          <span class="sm:hidden">Oportunidades</span>
+          <span class="hidden sm:inline">Mural de Oportunidades</span>
+          <span class="px-1 py-0.5 text-[8px] rounded bg-stone-950 text-amber-300 font-black uppercase tracking-wider leading-none">BETA</span>
+          <span class="px-1.5 py-0.5 text-[9px] sm:text-[10px] rounded-full bg-red-800 text-white font-extrabold" id="muralBadgeCount">0</span>
         </button>
-        <button id="btnOpenAdminModal" class="bg-red-950/60 hover:bg-red-950 border border-red-700/60 text-white font-bold p-1.5 sm:px-2.5 sm:py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1 sm:gap-1.5 transition-all active:scale-95 cursor-pointer shrink-0" title="Painel do Administrador">
+
+        <!-- Botão Admin no topo apenas no PC -->
+        <button id="btnOpenAdminModal" class="hidden sm:flex bg-red-950/60 hover:bg-red-950 border border-red-700/60 text-white font-bold px-2.5 py-1.5 rounded-xl text-xs items-center gap-1 transition-all active:scale-95 cursor-pointer shrink-0" title="Painel do Administrador">
           <span>👑</span>
-          <span class="hidden sm:inline">Admin</span>
+          <span>Admin</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Linha inferior fina exclusiva para o ícone branco ★ Vitrine da Esquerda de Taubaté (+ Coroa no celular) -->
+    <div class="bg-red-900/55 border-t border-red-700/50">
+      <div class="max-w-6xl mx-auto px-3 sm:px-4 py-1 flex items-center justify-between gap-2">
+        <button type="button" onclick="switchToCatalog()" class="flex items-center gap-2 text-left cursor-pointer group py-0.5 min-w-0" title="Voltar para o Catálogo Público">
+          <div class="w-6 h-6 rounded-md bg-white text-red-800 flex items-center justify-center font-extrabold text-xs shadow-inner shrink-0 group-hover:scale-105 transition-transform">
+            ★
+          </div>
+          <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0 min-w-0">
+            <h1 class="font-extrabold text-xs sm:text-sm tracking-tight leading-none text-white">
+              Vitrine da Esquerda de Taubaté
+            </h1>
+            <span class="text-[9px] sm:text-[10px] text-red-200 uppercase font-semibold tracking-wider leading-none">
+              • Esquerda ajuda Esquerda
+            </span>
+          </div>
+        </button>
+
+        <!-- Botão Admin na linha de baixo apenas no celular -->
+        <button id="btnOpenAdminModalMobile" type="button" onclick="document.getElementById('btnOpenAdminModal').click()" class="sm:hidden bg-red-950/70 hover:bg-red-950 border border-red-700/60 text-white font-bold px-2 py-1 rounded-lg text-[11px] flex items-center gap-1 transition-all active:scale-95 cursor-pointer shrink-0" title="Painel do Administrador">
+          <span>👑</span>
+          <span>Admin</span>
         </button>
       </div>
     </div>
   </header>
+
+  <div id="publicCatalogWrapper">
 
   <!-- Hero Banner -->
   <section class="bg-gradient-to-b from-red-800 to-red-900 text-white py-8 px-4 text-center">
@@ -224,6 +293,189 @@
       </div>
     </div>
   </main>
+  </div><!-- /publicCatalogWrapper -->
+
+  <!-- ======================================================================= -->
+  <!-- MURAL DE OPORTUNIDADES (VERSÃO BETA - EXCLUSIVO PARA MEMBROS INSCRITOS) -->
+  <!-- ======================================================================= -->
+  <section id="muralSection" class="max-w-6xl mx-auto px-3 sm:px-4 py-6 flex-1 w-full space-y-5 hidden">
+
+    <!-- VISÃO A: TELA DE BLOQUEIO (QUEM NÃO ESTÁ LOGADO COM CARTÃO + PIN) -->
+    <div id="muralLockedView" class="space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <button type="button" onclick="switchToCatalog()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 text-xs font-bold shadow-2xs transition-all cursor-pointer">
+          ← Voltar para o Catálogo Público
+        </button>
+        <span class="px-2.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-[11px] font-extrabold">
+          🧪 Versão Beta • Em testes e evolução
+        </span>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-300/90 rounded-2xl px-4 py-3 flex items-start gap-2.5 text-xs text-amber-950 shadow-2xs">
+        <span class="text-base leading-none mt-0.5">🧪</span>
+        <p class="leading-relaxed">
+          <strong>Mural de Oportunidades (Versão Beta):</strong> Esta área ainda não é definitiva e está em fase de testes com a comunidade. Atualizações, ajustes visuais e melhorias nas regras podem acontecer ao longo dos próximos dias.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-stone-200 shadow-sm overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-12">
+          <!-- Arte Visual "Só para Membros do Site" -->
+          <div class="md:col-span-5 bg-gradient-to-br from-red-800 via-red-900 to-stone-900 text-white p-6 sm:p-8 flex flex-col items-center justify-center text-center">
+            <div class="w-20 h-20 rounded-3xl bg-white/10 border border-white/20 flex items-center justify-center mb-4 shadow-lg">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-amber-400/20 border border-amber-300/30 text-amber-200 text-[11px] font-bold uppercase tracking-wider mb-2">
+              Área Restrita
+            </span>
+            <h2 class="text-xl sm:text-2xl font-extrabold leading-tight">Só para Membros do Site</h2>
+            <p class="text-xs text-red-100/90 mt-2 max-w-xs leading-relaxed">
+              Espaço exclusivo de apoio mútuo, cupons fechados, permutas e conhecimento entre quem já fortalece a Vitrine.
+            </p>
+            <div class="mt-5 grid grid-cols-2 gap-2 w-full max-w-xs text-[11px] text-left">
+              <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+                <div class="font-bold">🏷️ Descontos</div>
+                <div class="text-red-200 text-[10px]">Cupons com vagas limitadas</div>
+              </div>
+              <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+                <div class="font-bold">🎓 Conhecimento</div>
+                <div class="text-red-200 text-[10px]">Oficinas e mentorias</div>
+              </div>
+              <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+                <div class="font-bold">🤝 Permutas</div>
+                <div class="text-red-200 text-[10px]">Troca direta sem dinheiro</div>
+              </div>
+              <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+                <div class="font-bold">🎁 Doações</div>
+                <div class="text-red-200 text-[10px]">Livros, mudas e doações</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mensagem Exigindo Inscrição + Desbloqueio por WhatsApp & PIN -->
+          <div class="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div class="space-y-3">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-red-50 border border-red-200 text-red-800 text-xs font-bold">
+                ✊ Acesso exclusivo para inscritos na Vitrine
+              </div>
+              <h3 class="text-lg sm:text-xl font-extrabold text-stone-900">
+                Para ver e aproveitar as ofertas do Mural de Oportunidades, faça sua inscrição na Vitrine primeiro
+              </h3>
+              <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                O Mural de Oportunidades é reservado para quem já tem seu serviço, comércio ou habilidade cadastrada no nosso catálogo. Assim, garantimos que toda troca aconteça entre membros verificados com segurança pelo PIN.
+              </p>
+
+              <div class="pt-1">
+                <button type="button" onclick="openModal()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs sm:text-sm font-bold shadow-sm transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2">
+                  <span>+ Fazer minha inscrição na Vitrine</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="border-t border-stone-200 pt-5 space-y-3">
+              <h4 class="text-xs font-extrabold uppercase tracking-wider text-stone-700">
+                Já é inscrito? Desbloqueie com seu WhatsApp + PIN do cartão
+              </h4>
+              <form id="formUnlockMural" class="grid grid-cols-1 sm:grid-cols-12 gap-2.5">
+                <div class="sm:col-span-5">
+                  <input id="unlockMuralWhats" type="text" placeholder="Seu WhatsApp cadastrado" required class="w-full px-3 py-2.5 rounded-xl border border-stone-200 bg-stone-50 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-red-600">
+                </div>
+                <div class="sm:col-span-4">
+                  <input id="unlockMuralPin" type="password" maxlength="6" placeholder="PIN do cartão" required class="w-full px-3 py-2.5 rounded-xl border border-stone-200 bg-stone-50 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-red-600">
+                </div>
+                <div class="sm:col-span-3">
+                  <button type="submit" id="btnSubmitUnlockMural" class="w-full py-2.5 px-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs sm:text-sm font-bold transition-all cursor-pointer">
+                    Entrar 🔓
+                  </button>
+                </div>
+              </form>
+              <p class="text-[11px] text-stone-500">
+                🔒 O número de telefone apenas localiza o seu cartão; a validação real é feita pelo seu PIN privado.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VISÃO B: FEED DESBLOQUEADO DO MURAL DE OPORTUNIDADES -->
+    <div id="muralUnlockedView" class="hidden space-y-5">
+      <div class="flex items-center justify-between gap-2 flex-wrap">
+        <button type="button" onclick="switchToCatalog()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 text-xs font-bold shadow-2xs transition-all cursor-pointer">
+          ← Voltar para o Catálogo Público
+        </button>
+        <div class="flex items-center gap-2 flex-wrap">
+          <span id="txtMuralMemberBadge" class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-200">
+            🔓 Membro Logado • Ofertas: <strong id="myMuralActiveCount">0/2</strong>
+          </span>
+          <button id="btnLockMuralSession" type="button" class="px-3 py-1.5 rounded-xl border border-stone-200 bg-white text-stone-600 hover:bg-stone-100 text-xs font-bold transition-all cursor-pointer">
+            Sair
+          </button>
+        </div>
+      </div>
+
+      <!-- Aviso de Versão Beta -->
+      <div class="bg-amber-50 border border-amber-300/90 rounded-2xl px-4 py-2.5 flex items-start gap-2.5 text-xs text-amber-950 shadow-2xs">
+        <span class="text-base leading-none mt-0.5">🧪</span>
+        <p class="leading-relaxed">
+          <strong>Versão Beta:</strong> O Mural de Oportunidades está em fase experimental — novas melhorias, ajustes de formato e atualizações poderão acontecer nos próximos dias.
+        </p>
+      </div>
+
+      <!-- Botão 3D em Destaque Absoluto para Publicar -->
+      <div class="bg-gradient-to-r from-red-900 via-red-800 to-stone-900 rounded-3xl p-5 sm:p-6 shadow-md text-white flex flex-col sm:flex-row items-center justify-between gap-4 border border-red-700/50">
+        <div class="text-center sm:text-left space-y-1">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/15 text-amber-200 text-[10px] font-extrabold uppercase tracking-wider">
+            ✨ Espaço do Membro
+          </div>
+          <h2 class="text-base sm:text-lg font-extrabold tracking-tight">
+            Tem uma promoção, permuta, conhecimento ou doação para a rede?
+          </h2>
+          <p class="text-xs text-red-100/90">
+            Crie seu cupom com prazo curto (a partir de 3 dias) e limite de vagas (3, 5, 7 ou 10 usos).
+          </p>
+        </div>
+
+        <button id="btnOpenNewMuralOffer" type="button" class="w-full sm:w-auto shrink-0 px-6 py-3.5 rounded-2xl bg-gradient-to-b from-amber-300 to-amber-500 hover:from-amber-200 hover:to-amber-400 text-stone-950 font-extrabold text-sm tracking-tight shadow-[0_6px_0_0_#92400e,0_10px_20px_rgba(0,0,0,0.35)] active:shadow-[0_2px_0_0_#92400e] active:translate-y-1 transition-all cursor-pointer flex items-center justify-center gap-2 border border-amber-200">
+          <span class="text-lg">📣</span>
+          <span>+ PUBLICAR NO MURAL DE OPORTUNIDADES</span>
+        </button>
+      </div>
+
+      <!-- Busca e Filtros do Mural -->
+      <div class="bg-white p-3.5 rounded-2xl border border-stone-200 shadow-xs space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <input id="muralSearchInput" type="text" placeholder="Buscar no Mural de Oportunidades..." class="w-full sm:w-auto sm:flex-1 min-w-0 px-3.5 py-2 rounded-xl border border-stone-200 bg-stone-50 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-red-600">
+          <div class="text-xs font-bold text-stone-600 bg-stone-100 px-3 py-2 rounded-xl shrink-0">
+            <span id="muralVisibleCount">0</span> ofertas ativas
+          </div>
+        </div>
+
+        <div id="muralCategoryPills" class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1 text-xs font-semibold">
+          <button type="button" data-mcat="todas" class="mcat-pill px-3 py-1.5 rounded-xl bg-red-700 text-white shrink-0 cursor-pointer">★ Todas</button>
+          <button type="button" data-mcat="Oferta Black" class="mcat-pill px-3 py-1.5 rounded-xl bg-zinc-800 text-white border border-zinc-700 hover:bg-zinc-900 shrink-0 cursor-pointer">🖤 <span class="js-black-label">Black November</span></button>
+          <button type="button" data-mcat="Desconto da Rede" class="mcat-pill px-3 py-1.5 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200 shrink-0 cursor-pointer">🏷️ Desconto da Rede</button>
+          <button type="button" data-mcat="Permuta / Troca" class="mcat-pill px-3 py-1.5 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200 shrink-0 cursor-pointer">🤝 Permutas</button>
+          <button type="button" data-mcat="Doação & Desapego" class="mcat-pill px-3 py-1.5 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200 shrink-0 cursor-pointer">🎁 Doações</button>
+          <button type="button" data-mcat="Conhecimento & Oficinas" class="mcat-pill px-3 py-1.5 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200 shrink-0 cursor-pointer">🎓 Conhecimento</button>
+          <button type="button" data-mcat="Bicos & Oportunidades" class="mcat-pill px-3 py-1.5 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200 shrink-0 cursor-pointer">🛠️ Bicos & Vagas</button>
+          <button type="button" data-mcat="Procura-se / Mutirão" class="mcat-pill px-3 py-1.5 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200 shrink-0 cursor-pointer">🙋 Procura-se</button>
+        </div>
+      </div>
+
+      <!-- Grid de Cupons de Cinema -->
+      <div id="muralGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-5"></div>
+
+      <!-- Estado Vazio -->
+      <div id="muralEmptyState" class="hidden bg-white rounded-2xl border border-stone-200 p-8 text-center space-y-2">
+        <div class="text-2xl">🎟️</div>
+        <p class="text-sm font-bold text-stone-800">Nenhuma oferta ativa encontrada nesse filtro</p>
+        <p class="text-xs text-stone-500">Cupons esgotados ou com prazo vencido são ocultados automaticamente.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Banner de Instalação do Aplicativo (PWA) -->
   <div id="pwaInstallBanner" class="fixed bottom-4 left-4 right-4 max-w-sm mx-auto bg-stone-900 text-white p-3.5 rounded-2xl shadow-2xl border border-stone-700 flex items-center justify-between gap-3 z-50 hidden transition-all">
@@ -595,6 +847,89 @@
         <img id="imgZoomTarget" src="" alt="Foto Ampliada" class="max-h-[75vh] w-auto max-w-full object-contain rounded-2xl">
       </div>
       <p id="txtZoomCaption" class="text-white text-xs sm:text-sm font-bold text-center mt-3 drop-shadow-md truncate max-w-full px-2"></p>
+    </div>
+  </div>
+
+  <!-- Modal Publicar no Mural de Oportunidades -->
+  <div id="modalNewMuralOffer" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6 border border-stone-100 space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-base font-extrabold text-stone-900">Publicar no Mural de Oportunidades</h3>
+          <p class="text-xs text-stone-500">Apenas ofertas reais, descontos, permutas, doações ou pedidos de ajuda.</p>
+        </div>
+        <button id="btnCloseNewMuralOffer" type="button" class="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold cursor-pointer">✕</button>
+      </div>
+
+      <form id="formNewMuralOffer" class="space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Categoria *</label>
+            <select id="muralOfferCat" class="w-full px-3 py-2 rounded-xl border border-stone-200 bg-stone-50 text-xs font-medium">
+              <option value="Oferta Black" id="optBlackCatMural">🖤 Oferta de Black November</option>
+              <option value="Desconto da Rede">🏷️ Desconto da Rede</option>
+              <option value="Permuta / Troca">🤝 Permuta / Troca</option>
+              <option value="Doação & Desapego">🎁 Doação & Desapego</option>
+              <option value="Conhecimento & Oficinas">🎓 Conhecimento & Oficinas</option>
+              <option value="Bicos & Oportunidades">🛠️ Bicos & Oportunidades</option>
+              <option value="Procura-se / Mutirão">🙋 Procura-se / Mutirão</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Subcategoria *</label>
+            <select id="muralOfferSubcat" class="w-full px-3 py-2 rounded-xl border border-stone-200 bg-stone-50 text-xs font-medium"></select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Título curto da oferta *</label>
+          <input id="muralOfferTitle" type="text" maxlength="70" placeholder="Ex: 20% OFF em bolos ou Tira-dúvidas MEI gratuito" required class="w-full px-3 py-2 rounded-xl border border-stone-200 bg-stone-50 text-xs sm:text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-stone-700 mb-1">Detalhes / Condições *</label>
+          <textarea id="muralOfferDesc" rows="3" maxlength="240" placeholder="Explique como funciona, horário, bairro ou o que aceita na troca..." required class="w-full px-3 py-2 rounded-xl border border-stone-200 bg-stone-50 text-xs sm:text-sm"></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Prazo de Validade *</label>
+            <select id="muralOfferDays" class="w-full px-3 py-2 rounded-xl border border-stone-200 bg-stone-50 text-xs font-medium">
+              <option value="3" selected>⚡ 3 dias (Oferta Relâmpago)</option>
+              <option value="7">⏳ 7 dias (Semanal)</option>
+              <option value="15">⏳ 15 dias (Padrão)</option>
+              <option value="30">⏳ 30 dias (Mensal)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-stone-700 mb-1">Limite de Vagas / Usos *</label>
+            <select id="muralOfferLimit" class="w-full px-3 py-2 rounded-xl border border-stone-200 bg-stone-50 text-xs font-medium">
+              <option value="3">🔥 3 usos (0/3)</option>
+              <option value="5" selected>🔥 5 usos (0/5)</option>
+              <option value="7">🔥 7 usos (0/7)</option>
+              <option value="10">🔥 10 usos (0/10)</option>
+              <option value="0">♾️ Sem limite de usos</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Prévia do Selo de Oferta Relâmpago ao escolher 3 dias -->
+        <div id="muralFlashBadgePreview" class="rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 p-3 border-2 border-red-700 shadow-xs flex items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-xl bg-red-700 text-amber-300 flex items-center justify-center text-base font-black shadow-2xs shrink-0">⚡</span>
+            <div>
+              <div class="text-[11px] font-black uppercase tracking-wider text-red-900 leading-tight">Selo Oferta Relâmpago Ativado!</div>
+              <p class="text-[10px] font-semibold text-stone-800 leading-snug">Seu cupom ganhará destaque dourado de urgência máxima por durar apenas 3 dias.</p>
+            </div>
+          </div>
+          <span class="px-2 py-1 rounded-lg bg-red-700 text-white text-[10px] font-black uppercase tracking-wider shrink-0">⚡ 3 Dias</span>
+        </div>
+
+        <div class="pt-2 flex justify-end gap-2">
+          <button id="btnCancelNewMuralOffer" type="button" class="px-4 py-2 rounded-xl border border-stone-200 text-xs font-bold text-stone-600 cursor-pointer">Cancelar</button>
+          <button type="submit" id="btnSubmitMuralOffer" class="px-4 py-2 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-bold cursor-pointer">Publicar Cupom</button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -1928,7 +2263,437 @@
     });
 
     // Inicia carregando da planilha Google e depois renderiza
+    // =========================================================================
+    // MURAL DE OPORTUNIDADES (VERSÃO BETA - INTEGRAÇÃO APPS SCRIPT)
+    // =========================================================================
+    const muralTaxonomy = {
+      "Oferta Black": ["Super Desconto %", "Combo Especial Black", "Queima de Estoque", "2 por 1 da Rede"],
+      "Desconto da Rede": ["Cupom % Off", "1ª Avaliação Gratuita", "Combo / Brinde", "Frete Grátis"],
+      "Permuta / Troca": ["Serviço por Serviço", "Produto por Produto", "Serviço por Produto", "Banco de Tempo"],
+      "Doação & Desapego": ["Livros & Material", "Roupas & Móveis", "Mudas / Alimentos", "Empréstimo de Ferramentas"],
+      "Conhecimento & Oficinas": ["Oficina / Workshop", "Mentoria Rápida", "Roda de Conversa", "Aula Experimental"],
+      "Bicos & Oportunidades": ["Vaga na Rede", "Freela / Diária", "Parceria Comercial", "Indicação de Trabalho"],
+      "Procura-se / Mutirão": ["Preciso de Orçamento", "Busco Item Emprestado", "Apoio Coletivo / Mutirão"]
+    };
+
+    const muralCatStyles = {
+      "Oferta Black": { isBlack: true, band: "bg-zinc-800", bookmarkBg: "bg-zinc-900 text-white border border-white/40", pillBg: "bg-zinc-800 text-white border-zinc-800", icon: "🖤", label: "BLACK NOVEMBER" },
+      "Desconto da Rede": { band: "bg-red-700", bookmarkBg: "bg-amber-400 text-stone-950", pillBg: "bg-amber-100 text-amber-900 border-amber-300", icon: "🏷️", label: "CUPOM DESCONTO" },
+      "Permuta / Troca": { band: "bg-red-700", bookmarkBg: "bg-purple-600 text-white", pillBg: "bg-purple-100 text-purple-900 border-purple-300", icon: "🤝", label: "VALE PERMUTA" },
+      "Doação & Desapego": { band: "bg-red-700", bookmarkBg: "bg-emerald-500 text-white", pillBg: "bg-emerald-100 text-emerald-900 border-emerald-300", icon: "🎁", label: "VALE DOAÇÃO" },
+      "Conhecimento & Oficinas": { band: "bg-red-700", bookmarkBg: "bg-blue-600 text-white", pillBg: "bg-blue-100 text-blue-900 border-blue-300", icon: "🎓", label: "VALE OFICINA" },
+      "Bicos & Oportunidades": { band: "bg-red-700", bookmarkBg: "bg-orange-500 text-white", pillBg: "bg-orange-100 text-orange-900 border-orange-300", icon: "🛠️", label: "TICKET TRABALHO" },
+      "Procura-se / Mutirão": { band: "bg-red-700", bookmarkBg: "bg-rose-500 text-white", pillBg: "bg-rose-100 text-rose-900 border-rose-300", icon: "🙋", label: "CHAMADO APOIO" }
+    };
+
+    function getBlackPromoLabel() {
+      const now = new Date();
+      if (now.getMonth() === 10 && now.getDate() === 27) return "Black Friday";
+      return "Black November";
+    }
+
+    let muralOffers = [];
+    let muralSelectedCat = 'todas';
+    let muralSearchQuery = '';
+    const expandedMuralIds = new Set();
+
+    function getMuralSession() {
+      try {
+        const raw = localStorage.getItem('vitrine_mural_session');
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) { return null; }
+    }
+
+    function saveMuralSession(sessionObj) {
+      try {
+        if (sessionObj) localStorage.setItem('vitrine_mural_session', JSON.stringify(sessionObj));
+        else localStorage.removeItem('vitrine_mural_session');
+      } catch (e) {}
+    }
+
+    window.switchToMural = function() {
+      document.getElementById('publicCatalogWrapper').classList.add('hidden');
+      document.getElementById('muralSection').classList.remove('hidden');
+      document.getElementById('btnTabMural').classList.add('ring-2', 'ring-white');
+      updateMuralAuthView();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.switchToCatalog = function() {
+      document.getElementById('muralSection').classList.add('hidden');
+      document.getElementById('publicCatalogWrapper').classList.remove('hidden');
+      document.getElementById('btnTabMural').classList.remove('ring-2', 'ring-white');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function updateMuralAuthView() {
+      const session = getMuralSession();
+      const iconEl = document.getElementById('muralHeaderLockIcon');
+      const lockedView = document.getElementById('muralLockedView');
+      const unlockedView = document.getElementById('muralUnlockedView');
+
+      if (session && session.cardId && session.pin) {
+        iconEl.textContent = '🔓';
+        lockedView.classList.add('hidden');
+        unlockedView.classList.remove('hidden');
+        carregarMuralDaPlanilha();
+      } else {
+        iconEl.textContent = '🔒';
+        lockedView.classList.remove('hidden');
+        unlockedView.classList.add('hidden');
+      }
+    }
+
+    async function carregarMuralDaPlanilha() {
+      try {
+        const resp = await fetch(`${API_URL}?action=get_mural`);
+        const data = await resp.json();
+        if (data.status === 'success' && Array.isArray(data.offers)) {
+          muralOffers = data.offers;
+          document.getElementById('muralBadgeCount').textContent = muralOffers.length;
+          renderMuralCards();
+        }
+      } catch (err) {
+        console.error('Erro ao carregar Mural:', err);
+      }
+    }
+
+    function renderMuralCards() {
+      const session = getMuralSession();
+      const blackDynamicText = getBlackPromoLabel();
+      document.querySelectorAll('.js-black-label').forEach(el => { el.textContent = blackDynamicText; });
+      const optBlackCat = document.getElementById('optBlackCatMural');
+      if (optBlackCat) optBlackCat.textContent = `🖤 Oferta de ${blackDynamicText}`;
+
+      const mineCount = session ? muralOffers.filter(o => String(o.autorCardId) === String(session.cardId)).length : 0;
+      const myCountEl = document.getElementById('myMuralActiveCount');
+      if (myCountEl) myCountEl.textContent = session && session.isMaster ? `${mineCount} (Admin)` : `${mineCount}/2`;
+
+      const q = stripAccents(muralSearchQuery);
+      const filtered = muralOffers.filter(o => {
+        const matchCat = muralSelectedCat === 'todas' || o.categoria === muralSelectedCat;
+        const hay = stripAccents(`${o.titulo} ${o.descricao} ${o.categoria} ${o.subcategoria} ${o.bairro} ${o.autor}`);
+        const matchQ = !q || hay.includes(q);
+        return matchCat && matchQ;
+      });
+
+      document.getElementById('muralVisibleCount').textContent = filtered.length;
+      const grid = document.getElementById('muralGrid');
+      const empty = document.getElementById('muralEmptyState');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+      grid.innerHTML = filtered.map((o, idx) => {
+        const style = muralCatStyles[o.categoria] || muralCatStyles["Desconto da Rede"];
+        const isBlackCard = Boolean(style.isBlack);
+        const displayCatName = isBlackCard ? blackDynamicText : o.categoria;
+        const displayBandLabel = isBlackCard ? blackDynamicText.toUpperCase() : style.label;
+        const hasLimit = o.limite > 0;
+        const remaining = hasLimit ? Math.max(0, o.limite - o.usos) : null;
+        const serialNum = String(564852100 + Number(String(o.id).replace(/\D/g, '') || (idx + 1)) * 37).slice(-9);
+        const lotText = hasLimit ? `${o.usos}/${o.limite}` : `${o.usos}/∞`;
+        const isExpanded = expandedMuralIds.has(o.id);
+        const alreadyClaimed = session && Array.isArray(o.resgatadoPorIds) && o.resgatadoPorIds.includes(String(session.cardId));
+        const canDelete = session && (session.isMaster || String(o.autorCardId) === String(session.cardId));
+
+        const ticketWrapperClass = isBlackCard ? 'cinema-ticket-black' : 'cinema-ticket';
+        const stubBgClass = isBlackCard ? 'bg-zinc-800 text-white border-zinc-600' : 'bg-[#ede1ca]/80 border-stone-400/80';
+        const serialTextClass = isBlackCard ? 'text-zinc-200' : 'text-stone-900';
+        const barcodeClass = isBlackCard ? 'ticket-barcode-white' : 'ticket-barcode';
+        const titleColorClass = isBlackCard ? 'text-zinc-900' : 'text-red-800';
+        const authorBorderClass = isBlackCard ? 'border-zinc-200 text-zinc-700' : 'border-stone-300/90 text-stone-800';
+
+        return `
+          <article class="${ticketWrapperClass} transition-transform hover:-translate-y-0.5">
+            <div class="ticket-bookmark ${style.bookmarkBg} absolute top-0 right-5 z-30 flex items-start justify-center pt-1.5 text-xs font-extrabold" title="Categoria: ${displayCatName}">
+              <span>${style.icon}</span>
+            </div>
+
+            <div class="ticket-notch-left" style="left: -10px; top: 50%;"></div>
+            <div class="ticket-notch-right" style="right: -10px; top: 50%;"></div>
+
+            <div class="grid grid-cols-12 ${style.band} text-white">
+              <div class="col-span-4 px-1.5 py-1.5 border-r-2 border-dashed border-white/50 flex items-center justify-center text-center">
+                <span class="text-[9px] sm:text-[10px] font-black tracking-wider uppercase leading-tight">${displayBandLabel}</span>
+              </div>
+              <div class="col-span-8 pl-3 pr-12 py-1.5 flex items-center justify-between">
+                <div class="flex items-center justify-around flex-1 text-xs sm:text-sm tracking-widest text-white">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                ${canDelete ? `<button type="button" data-delete-mural-id="${o.id}" class="btn-delete-mural ml-2 px-1.5 py-0.5 rounded bg-black/40 hover:bg-black text-white text-[10px] font-bold cursor-pointer" title="Encerrar oferta">🗑️</button>` : ''}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-12 items-stretch">
+              <div class="col-span-4 min-w-0 p-2 sm:p-2.5 border-r-2 border-dashed ${stubBgClass} flex flex-col justify-between">
+                <div class="text-center">
+                  <div class="text-[9px] font-mono font-bold ${serialTextClass} tracking-wider opacity-85">${serialNum}</div>
+                  <div class="${barcodeClass} w-full h-5 my-1 opacity-85 rounded-xs"></div>
+                </div>
+
+                <div class="space-y-1.5 mt-1 w-full">
+                  <div class="${o.diasRestantes <= 3 ? (isBlackCard ? 'bg-white text-zinc-900 border-white' : 'bg-gradient-to-b from-amber-300 to-amber-400 text-red-900 border-red-700') : (isBlackCard ? 'bg-zinc-700 text-white border-zinc-600' : 'bg-white/95 text-stone-900 border-stone-300')} rounded-md px-1 py-1 border flex flex-col items-center justify-center text-center overflow-hidden">
+                    <span class="text-[8px] font-extrabold uppercase tracking-wider leading-none">${o.diasRestantes <= 3 ? '⚡ Relâmpago' : 'Validade'}</span>
+                    <span class="text-[11px] font-black leading-tight mt-0.5">${o.diasRestantes} dias</span>
+                  </div>
+                  <div class="${isBlackCard ? 'bg-zinc-900 text-white border-zinc-700' : (hasLimit && remaining <= 2 ? 'bg-red-700 text-white border-red-800' : 'bg-amber-400 text-stone-950 border-amber-500')} rounded-md px-1 py-1 border flex flex-col items-center justify-center text-center overflow-hidden">
+                    <span class="text-[8px] font-extrabold uppercase tracking-wider opacity-90 leading-none">Vagas</span>
+                    <span class="text-[10px] font-black uppercase leading-tight mt-0.5">${hasLimit ? (remaining === 1 ? `Resta 1 (${lotText})` : `Restam ${remaining} (${lotText})`) : 'Aberta'}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-span-7 min-w-0 p-2.5 sm:p-3 flex flex-col justify-between space-y-2">
+                <div class="space-y-1 pr-5">
+                  <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-extrabold border ${style.pillBg}">
+                    ${style.icon} ${displayCatName}
+                  </span>
+                  <h3 class="font-black text-xs sm:text-sm ${titleColorClass} leading-snug tracking-tight break-words">
+                    ${o.titulo}
+                  </h3>
+                </div>
+
+                <div>
+                  <button type="button" data-toggle-mural-desc="${o.id}" class="btn-toggle-mural-desc w-full py-1 px-2 rounded-lg border text-[10px] font-bold flex items-center justify-between transition-colors cursor-pointer ${isBlackCard ? 'bg-white hover:bg-zinc-100 text-zinc-800 border-zinc-300' : 'bg-white/80 hover:bg-white text-stone-700 border-stone-300'}">
+                    <span>${isExpanded ? 'Ocultar detalhes' : 'Ver detalhes da oferta'}</span>
+                    <span>${isExpanded ? '▲' : '▼'}</span>
+                  </button>
+                  ${isExpanded ? `
+                    <div class="mt-1.5 p-2 rounded-lg text-[11px] leading-relaxed break-words border ${isBlackCard ? 'bg-white text-zinc-700 border-zinc-300' : 'bg-white/95 text-stone-800 border-stone-300'}">
+                      ${o.descricao}
+                    </div>
+                  ` : ''}
+                </div>
+
+                <div class="pt-1 border-t ${authorBorderClass} text-[10px] font-semibold truncate">
+                  👤 ${o.autor} • 📍 ${o.bairro}
+                </div>
+
+                <button type="button" data-claim-mural-id="${o.id}" ${alreadyClaimed ? 'disabled' : ''} class="btn-claim-mural w-full py-1.5 px-2.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer shadow-xs ${alreadyClaimed ? 'bg-emerald-700 text-white cursor-default' : (isBlackCard ? 'bg-zinc-800 hover:bg-zinc-900 text-white active:scale-95' : 'bg-red-700 hover:bg-red-800 text-white active:scale-95')}">
+                  ${alreadyClaimed ? '★ Cupom Garantido' : '🎟️ Pegar Cupom (' + lotText + ')'}
+                </button>
+              </div>
+
+              <div class="col-span-1 min-w-0 ${style.band} text-white flex items-center justify-center py-1.5">
+                <span class="vertical-serial text-[8px] font-mono font-bold tracking-widest opacity-80">${serialNum}</span>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      document.querySelectorAll('.btn-toggle-mural-desc').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-toggle-mural-desc');
+          if (expandedMuralIds.has(id)) expandedMuralIds.delete(id);
+          else expandedMuralIds.add(id);
+          renderMuralCards();
+        });
+      });
+
+      document.querySelectorAll('.btn-claim-mural').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const session = getMuralSession();
+          if (!session) return;
+          const offerId = btn.getAttribute('data-claim-mural-id');
+          btn.disabled = true;
+          btn.textContent = 'Garantindo...';
+
+          try {
+            const resp = await fetch(API_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: JSON.stringify({
+                action: 'claim_mural_offer',
+                offerId: offerId,
+                whatsapp: session.whatsapp,
+                pin: session.pin
+              })
+            });
+            const res = await resp.json();
+            if (res.status === 'success') {
+              showToast(res.offerStatus === 'Esgotado' ? 'Última vaga garantida! Cupom encerrado automaticamente.' : 'Cupom garantido! Abrindo WhatsApp...', '🎟️');
+              if (res.autorWhats) {
+                const cleanW = String(res.autorWhats).replace(/\D/g, '');
+                const msg = `Olá! Garanti o cupom "${res.titulo}" no Mural de Oportunidades da Vitrine da Esquerda!`;
+                window.open(`https://wa.me/55${cleanW}?text=${encodeURIComponent(msg)}`, '_blank');
+              }
+              await carregarMuralDaPlanilha();
+            } else {
+              showToast(res.message || 'Não foi possível garantir o cupom.', '⚠️');
+              await carregarMuralDaPlanilha();
+            }
+          } catch (e) {
+            showToast('Erro de conexão ao resgatar cupom.', '⚠️');
+            btn.disabled = false;
+          }
+        });
+      });
+
+      document.querySelectorAll('.btn-delete-mural').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const session = getMuralSession();
+          if (!session) return;
+          const offerId = btn.getAttribute('data-delete-mural-id');
+          try {
+            const resp = await fetch(API_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: JSON.stringify({
+                action: 'delete_mural_offer',
+                offerId: offerId,
+                whatsapp: session.whatsapp,
+                pin: session.pin
+              })
+            });
+            const res = await resp.json();
+            if (res.status === 'success') {
+              showToast('Oferta encerrada e removida do Mural!', '🗑️');
+              await carregarMuralDaPlanilha();
+            } else {
+              showToast(res.message || 'Erro ao encerrar oferta.', '⚠️');
+            }
+          } catch (e) {
+            showToast('Erro de conexão ao encerrar oferta.', '⚠️');
+          }
+        });
+      });
+    }
+
+    // Desbloqueio do Mural (WhatsApp + PIN)
+    document.getElementById('formUnlockMural').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const whats = document.getElementById('unlockMuralWhats').value.trim();
+      const pin = document.getElementById('unlockMuralPin').value.trim();
+      const btn = document.getElementById('btnSubmitUnlockMural');
+      btn.disabled = true;
+      btn.textContent = 'Verificando...';
+
+      try {
+        const resp = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ action: 'unlock_mural', whatsapp: whats, pin: pin })
+        });
+        const res = await resp.json();
+        if (res.status === 'success' && res.member) {
+          saveMuralSession({ ...res.member, pin: pin });
+          showToast(`Bem-vindo(a), ${res.member.nome}! Mural desbloqueado.`, '🔓');
+          updateMuralAuthView();
+        } else {
+          showToast(res.message || 'WhatsApp ou PIN inválidos.', '❌');
+        }
+      } catch (err) {
+        showToast('Erro de conexão ao validar PIN.', '⚠️');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Entrar 🔓';
+      }
+    });
+
+    document.getElementById('btnLockMuralSession').addEventListener('click', () => {
+      saveMuralSession(null);
+      updateMuralAuthView();
+      showToast('Você saiu do Mural de Oportunidades.', '🔒');
+    });
+
+    document.querySelectorAll('#muralCategoryPills .mcat-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        muralSelectedCat = pill.getAttribute('data-mcat');
+        document.querySelectorAll('#muralCategoryPills .mcat-pill').forEach(p => {
+          if (p.getAttribute('data-mcat') === 'Oferta Black') {
+            p.className = "mcat-pill px-3 py-1.5 rounded-xl bg-zinc-800 text-white border border-zinc-700 hover:bg-zinc-900 shrink-0 cursor-pointer";
+          } else {
+            p.className = "mcat-pill px-3 py-1.5 rounded-xl bg-stone-100 text-stone-700 hover:bg-stone-200 shrink-0 cursor-pointer";
+          }
+        });
+        pill.className = "mcat-pill px-3 py-1.5 rounded-xl bg-red-700 text-white shrink-0 cursor-pointer";
+        renderMuralCards();
+      });
+    });
+
+    document.getElementById('muralSearchInput').addEventListener('input', (e) => {
+      muralSearchQuery = e.target.value.trim();
+      renderMuralCards();
+    });
+
+    // Modal Nova Oferta no Mural
+    const modalNewMuralOffer = document.getElementById('modalNewMuralOffer');
+    const muralOfferCat = document.getElementById('muralOfferCat');
+    const muralOfferSubcat = document.getElementById('muralOfferSubcat');
+    const muralOfferDays = document.getElementById('muralOfferDays');
+    const muralFlashBadgePreview = document.getElementById('muralFlashBadgePreview');
+
+    function syncMuralOfferSubcats() {
+      const list = muralTaxonomy[muralOfferCat.value] || [];
+      muralOfferSubcat.innerHTML = list.map(s => `<option value="${s}">${s}</option>`).join('');
+    }
+    function syncMuralFlashPreview() {
+      if (Number(muralOfferDays.value) === 3) muralFlashBadgePreview.classList.remove('hidden');
+      else muralFlashBadgePreview.classList.add('hidden');
+    }
+    muralOfferCat.addEventListener('change', syncMuralOfferSubcats);
+    muralOfferDays.addEventListener('change', syncMuralFlashPreview);
+    syncMuralOfferSubcats();
+    syncMuralFlashPreview();
+
+    document.getElementById('btnOpenNewMuralOffer').addEventListener('click', () => {
+      modalNewMuralOffer.classList.remove('hidden');
+    });
+    document.getElementById('btnCloseNewMuralOffer').addEventListener('click', () => modalNewMuralOffer.classList.add('hidden'));
+    document.getElementById('btnCancelNewMuralOffer').addEventListener('click', () => modalNewMuralOffer.classList.add('hidden'));
+
+    document.getElementById('formNewMuralOffer').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const session = getMuralSession();
+      if (!session) return;
+
+      const btn = document.getElementById('btnSubmitMuralOffer');
+      btn.disabled = true;
+      btn.textContent = 'Publicando...';
+
+      try {
+        const resp = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            action: 'create_mural_offer',
+            whatsapp: session.whatsapp,
+            pin: session.pin,
+            categoria: muralOfferCat.value,
+            subcategoria: muralOfferSubcat.value,
+            titulo: document.getElementById('muralOfferTitle').value.trim(),
+            descricao: document.getElementById('muralOfferDesc').value.trim(),
+            prazoDias: Number(muralOfferDays.value),
+            limite: Number(document.getElementById('muralOfferLimit').value)
+          })
+        });
+        const res = await resp.json();
+        if (res.status === 'success') {
+          showToast(res.message || 'Cupom publicado no Mural de Oportunidades!', '🎟️');
+          modalNewMuralOffer.classList.add('hidden');
+          document.getElementById('formNewMuralOffer').reset();
+          syncMuralOfferSubcats();
+          syncMuralFlashPreview();
+          await carregarMuralDaPlanilha();
+        } else {
+          showToast(res.message || 'Erro ao publicar cupom.', '⚠️');
+        }
+      } catch (err) {
+        showToast('Erro de conexão ao publicar cupom.', '⚠️');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Publicar Cupom';
+      }
+    });
+
     carregarDadosDaPlanilha();
+    carregarMuralDaPlanilha();
 
     // =========================================================================
     // REGISTRO DO SERVICE WORKER E INSTALAÇÃO DO PWA
