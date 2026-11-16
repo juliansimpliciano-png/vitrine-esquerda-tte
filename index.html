@@ -82,10 +82,10 @@
       text-orientation: mixed;
     }
     .ticket-bookmark {
-      width: 28px;
-      height: 38px;
+      width: 36px;
+      height: 48px;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
-      box-shadow: 0 3px 6px rgba(0,0,0,0.28);
+      filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.35));
     }
   </style>
 </head>
@@ -2282,13 +2282,13 @@
     };
 
     const muralCatStyles = {
-      "Oferta Black": { isBlack: true, band: "bg-zinc-800", bookmarkBg: "bg-zinc-900 text-white border border-white/40", pillBg: "bg-zinc-800 text-white border-zinc-800", icon: "🖤", label: "BLACK NOVEMBER" },
-      "Desconto da Rede": { band: "bg-red-700", bookmarkBg: "bg-amber-400 text-stone-950", pillBg: "bg-amber-100 text-amber-900 border-amber-300", icon: "🏷️", label: "CUPOM DESCONTO" },
-      "Permuta / Troca": { band: "bg-red-700", bookmarkBg: "bg-purple-600 text-white", pillBg: "bg-purple-100 text-purple-900 border-purple-300", icon: "🤝", label: "VALE PERMUTA" },
-      "Doação & Desapego": { band: "bg-red-700", bookmarkBg: "bg-emerald-500 text-white", pillBg: "bg-emerald-100 text-emerald-900 border-emerald-300", icon: "🎁", label: "VALE DOAÇÃO" },
-      "Conhecimento & Oficinas": { band: "bg-red-700", bookmarkBg: "bg-blue-600 text-white", pillBg: "bg-blue-100 text-blue-900 border-blue-300", icon: "🎓", label: "VALE OFICINA" },
-      "Bicos & Oportunidades": { band: "bg-red-700", bookmarkBg: "bg-orange-500 text-white", pillBg: "bg-orange-100 text-orange-900 border-orange-300", icon: "🛠️", label: "TICKET TRABALHO" },
-      "Procura-se / Mutirão": { band: "bg-red-700", bookmarkBg: "bg-rose-500 text-white", pillBg: "bg-rose-100 text-rose-900 border-rose-300", icon: "🙋", label: "CHAMADO APOIO" }
+      "Oferta Black": { isBlack: true, band: "bg-zinc-800", bookmarkBg: "bg-white text-zinc-950 ring-2 ring-zinc-900", pillBg: "bg-zinc-800 text-white border-zinc-800", icon: "🖤", label: "BLACK NOVEMBER" },
+      "Desconto da Rede": { band: "bg-red-700", bookmarkBg: "bg-amber-300 text-stone-950 ring-2 ring-white", pillBg: "bg-amber-100 text-amber-900 border-amber-300", icon: "🏷️", label: "CUPOM DESCONTO" },
+      "Permuta / Troca": { band: "bg-red-700", bookmarkBg: "bg-violet-200 text-violet-950 ring-2 ring-white", pillBg: "bg-purple-100 text-purple-900 border-purple-300", icon: "🤝", label: "VALE PERMUTA" },
+      "Doação & Desapego": { band: "bg-red-700", bookmarkBg: "bg-emerald-300 text-emerald-950 ring-2 ring-white", pillBg: "bg-emerald-100 text-emerald-900 border-emerald-300", icon: "🎁", label: "VALE DOAÇÃO" },
+      "Conhecimento & Oficinas": { band: "bg-red-700", bookmarkBg: "bg-sky-300 text-sky-950 ring-2 ring-white", pillBg: "bg-blue-100 text-blue-900 border-blue-300", icon: "🎓", label: "VALE OFICINA" },
+      "Bicos & Oportunidades": { band: "bg-red-700", bookmarkBg: "bg-orange-300 text-orange-950 ring-2 ring-white", pillBg: "bg-orange-100 text-orange-900 border-orange-300", icon: "🛠️", label: "TICKET TRABALHO" },
+      "Procura-se / Mutirão": { band: "bg-red-700", bookmarkBg: "bg-pink-200 text-rose-950 ring-2 ring-white", pillBg: "bg-rose-100 text-rose-900 border-rose-300", icon: "🙋", label: "CHAMADO APOIO" }
     };
 
     function getBlackPromoLabel() {
@@ -2406,6 +2406,12 @@
         const isExpanded = expandedMuralIds.has(o.id);
         const alreadyClaimed = session && Array.isArray(o.resgatadoPorIds) && o.resgatadoPorIds.includes(String(session.cardId));
         const canDelete = session && (session.isMaster || String(o.autorCardId) === String(session.cardId));
+        const authorCard = negocios.find(n => String(n.id) === String(o.autorCardId));
+        const authorPhoto = authorCard && authorCard.foto ? authorCard.foto : '';
+        const cleanAutorEscaped = String(o.autor || '').replace(/'/g, "\\'");
+        const muralAvatarHtml = authorPhoto
+          ? `<img src="${authorPhoto}" alt="${o.autor}" onclick="openPhotoZoom('${authorPhoto}', '${cleanAutorEscaped}')" class="w-8 h-8 rounded-xl object-cover border ${isBlackCard ? 'border-zinc-400' : 'border-red-300'} shadow-2xs shrink-0 cursor-pointer hover:scale-105 transition-transform" title="Toque para ampliar">`
+          : `<div class="w-8 h-8 rounded-xl ${isBlackCard ? 'bg-zinc-800 text-white border-zinc-600' : 'bg-red-100 text-red-800 border-red-200'} font-extrabold flex items-center justify-center text-xs border shrink-0">${String(o.autor || 'V').charAt(0).toUpperCase()}</div>`;
 
         const ticketWrapperClass = isBlackCard ? 'cinema-ticket-black' : 'cinema-ticket';
         const stubBgClass = isBlackCard ? 'bg-zinc-800 text-white border-zinc-600' : 'bg-[#ede1ca]/80 border-stone-400/80';
@@ -2416,7 +2422,7 @@
 
         return `
           <article class="${ticketWrapperClass} transition-transform hover:-translate-y-0.5">
-            <div class="ticket-bookmark ${style.bookmarkBg} absolute top-0 right-5 z-30 flex items-start justify-center pt-1.5 text-xs font-extrabold" title="Categoria: ${displayCatName}">
+            <div class="ticket-bookmark ${style.bookmarkBg} absolute top-0 right-4 z-30 flex items-start justify-center pt-2 text-base font-extrabold" title="Categoria: ${displayCatName}">
               <span>${style.icon}</span>
             </div>
 
@@ -2476,8 +2482,12 @@
                   ` : ''}
                 </div>
 
-                <div class="pt-1 border-t ${authorBorderClass} text-[10px] font-semibold truncate">
-                  👤 ${o.autor} • 📍 ${o.bairro}
+                <div class="pt-1.5 border-t ${authorBorderClass} flex items-center gap-2 min-w-0">
+                  ${muralAvatarHtml}
+                  <div class="min-w-0 flex-1 leading-tight">
+                    <div class="text-[11px] font-extrabold truncate">${o.autor}</div>
+                    <div class="text-[9px] opacity-75 truncate">📍 ${o.bairro}</div>
+                  </div>
                 </div>
 
                 <button type="button" data-claim-mural-id="${o.id}" ${alreadyClaimed ? 'disabled' : ''} class="btn-claim-mural w-full py-1.5 px-2.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer shadow-xs ${alreadyClaimed ? 'bg-emerald-700 text-white cursor-default' : (isBlackCard ? 'bg-zinc-800 hover:bg-zinc-900 text-white active:scale-95' : 'bg-red-700 hover:bg-red-800 text-white active:scale-95')}">
